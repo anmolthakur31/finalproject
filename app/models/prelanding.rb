@@ -1,0 +1,2 @@
+class Prelanding < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+<%= form_for @prelanding do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, required: :true%>
+  </div>
+
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
