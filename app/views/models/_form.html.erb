@@ -1,0 +1,18 @@
+
+<h3>Add a model</h3>
+
+<%= form_for @model do |f| %>
+
+	<div class="field">
+	    <%= f.label "Select Brand" %>
+	    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+	</div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, required: :true %>
+  </div>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
