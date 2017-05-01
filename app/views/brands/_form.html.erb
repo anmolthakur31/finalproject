@@ -1,0 +1,13 @@
+
+<h3>Add a brand</h3>
+
+<%= form_for @brand do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, required: :true %>
+  </div>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

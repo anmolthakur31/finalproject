@@ -1,0 +1,94 @@
+
+@font-face{
+  font-family: 'OS-light';
+  src: url('../font/OpenSans-Light.ttf');
+}
+@font-face{
+  font-family: 'OS-regular';
+  src: url('../font/OpenSans-Regular.ttf');
+}
+@font-face{
+  font-family: 'OS-semibold';
+  src: url('../font/OpenSans-Semibold.ttf');
+}
+@font-face{
+  font-family: 'OS-italic';
+  src: url('../font/OpenSans-Italic.ttf');
+}
+@font-face{
+  font-family: 'OS-bolditalic';
+  src: url('../font/OpenSans-BoldItalic.ttf');
+}
+@font-face{
+  font-family: 'OS-semibolditalic';
+  src: url('../font/OpenSans-SemiboldItalic.ttf');
+}
+@font-face{
+  font-family: 'OS-extrabold';
+  src: url('../font/OpenSans-ExtraBold.ttf');
+}
+@font-face{
+  font-family: 'OS-LightItalic';
+  src: url('../font/OpenSans-LightItalic.ttf');
+}
+@font-face{
+  font-family: 'JS-regular';
+  src: url('../font/JosefinSans-Regular.ttf');
+}
+@font-face{
+  font-family: 'JS-lightitalic';
+  src: url('../font/JosefinSans-LightItalic.ttf');
+}
+@font-face{
+  font-family: 'JS-semibolditalic';
+  src: url('../font/JosefinSans-SemiBoldItalic.ttf');
+}
+@font-face{
+  font-family: 'robotoregular';
+  src: url('../font/Roboto-Regular.ttf');
+}
+@font-face{
+  font-family: 'bitter';
+  src: url('../font/Bitter-Regular.ttf');
+}
+
+.textcolor{
+  color: #AC3B61;
+}
+
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remve the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+  }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+
+}

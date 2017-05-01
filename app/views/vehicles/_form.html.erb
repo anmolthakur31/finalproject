@@ -1,0 +1,30 @@
+<h3>Add a vehicle</h3>
+
+<%= form_for @vehicle do |f| %>
+
+	<div class="field">
+	    <%= f.label "Brand:" %><br>
+	    <%= f.collection_select :brand_id, Brand.all, :id, :name,prompt: 'Select Brand' %>
+	</div><br>
+
+  <div class="field">
+      <%= f.label "Model:" %><br>
+      <%= f.grouped_collection_select :model_id, Brand.order(:name), :models, :name, :id, :name, prompt: 'Select Model' %>
+  </div><br>
+
+
+  <div class="field">
+      <%= f.label "Variant:" %><br>
+      <%= f.collection_select :variant_id, Variant.all, :id, :name ,prompt: 'Select Variant'%>
+  </div><br>
+
+
+  <div class="field">
+    <%= f.label :startyear %><br />
+    <%= f.text_field :startyear, required: :true %>
+  </div><br>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427134209) do
+ActiveRecord::Schema.define(version: 20170501103353) do
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -20,6 +26,14 @@ ActiveRecord::Schema.define(version: 20170427134209) do
     t.text     "message",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_models_on_brand_id", using: :btree
   end
 
   create_table "prelandings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,4 +72,26 @@ ActiveRecord::Schema.define(version: 20170427134209) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "variants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vehicles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "startyear",  limit: 65535
+    t.integer  "brand_id"
+    t.integer  "model_id"
+    t.integer  "variant_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["brand_id"], name: "index_vehicles_on_brand_id", using: :btree
+    t.index ["model_id"], name: "index_vehicles_on_model_id", using: :btree
+    t.index ["variant_id"], name: "index_vehicles_on_variant_id", using: :btree
+  end
+
+  add_foreign_key "models", "brands"
+  add_foreign_key "vehicles", "brands"
+  add_foreign_key "vehicles", "models"
+  add_foreign_key "vehicles", "variants"
 end

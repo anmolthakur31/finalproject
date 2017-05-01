@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  startyear: MyText
+  brand: one
+  model: one
+  variant: one
+
+two:
+  startyear: MyText
+  brand: two
+  model: two
+  variant: two
