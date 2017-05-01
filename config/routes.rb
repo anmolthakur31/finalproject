@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   devise_scope :user do
   	get '/users/sign_out' => 'devise/sessions#destroy'
-  end   
+  end 
+  root "extras#home"  
   resources :services
+    get 'home' => 'extras#home'
   get 'faq' => 'extras#faq'
   get 'our_team' => 'extras#our_team'
   get 'about_us' => 'extras#about_us'

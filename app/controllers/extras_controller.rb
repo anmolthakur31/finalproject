@@ -9,4 +9,6 @@ class ExtrasController < ApplicationController
 	end
 	def our_team
 	end
+	def home
+	end
 end
