@@ -24,6 +24,6 @@ class VariantsController < ApplicationController
 	private
 
 	def variant_params
-		params.require(:variant).permit(:name, :model_id)
+		params.require(:variant).permit(:name)
 	end
 end

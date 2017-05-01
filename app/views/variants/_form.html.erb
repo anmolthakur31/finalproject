@@ -2,10 +2,7 @@
 
 <%= form_for @variant do |f| %>
 
-	<div class="field">
-	    <%= f.label "Select Model" %>
-	    <%= f.collection_select :model_id, Model.all, :id, :name %>
-	</div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, required: :true %>
