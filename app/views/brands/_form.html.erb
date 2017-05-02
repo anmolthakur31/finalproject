@@ -1,7 +1,8 @@
 
-<h3>Add a brand</h3>
 
-<%= form_for @brand do |f| %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@brand, remote: remote, html: {role: :form, 'data-model' => 'brand'}) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, required: :true %>

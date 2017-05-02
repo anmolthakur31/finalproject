@@ -1,7 +1,7 @@
 
-<h3>Add a model</h3>
-
-<%= form_for @model do |f| %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@model, remote: remote, html: {role: :form, 'data-model' => 'model'}) do |f| %>
 
 	<div class="field">
 	    <%= f.label "Select Brand" %>

@@ -1,6 +1,9 @@
 class VehiclesController < ApplicationController
 	def new
 		@vehicle = Vehicle.new
+		@brand= Brand.new
+		@model=Model.new
+		@variant=Variant.new
 	end
 
 	def edit

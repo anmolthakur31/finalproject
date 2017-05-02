@@ -1,21 +1,24 @@
-<h3>Add a vehicle</h3>
+
 
 <%= form_for @vehicle do |f| %>
 
 	<div class="field">
 	    <%= f.label "Brand:" %><br>
 	    <%= f.collection_select :brand_id, Brand.all, :id, :name,prompt: 'Select Brand' %>
+      <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
 	</div><br>
 
   <div class="field">
       <%= f.label "Model:" %><br>
       <%= f.grouped_collection_select :model_id, Brand.order(:name), :models, :name, :id, :name, prompt: 'Select Model' %>
+      <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
 
 
   <div class="field">
       <%= f.label "Variant:" %><br>
       <%= f.collection_select :variant_id, Variant.all, :id, :name ,prompt: 'Select Variant'%>
+      <span><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
 
 
@@ -28,3 +31,54 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<div class="modal fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new brand</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'brands/form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_model_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new model</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'models/form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_variant_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new variant</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'variants/form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
