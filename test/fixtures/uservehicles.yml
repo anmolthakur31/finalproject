@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reg_no: MyString
+  manf_year: MyString
+  user: one
+  vehicle: one
+
+two:
+  reg_no: MyString
+  manf_year: MyString
+  user: two
+  vehicle: two
