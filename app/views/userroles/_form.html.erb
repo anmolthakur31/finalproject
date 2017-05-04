@@ -1,0 +1,12 @@
+
+<h3>Add a User-Role</h3>
+
+<%= form_for @userrole do |f| %>
+<div class="field">
+    <%= f.label "User Role name:" %><br>
+    <%= f.text_field :rolename, required: :true %>
+  </div><br>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<%end%>
