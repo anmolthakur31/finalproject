@@ -5,24 +5,26 @@
 
 	<div class="field">
 	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :vehicle_id, Brand.all, :id, :name,{prompt: 'Select Brand'} ,{:id=>"f1"}%>
+	    <%= f.collection_select :vehicle_id, @brand, :id, :name,{prompt: 'Select Brand'} ,{:id=>"f1"}%>
 	</div><br>
 
   <div class="field">
       <%= f.label "Model:" %><br>
-      <%= f.grouped_collection_select :vehicle_id, Brand.order(:name), :models, :name, :id, :name,{prompt: 'Select Model'},{:id=>"f2"} %>
+      <%= f.grouped_collection_select :vehicle_id, @model, :models, :name, :id, :name,{prompt: 'Select Model'},{:id=>"f2"} %>
   </div><br>
 
 
   <div class="field">
       <%= f.label "Variant:" %><br>
-      <%= f.collection_select :vehicle_id, Variant.all, :id, :name ,{prompt: 'Select Variant'},{:id=>"f3"}%>
+      <%= f.collection_select :vehicle_id, @variant, :id, :name ,{prompt: 'Select Variant'},{:id=>"f3"}%>
   </div><br>
-
-
+<!-- <div class="field"> -->
+      <%#= f.label "Variant:" %><!-- <br> -->
+      <%#= f.grouped_collection_select :vehicle_id, Model.order(:name), :variants,:name,:id, :name ,{prompt: 'Select Variant'},{:id=>"f3"}%>
+  <!-- </div><br> -->
   <div class="field">
     <%= f.label "Manufacture Year:" %><br>
-    <%= f.text_field :manf_year, required: :true %>
+    <%= f.date_select :manf_year, :order => [:year], :start_year => 2000, :end_year => Time.now.year, :prompt => {:year => "Select year"} %>
   </div><br>
   <div class="field">
     <%= f.label "Registration Number:" %><br>

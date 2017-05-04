@@ -1,6 +1,9 @@
 class UservehiclesController < ApplicationController
 	def new
 		@uservehicle = Uservehicle.new
+		@brand= Brand.all
+		@model =Brand.order(:name)
+		@variant =Variant.all
 	end
 
 	def edit
