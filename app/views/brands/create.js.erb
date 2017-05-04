@@ -1,4 +1,4 @@
 $('#new_brand_modal').modal('hide');
-$('#new_vehicle').replaceWith('<%= j render 'vehicles/form'%>');
-
+$('#vehicle_brand_id').append('<option value="<%=@brand.id%>"><%=@brand.name%></option>');
+$('#model_brand_id').append('<option value="<%=@brand.id%>"><%=@brand.name%></option>');
 
