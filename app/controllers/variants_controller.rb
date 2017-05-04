@@ -9,9 +9,23 @@ class VariantsController < ApplicationController
 
 	def create
 		@variant = Variant.new(variant_params)
-		@variant.save
-	    redirect_to services_path
-	    flash.notice = 'Variant was successfully created'
+		@vehicle=Vehicle.new
+		@brand=Brand.new
+		@model=Model.new
+		respond_to do |format|
+      if @variant.save
+        format.html { redirect_to root_url, notice: 'Variant was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @variant }
+        format.js
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @variant.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+		# @variant.save
+	 #    redirect_to services_path
+	 #    flash.notice = 'Variant was successfully created'
 	end
 
 	def update
