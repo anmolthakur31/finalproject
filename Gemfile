@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'paperclip'
 gem 'devise'
 gem 'pundit'
+gem 'bootstrap-datepicker-rails'

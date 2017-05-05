@@ -20,7 +20,7 @@ class ServicesController < ApplicationController
 	end
 
 	def update
-		@service = Uservehicle.find(params[:id])
+		@service = Service.find(params[:id])
 		@service.update(service_params)
 		redirect_to services_path
 		flash.notice = 'Service was successfully created'

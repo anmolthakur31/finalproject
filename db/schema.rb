@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504123828) do
+ActiveRecord::Schema.define(version: 20170505121548) do
+
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "timeslot_id"
+    t.string   "dateslot"
+    t.integer  "uservehicle_id"
+    t.string   "total_cost"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["timeslot_id"], name: "index_bookings_on_timeslot_id", using: :btree
+    t.index ["uservehicle_id"], name: "index_bookings_on_uservehicle_id", using: :btree
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -51,6 +62,12 @@ ActiveRecord::Schema.define(version: 20170504123828) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "timeslots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "userroles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,6 +140,8 @@ ActiveRecord::Schema.define(version: 20170504123828) do
     t.index ["variant_id"], name: "index_vehicles_on_variant_id", using: :btree
   end
 
+  add_foreign_key "bookings", "timeslots"
+  add_foreign_key "bookings", "uservehicles"
   add_foreign_key "models", "brands"
   add_foreign_key "users", "userroles"
   add_foreign_key "uservehicles", "users"

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timeslot: one
+  dateslot: MyString
+  uservehicle: one
+  total_cost: MyString
+
+two:
+  timeslot: two
+  dateslot: MyString
+  uservehicle: two
+  total_cost: MyString

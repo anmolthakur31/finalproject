@@ -1,0 +1,16 @@
+<%= form_for @booking do |f| %>
+  
+  <div class="field">
+  <%= f.label "Select Dateslot" %><br>
+   <%= f.text_field :dateslot, "data-provide" => 'datepicker' %>
+  </div><br>
+
+  <div class="field">
+      <%= f.label "Select Timeslot" %><br>
+      <%= f.collection_select :timeslot_id, Timeslot.all, :id, :time %>
+  </div><br>
+
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
