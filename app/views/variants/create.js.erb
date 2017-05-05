@@ -1,3 +1,4 @@
 $('#new_variant_modal').modal('hide');
-$('#variantbox').replaceWith('<%= j render 'vehicles/variant'%>');
+$('#vehicle_variant_id').append('<option value="<%=@variant.id%>"><%=@variant.name%></option>');
+
 
