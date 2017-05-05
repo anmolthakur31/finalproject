@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504115628) do
+ActiveRecord::Schema.define(version: 20170504123828) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -101,6 +101,16 @@ ActiveRecord::Schema.define(version: 20170504115628) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vehicle_services", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "basic_cost"
+    t.integer  "vehicle_id"
+    t.integer  "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_vehicle_services_on_service_id", using: :btree
+    t.index ["vehicle_id"], name: "index_vehicle_services_on_vehicle_id", using: :btree
+  end
+
   create_table "vehicles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "startyear",  limit: 65535
     t.integer  "brand_id"
@@ -117,6 +127,8 @@ ActiveRecord::Schema.define(version: 20170504115628) do
   add_foreign_key "users", "userroles"
   add_foreign_key "uservehicles", "users"
   add_foreign_key "uservehicles", "vehicles"
+  add_foreign_key "vehicle_services", "services"
+  add_foreign_key "vehicle_services", "vehicles"
   add_foreign_key "vehicles", "brands"
   add_foreign_key "vehicles", "models"
   add_foreign_key "vehicles", "variants"

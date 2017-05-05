@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Userrole.delete_all
+Userrole.create([
+	{id:1,rolename: "Super Admin"},
+	{id:2,rolename: "Admin"},
+	{id:3,rolename: "User"}
+	])

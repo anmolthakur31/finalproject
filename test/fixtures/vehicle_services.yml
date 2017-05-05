@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  basic_cost: MyString
+  vehicle: one
+  service: one
+
+two:
+  basic_cost: MyString
+  vehicle: two
+  service: two
