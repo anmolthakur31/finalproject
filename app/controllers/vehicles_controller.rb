@@ -4,6 +4,8 @@ class VehiclesController < ApplicationController
 		@brand= Brand.new
 		@model=Model.new
 		@variant=Variant.new
+		@modelc=Model.all.where('id IN (SELECT brand_id FROM models)')
+
 	end
 
 	def edit
