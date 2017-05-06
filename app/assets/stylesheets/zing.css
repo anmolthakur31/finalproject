@@ -1,69 +1,187 @@
 
 @font-face{
   font-family: 'OS-light';
-  src: url('../font/OpenSans-Light.ttf');
+  src: url('/assets/OpenSans-Light.ttf');
 }
 @font-face{
   font-family: 'OS-regular';
-  src: url('../font/OpenSans-Regular.ttf');
+  src: url('/assets/OpenSans-Regular.ttf');
 }
 @font-face{
   font-family: 'OS-semibold';
-  src: url('../font/OpenSans-Semibold.ttf');
+  src: url('/assets/OpenSans-Semibold.ttf');
 }
 @font-face{
   font-family: 'OS-italic';
-  src: url('../font/OpenSans-Italic.ttf');
+  src: url('/assets/OpenSans-Italic.ttf');
 }
 @font-face{
   font-family: 'OS-bolditalic';
-  src: url('../font/OpenSans-BoldItalic.ttf');
+  src: url('/assets/OpenSans-BoldItalic.ttf');
 }
 @font-face{
   font-family: 'OS-semibolditalic';
-  src: url('../font/OpenSans-SemiboldItalic.ttf');
+  src: url('/assets/OpenSans-SemiboldItalic.ttf');
 }
 @font-face{
   font-family: 'OS-extrabold';
-  src: url('../font/OpenSans-ExtraBold.ttf');
+  src: url('/assets/OpenSans-ExtraBold.ttf');
 }
 @font-face{
   font-family: 'OS-LightItalic';
-  src: url('../font/OpenSans-LightItalic.ttf');
+  src: url('/assets/OpenSans-LightItalic.ttf');
 }
 @font-face{
   font-family: 'JS-regular';
-  src: url('../font/JosefinSans-Regular.ttf');
+  src: url('/assets/JosefinSans-Regular.ttf');
 }
 @font-face{
   font-family: 'JS-lightitalic';
-  src: url('../font/JosefinSans-LightItalic.ttf');
+  src: url('/assets/JosefinSans-LightItalic.ttf');
 }
 @font-face{
   font-family: 'JS-semibolditalic';
-  src: url('../font/JosefinSans-SemiBoldItalic.ttf');
+  src: url('/assets/JosefinSans-SemiBoldItalic.ttf');
 }
 @font-face{
   font-family: 'robotoregular';
-  src: url('../font/Roboto-Regular.ttf');
+  src: url('/assets/Roboto-Regular.ttf');
 }
 @font-face{
   font-family: 'bitter';
-  src: url('../font/Bitter-Regular.ttf');
+  src: url('/assets/Bitter-Regular.ttf');
+}
+body{
+
+  background-color: transparent;
+}
+.navbar {
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+.navbar.affix {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 0;
+}
+
+/*.navbar-nav {
+  margin-right: 0;
+}
+*/
+.navbar-nav > li {
+  margin-right: 13px;
+
+}
+
+
+
+
+.navbar-nav li a {
+ color: white;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "JS-regular";
+   letter-spacing: 1px;
+}
+
+
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: #e25845;
+  border: none;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus,
+.navbar-nav > li.active > a {
+  border-bottom: 2px solid #f13c20;
+  background-color: transparent;
+  color: white;
+
+}
+
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 15px 12px;
+}
+
+
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+.navbar-nav {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggle {
+  border-color: #ffffff;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+
+
+
+.container > .navbar-header {
+  margin-left: 0;
+}
+
+.container > .navbar-collapse {
+  width: 100%;
+  background-color: #2c3e50;
+  margin-right: 0;
+}
+
+.navbar-nav > li {
+  height: auto !important;
+  margin-right: 0;
+}
+
+.navbar-nav > li.pull-left {
+  float: none !important;
+}
+
+.navbar-nav > li > a {
+  line-height: 36px;
+  color: #ffffff;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbar-nav > li.active {
+  border-bottom: none;
+}
+
+li.open a,
+ li.open a:hover,
+ li.open a:focus {
+  color: #ffffff;
+  line-height: 21px;
+}
+
+.nav > li > a:hover,
+ .nav > li > a:focus {
+  background-color: transparent;
+}
 }
 
 .textcolor{
   color: #AC3B61;
 }
 
-
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
 
 
 
@@ -72,23 +190,342 @@
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
-@media (min-width: 768px) {
+ .img-container { background-color: #000000; }
+ .img-container img { opacity: 0.4;
+ position: relative; }
 
-  /* Remve the edge padding needed for mobile */
-  .marketing {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Navbar positioning foo */
-  .navbar-wrapper {
-    margin-top: 20px;
-    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-  }
-  /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
+@media only screen and (min-width: 980px) {
+.bx-wrapper{
+  height: 680px; 
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0px;
+ }
+ }
 
 
+.under{
+    position: absolute;
+    z-index: 155;
+    top: 15%;
+    left: 50px;
+    right: 50px;
+
+
+
+}
+.intro-content h1{
+    font-size: 47px;
+  font-family: 'robotoregular';
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+    text-align: center;
+
+  color: #ffffff;
+
+}
+.intro-content p{
+    font-size: 27px;
+  font-family: 'OS-light';
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+
+    text-align: center;
+
+  color: #ffffff;
+  opacity: 0.8;
+padding-top: 10px;
+}
+.intro-content h1:hover{
+  color:white;
+  opacity: 0.7;
+}
+
+ .intro-content2 h1{
+    font-size: 47px;
+  font-family: 'robotoregular';
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+    text-align: center;
+text-transform: uppercase;
+  color: #ffffff;
+
+}
+.intro-content2 p{
+    font-size: 27px;
+  font-family: 'OS-light';
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+
+
+
+  color: #ffffff;
+  opacity: 0.8;
+padding-top: 10px;
+}
+.intro-content2 h1:hover{
+  color:white;
+  opacity: 0.7;
+}
+.intro-content1 h1{
+    font-size: 46px;
+  font-family: 'robotoregular';
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+    text-align: center;
+text-transform: uppercase;
+  color: #ffffff;
+
+}
+.intro-content1 p{
+    font-size: 27px;
+  font-family: 'OS-light';
+ 
+  color: #ffffff;
+  font-weight: 300;
+
+    text-align: center;
+
+  color: #ffffff;
+  opacity: 0.8;
+padding-top: 10px;
+}
+.intro-content1 h1: hover{
+  color:white;
+  opacity: 0.7;
+}
+.button {
+
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    font-family: "OS-semibold";
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    position: absolute;
+  right: 39.5%;
+  margin-top: 46px;
+    background-color: transparent; 
+    color: white; 
+    border: 2px solid white;
+}
+
+.button1:hover {
+    background-color: #f13c20;
+    color: white;
+    border: 2px solid transparent;
+}
+
+
+.icon{
+  opacity: 0.7 !important;
+  height: 88px;
+  position: absolute;
+  left: 45.5%;
+
+  margin-bottom: 42px;
+}
+.paddingmargin
+{
+margin-left: 0px;
+margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.space{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.sec2{
+color:  #f13c20; font-size:37px;"
+
+}
+.sec21{
+  color:  #f13c20; font-size:58px;
+}
+.sec22{
+  color:  #f13c20; font-size:37px;
+}
+.below{
+  background-color: #f2eeee;
+}
+.below h3{
+    padding-top: 15px;
+  padding-bottom: 20px;
+ text-align: center;
+  color: rgb(16, 16, 16);
+  letter-spacing: 1.5px;
+  font-family: "OS-light";
+}
+
+.wwd{
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 35px;
+  font-family: "JS-regular";
+  font-weight: 700;
+  color: black;
+  padding-top: 19px;
+  padding-bottom: 15px;
+}
+
+
+ .buttonww {
+background-color: #4CAF50; 
+    border: none;
+    color: #f13c20;
+    font-family: "OS-semibold";
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 8px 11px;
+  
+    cursor: pointer;
+}
+.button12 {
+ 
+    background-color: transparent; 
+
+    border: 2px solid #f13c20;
+}
+
+.button12:hover { 
+  background-color: #f13c20;
+  color: white;
+  border: none;
+}
+.parent-img{
+  position: relative;
+  display: table;
+}
+.caption{
+display: table-cell;
+  visibility:  hidden;
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+right: 0;
+vertical-align: middle;
+}
+.caption h2{
+text-align: center;
+  color: white;
+
+font-family: "OS-semibold";
+}
+.caption p{
+text-align: center;
+  color: white;
+
+font-family: "OS-regular";
+}
+.parent-img:hover .caption{
+  visibility: visible;
+  vertical-align: middle;
+  display: table-cell;
+  background-color: #f13c20;
+  opacity: 0.8;
+
+}
+
+
+
+ .featured-content h3 {
+  color: #f13c20;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-top: 15px;
+  text-align: center;
+font-family: "OS-regular"
+}
+
+ .featured-content p {
+  color:#696868;
+/*  font-family: 'OS-semibold';*/
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25px;
+  margin-bottom: 0;
+}
+
+
+
+
+.featured-panel{
+padding-top: 50px;
+}
+.featured-icon{
+  position: absolute;
+  left: 41.5%;
+  top:0;
+}
+
+
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.quote {
+    color: #f13c20;
+
+
+}
+
+#fade-quote-carousel.carousel {
+  padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+  bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+  background-color: #f13c20;
+  border: none;
+}
+#fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
+}
+#fade-quote-carousel .profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
 }
