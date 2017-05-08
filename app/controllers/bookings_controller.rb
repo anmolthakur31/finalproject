@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 	end
 	def new
 		@booking = Booking.new
+		@user=Uservehicle.all.where('id IN (SELECT user_id FROM uservehicles)')
 	end
 	def show
 		@booking = Booking.find(params[:id])
