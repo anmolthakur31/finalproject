@@ -82,3 +82,24 @@
   </div>
 </div>
 
+<script type="text/javascript">
+jQuery(function() {
+ let models = $('#vehicle_model_id').html();
+ return $('#vehicle_brand_id').change(function() {
+  let brand = $('#vehicle_brand_id :selected').text();
+  let options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#vehicle_model_id').html(options);
+  } else {
+   return $('#vehicle_model_id').empty();
+ }
+ });
+});
+$("#vehicle_brand_id").change(function () {
+   if ($("#vehicle_brand_id").val() == 0) {
+     $('#vehicle_model_id').attr('disabled', 'disabled');
+     } else {
+       $('#vehicle_model_id').removeAttr('disabled');
+     }
+}).trigger("change");
+</script>

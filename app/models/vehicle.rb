@@ -5,5 +5,7 @@ class Vehicle < ApplicationRecord
   has_many :uservehicles ,dependent: :destroy
   has_many :vehicle_services
   has_many :services, through: :vehicle_services
-
+def vehicle_name
+    "#{brand.name} #{model.name} #{variant.name}"
+  end
 end

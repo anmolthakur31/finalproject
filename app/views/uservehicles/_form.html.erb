@@ -5,32 +5,21 @@
 
 	<div class="field">
 	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, Brand.all, :id, :name,{prompt: 'Select Brand'}%>
+	    <%= f.collection_select :brand_id, Brand.all, :id, :name,{prompt: 'Select Brand'}, {id: 'f1'}%>
 	</div><br>
 
    <div class="field">
       <%= f.label "Vehicle:" %><br>
-      <%= f.collection_select :vehicle_id, @vehiclec, :id, :model_id,{prompt: 'Select Vehicle'} %>
+      <%= f.grouped_collection_select :vehicle_id, Brand.order(:id), :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {id: 'f2'} %>
   </div><br>
 
-<!--   <div class="field">
-      <%#= f.label "Model:" %><br>
-      <%#= f.grouped_collection_select :vehicle_id, Brand.order(:id), :models, :name, :id, :name,{prompt: 'Select Model'},{:id=>"f2"} %>
-  </div><br>
- -->
 
- <!--  <div class="field">
-      <%#= f.label "Variant:" %><br>
-      <%#= f.collection_select :vehicle_id, Variant.all, :id, :name ,{prompt: 'Select Variant'},{:id=>"f3"}%>
-  </div><br> -->
-<!-- <div class="field"> -->
-      <%#= f.label "Variant:" %><!-- <br> -->
-      <%#= f.grouped_collection_select :vehicle_id, Model.order(:name), :variants,:name,:id, :name ,{prompt: 'Select Variant'},{:id=>"f3"}%>
-  <!-- </div><br> -->
   <div class="field">
     <%= f.label "Manufacture Year:" %><br>
-    <%= f.date_select :manf_year, :order => [:year], :start_year => 2000, :end_year => Time.now.year, :prompt => {:manf_year => "Select year"} %>
+    <%= f.select :manf_year, 2000..Date.today.year %>
+
   </div><br>
+
   <div class="field">
     <%= f.label "Registration Number:" %><br>
     <%= f.text_field :reg_no, required: :true %>
@@ -39,3 +28,25 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+  jQuery(function() {
+ let models = $('#f2').html();
+ return $('#f1').change(function() {
+  let brand = $('#f1 :selected').text();
+  let options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#f2').html(options);
+  } else {
+   return $('#f2').empty();
+ }
+ });
+});
+  $("#f1").change(function () {
+   if ($("#f1").val() == 0) {
+     $('#f2').attr('disabled', 'disabled');
+     } else {
+       $('#f2').removeAttr('disabled');
+     }
+}).trigger("change");
+</script>
