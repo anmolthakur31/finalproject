@@ -4,7 +4,6 @@ class UservehiclesController < ApplicationController
 		@brandc=Brand.all
 		@modelc= Brand.order(:id)
 		@variantc=Variant.all
-		
 
 	end
 
