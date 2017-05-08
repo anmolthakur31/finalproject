@@ -7,7 +7,7 @@
   
   <div class="field">
   <%= f.label "Select Dateslot" %><br>
-   <%= f.text_field :dateslot, "data-provide" => 'datepicker' %>
+   <%= f.text_field :dateslot, "data-provide" => 'datepicker', :id=>"date" %>
   </div><br>
 
   <div class="field">
@@ -21,3 +21,8 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+<script type="text/javascript">
+$('#date').datepicker({ 
+    startDate: new Date() 
+});
+</script>

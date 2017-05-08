@@ -15,7 +15,6 @@ class UservehiclesController < ApplicationController
 	def create
 		@uservehicle = Uservehicle.new(uservehicle_params)
 		@uservehicle.user_id=current_user.id
-		byebug
 		@uservehicle.save
 	    redirect_to services_path
 	    flash.notice = 'Vehicle was successfully created'

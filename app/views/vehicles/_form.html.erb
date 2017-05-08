@@ -99,7 +99,6 @@ jQuery(function() {
 $("#vehicle_brand_id").change(function () {
    if ($("#vehicle_brand_id").val() == 0) {
      $('#vehicle_model_id').attr('disabled', 'disabled');
-     $('#vehicle_variant_id').attr('disabled', 'disabled');
      } else {
        $('#vehicle_model_id').removeAttr('disabled');
      }

@@ -11,11 +11,7 @@
 
   <body>
 
-<<<<<<< HEAD
 
-
- 
-=======
  <!--  <nav  class="navbar navbar-fixed-top  ">
     <div class="clearfix">
       <div class="navbar-header">
@@ -34,14 +30,14 @@
  
 <li ><a href="#" >SERVICES</a></li>
    <li><a href="#">CONTACT US</a></li>
-        <% if user_signed_in? %>
-        <li > <%=link_to "SIGN OUT",destroy_user_session_path%></li>
-<li ><%=link_to "EDIT PROFILE",edit_user_registration_path%></li>
+        <%# if user_signed_in? %>
+        <li > <%#=link_to "SIGN OUT",destroy_user_session_path%></li>
+<li ><%#=link_to "EDIT PROFILE",edit_user_registration_path%></li>
  
-  <%else%>
- <li ><%=link_to "SIGN IN", new_user_session_path%>  </li>
+  <%#else%>
+ <li ><%#=link_to "SIGN IN", new_user_session_path%>  </li>
   
-       <%end%>
+       <%#end%>
        
       </ul>
       </div>
@@ -50,7 +46,7 @@
  
   </nav>
  -->
->>>>>>> 973817c8e142b6db625a5706d60ee5e6ffd5fa84
+
     <%= yield %>
 
   </body>
