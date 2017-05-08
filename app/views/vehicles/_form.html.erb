@@ -7,7 +7,7 @@
       <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
 	</div><br>
 
-  <div class="field" id="modelbox">
+<div class="field" id="modelbox">
       <%= f.label "Model:" %><br>
       <%= f.grouped_collection_select :model_id, Brand.order(:id), :models, :name, :id, :name, prompt: 'Select Model' %>
       <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
@@ -81,3 +81,4 @@
     </div>
   </div>
 </div>
+

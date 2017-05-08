@@ -1,6 +1,7 @@
 class UservehiclesController < ApplicationController
 	def new
 		@uservehicle = Uservehicle.new
+		@vehiclec= Vehicle.where('id IN (SELECT brand_id FROM vehicles)')
 	end
 
 	def edit
