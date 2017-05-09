@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
 	def new
 		@booking = Booking.new
-		@user=Uservehicle.all.where(user_id: current_user.id)
+		@user=Uservehicle.where(user_id: current_user.id)
 	end
 
 
