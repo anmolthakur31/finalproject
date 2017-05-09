@@ -21,39 +21,24 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
-<script type="text/javascript">
-$('#date').datepicker({ 
-    startDate: new Date() 
-});
-
-$('#date').on('changeDate', function(ev){
-    $(this).datepicker('hide');
-});
+<script>
 
 
-$(document).ready(function(){      //Add this line (and it's closing line)
-// $(function() {
-//    $('#date').datepicker({ 
-//        beforeShowDay: $.datepicker.noWeekends 
-//    });
-// });
-$(function () {
-    $('#datetimepicker1').datetimepicker({
-        inline: true,
-        format: "dd MM yyyy",
-        defaultDate: null,
-        daysOfWeekDisabled: [0, 6]
-    })
-}).on('dp.change', function (e, selectedDate, $td) {
-    //var time = e.date.format("HH:mm:ss");
-    //alert(e.date + '  -  ' + time);
-    $('.input-field1').val(e.date.format("DD/MM/YYYY"));
-    if (check) {
-        $('.FormDownDateSelect').slideToggle("fast", function () { });
-    }
-});
+  jQuery(function() {
+$(function(){
+    $('#date').datepicker({
+        
+        format: 'dd-mm-yyyy',
+        startDate: '+3d',
+        endDate: '+30d',
+        autoclose: true,
+        daysOfWeekDisabled: "0,6"
+
+    });
+
 });
 
+});
 
 
 </script>
