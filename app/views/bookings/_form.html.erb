@@ -12,7 +12,10 @@
 
   <div class="field">
       <%= f.label "Select Timeslot" %><br>
-      <%= f.collection_select :timeslot_id, Timeslot.all, :id, :time %>
+      <%#= f.collection_select :timeslot_id, Timeslot.all, :id, :time %>
+      <%#=f.text_field :timeslot, as: :string, input_html: { class: 'bootstrap-timepicker', :id => 'time'}%>
+           <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "timepicker" %>
+
   </div><br>
 
   
@@ -30,7 +33,7 @@ $(function(){
         
         format: 'dd-mm-yyyy',
         startDate: '+3d',
-        endDate: '+30d',
+        endDate: '+45d',
         autoclose: true,
         daysOfWeekDisabled: "0,6"
 
