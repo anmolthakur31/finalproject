@@ -577,6 +577,7 @@ section {
     margin: 0 auto;
     border-radius: 100px;
 }
+
 @media only screen and (max-width: 375px){
 
 
@@ -895,3 +896,4 @@ p {
   background: #f13c20;
   transition: background-color 50ms linear;
 }
+

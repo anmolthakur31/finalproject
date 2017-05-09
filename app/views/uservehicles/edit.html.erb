@@ -1,7 +1,10 @@
+<h3>Edit a vehicle</h3>
+
 <%if user_signed_in?%>
 	<% if @uservehicle.user_id == current_user.id%>
 <%= render 'form'%>
 <%else%>
 <p>Please Login/SignUn to edit vehicle <%= link_to "SignIn",new_user_session_path %></p>
 
+<%end%>
 <%end%>

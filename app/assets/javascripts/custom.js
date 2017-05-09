@@ -7,3 +7,13 @@
 //        $('#f2').removeAttr('disabled');
 //      }
 // }).trigger("change");
+// jQuery(function() {
+//   var datepicker = $('input.datepicker');
+
+//   if (datepicker.length > 0) {
+//     datepicker.datepicker({
+//       format: "mm/dd/yyyy",
+//       startDate: new Date()
+//     });
+//   }
+// });

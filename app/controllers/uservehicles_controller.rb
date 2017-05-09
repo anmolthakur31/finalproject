@@ -1,10 +1,15 @@
 class UservehiclesController < ApplicationController
 	def new
 		@uservehicle = Uservehicle.new
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
+
 	end
 
 	def edit
 		@uservehicle = Uservehicle.find(params[:id])
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
 	end
 
 	def create
@@ -25,6 +30,6 @@ class UservehiclesController < ApplicationController
 	private
 
 	def uservehicle_params
-		params.require(:uservehicle).permit(:manf_year,:reg_no ,:user_id, :vehicle_id)
+		params.require(:uservehicle).permit(:manf_year,:reg_no ,:user_id, :vehicle_id, :brand_id)
 	end
 end

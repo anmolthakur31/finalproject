@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
-		def index
+	def index
 		@bookings=Booking.all
 	end
+
 	def new
 		@booking = Booking.new
+		@user=Uservehicle.where(user_id: current_user.id)
 	end
+
+
 	def show
 		@booking = Booking.find(params[:id])
 	end
@@ -29,6 +33,6 @@ class BookingsController < ApplicationController
 	private
 
 	def booking_params
-		params.require(:booking).permit(:timeslot_id, :dateslot, :total_cost, :uservehicle_id)
+		params.require(:booking).permit(:timeslot, :dateslot, :total_cost, :uservehicle_id)
 	end
 end
