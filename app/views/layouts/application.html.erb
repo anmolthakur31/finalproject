@@ -6,54 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+  <script>
+  $(function () {
+  $(document).scroll(function () {
+    var $nav = $(".navbar-fixed-top");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
+</script>
   </head>
 
   <body>
 
 
 
-  <nav  class="navbar navbar-fixed-top  ">
-    <div class="clearfix">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-   <!--        <a class="navbar-brand " href="#">
-       <img class="img-responsive" src="/assets/logo3.png" alt="Serve4wheel" style="position: absolute;">
-        </a>
-   -->
-      </div>
-      
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse pull-right navposition" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-      
-</ul>  <ul class="nav navbar-nav navbar-right " > 
- 
-<li ><a href="#" >SERVICES</a></li>
-   <li><a href="#">CONTACT US</a></li>
-        <% if user_signed_in? %>
-        <li > <%=link_to "SIGN OUT",destroy_user_session_path%></li>
-<li ><%=link_to "EDIT PROFILE",edit_user_registration_path%></li>
- 
-  <%else%>
- <li ><%=link_to "SIGN IN", new_user_session_path%>  </li>
-  
-       <%end%>
-       
-      </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-
     <%= yield %>
 
   </body>
 </html>
+
+ 
