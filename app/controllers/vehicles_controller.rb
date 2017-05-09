@@ -2,14 +2,22 @@ class VehiclesController < ApplicationController
 	def new
 		@vehicle = Vehicle.new
 		@brand= Brand.new
+		@brands= Brand.all
 		@model=Model.new
+		@models=Brand.order(:id)
 		@variant=Variant.new
-		@modelc=Model.all.where('id IN (SELECT brand_id FROM models)')
+		@variants=Variant.all
 
 	end
 
 	def edit
 		@vehicle = Vehicle.find(params[:id])
+		@brand= Brand.new
+		@brands= Brand.all
+		@model=Model.new
+		@models=Brand.order(:id)
+		@variant=Variant.new
+		@variants=Variant.all
 	end
 
 	def create

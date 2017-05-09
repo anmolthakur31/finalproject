@@ -1,14 +1,15 @@
 class UservehiclesController < ApplicationController
 	def new
 		@uservehicle = Uservehicle.new
-		@brandc=Brand.all
-		@modelc= Brand.order(:id)
-		@variantc=Variant.all
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
 
 	end
 
 	def edit
 		@uservehicle = Uservehicle.find(params[:id])
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
 	end
 
 	def create

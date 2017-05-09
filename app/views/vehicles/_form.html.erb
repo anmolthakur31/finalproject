@@ -3,20 +3,20 @@
 
 	<div class="field" id="brandbox">
 	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, Brand.all, :id, :name,prompt: 'Select Brand' %>
+	    <%= f.collection_select :brand_id, @brands, :id, :name,prompt: 'Select Brand' %>
       <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
 	</div><br>
 
 <div class="field" id="modelbox">
       <%= f.label "Model:" %><br>
-      <%= f.grouped_collection_select :model_id, Brand.order(:id), :models, :name, :id, :name, prompt: 'Select Model' %>
+      <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model' %>
       <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
 
 
   <div class="field" id="variantbox">
       <%= f.label "Variant:" %><br>
-      <%= f.collection_select :variant_id, Variant.all, :id, :name ,prompt: 'Select Variant'%>
+      <%= f.collection_select :variant_id, @variants, :id, :name ,prompt: 'Select Variant'%>
       <span><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
 

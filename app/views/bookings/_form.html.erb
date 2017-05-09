@@ -6,15 +6,13 @@
   </div><br>
   
   <div class="field">
-  <%= f.label "Select Dateslot" %><br>
-   <%= f.text_field :dateslot, "data-provide" => 'datepicker', :id=>"date" ,autocomplete: "off" %>
+   <%= f.label "Select Dateslot" %><br>
+   <%= f.text_field :dateslot, "data-provide" => 'datepicker', :id=>"date" ,autocomplete: "off"%>
   </div><br>
 
   <div class="field">
       <%= f.label "Select Timeslot" %><br>
-      <%#= f.collection_select :timeslot_id, Timeslot.all, :id, :time %>
-      <%#=f.text_field :timeslot, as: :string, input_html: { class: 'bootstrap-timepicker', :id => 'time'}%>
-           <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "timepicker" %>
+      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off" %>
 
   </div><br>
 
@@ -24,11 +22,10 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
 <script>
+ 
 
-
-  jQuery(function() {
-$(function(){
     $('#date').datepicker({
         
         format: 'dd-mm-yyyy',
@@ -38,10 +35,6 @@ $(function(){
         daysOfWeekDisabled: "0,6"
 
     });
-
-});
-
-});
 
 
 </script>
