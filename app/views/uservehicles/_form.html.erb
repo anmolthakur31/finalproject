@@ -1,15 +1,13 @@
-<h3>Add a vehicle</h3>
-
 <%= form_for @uservehicle do |f| %>
 
 	<div class="field">
 	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, Brand.all, :id, :name,{prompt: 'Select Brand'}, {id: 'f1'}%>
+	    <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'}, {id: 'f1'}%>
 	</div><br>
 
    <div class="field">
       <%= f.label "Vehicle:" %><br>
-      <%= f.grouped_collection_select :vehicle_id, Brand.order(:id), :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {id: 'f2'} %>
+      <%= f.grouped_collection_select :vehicle_id, @vehicles, :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {id: 'f2'} %>
   </div><br>
 
 
