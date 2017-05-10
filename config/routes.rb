@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root "extras#home"  
   resources :services
   get 'home' => 'extras#home'
-    get 'admin' => 'extras#admin'
+
   get 'faq' => 'extras#faq'
   get 'our_team' => 'extras#our_team'
   get 'about_us' => 'extras#about_us'
