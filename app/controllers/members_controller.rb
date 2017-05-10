@@ -4,6 +4,6 @@ class MembersController < ApplicationController
 	end
 
 	def admin
-		
+		@users=User.all
 	end
 end

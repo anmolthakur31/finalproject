@@ -1,7 +1,7 @@
 class BrandPolicy < ApplicationPolicy
  
   def create?
-    return true if user.present? && user.admin
+    return true if user.present? && user.userrole_id== 1 || user.userrole_id== 2 
   end
  
   def update?
