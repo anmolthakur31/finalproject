@@ -1,4 +1,4 @@
-class BrandPolicy < ApplicationPolicy
+class VariantPolicy < ApplicationPolicy
  
   def create?
     return true if user.present? && (user.userrole_id==2 || user.userrole_id==1)
@@ -13,7 +13,7 @@ class BrandPolicy < ApplicationPolicy
  
   private
  
-    def brand
+    def variant
       record
     end
 end

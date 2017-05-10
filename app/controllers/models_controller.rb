@@ -1,10 +1,12 @@
 class ModelsController < ApplicationController
 	def new
 		@model = Model.new
+		authorize @model
 	end
 
 	def edit
 		@model = Model.find(params[:id])
+		authorize @model
 	end
 
 	def create
