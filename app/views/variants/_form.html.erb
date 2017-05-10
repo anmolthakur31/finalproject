@@ -11,3 +11,13 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+<script>
+$(document).ready(function () {
+$("#new_variant").validate({
+debug: true,
+rules: {
+"variant[name]": {required: true}
+}
+});
+});
+</script>

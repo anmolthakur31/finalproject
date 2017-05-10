@@ -1,41 +1,72 @@
-<div class="navbar-wrapper" style="margin-top: 5px;">
 
-  <div class="container-fluid">
-    <div class="navbar  navbar-static-top">
-      
-        <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+  <nav  class="navbar navbar-fixed-top custom" style="z-index: 8888888;">
+    <div class="clearfix">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>
-     <!--    <a class="navbar-brand " href="#">
-       <img class="img-responsive" src="/assets/logo.png" alt="Serve4wheel" style="height: 100px;position: absolute;">
-        </a> -->
-  
-  
-        </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+   <!--        <a class="navbar-brand " href="#">
+       <img class="img-responsive" src="/assets/logo3.png" alt="Serve4wheel" style="position: absolute;">
+        </a>
+   -->
+      </div>
       
-      </ul>  <ul class="nav navbar-nav navbar-right" > 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse pull-right navposition" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav ">
+      
+</ul>  
+<ul class="nav navbar-nav navbar-right links " > 
  
 <li ><a href="#" >SERVICES</a></li>
    <li><a href="#">CONTACT US</a></li>
         <% if user_signed_in? %>
-        <li > <%=link_to "SIGN OUT",destroy_user_session_path%></li>
-<li ><%=link_to "EDIT PROFILE",edit_user_registration_path%></li>
- 
+        
+   <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <strong><%= current_user.name%></strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu editdropdown">
+                        <li>
+                            <div class="userlogin">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left" style="color: white;"><strong>
+                                        <%=current_user.name%></strong></p>
+                                        <p class="text-left small" style="color: white;">
+                                        <%=current_user.email%></p>
+                                        <p class="text-left">
+                                            <a href="#" class="btn btn-primary btn-block btn-sm editbutton">Profile</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider login-session-bg"></li>
+                        
+   
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> <span class="glyphicon glyphicon-log-out pull-right"></span></li>
+                    </ul>
+                </li>
   <%else%>
  <li ><%=link_to "SIGN IN", new_user_session_path%>  </li>
   
        <%end%>
+       
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-     
-
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-    </div>
-  </div><!-- /container -->
-</div><!-- /navbar wrapper -->
+    <!-- /.container-fluid -->
+  </nav>

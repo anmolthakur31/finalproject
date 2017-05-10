@@ -11,4 +11,6 @@ class ExtrasController < ApplicationController
 	end
 	def home
 	end
+	def admin
+	end
 end

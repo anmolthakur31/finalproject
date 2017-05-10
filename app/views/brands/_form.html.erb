@@ -3,10 +3,21 @@
 <%= form_for(@brand, remote: remote, html: {role: :form, 'data-model' => 'brand'}) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, required: :true %>
+    <%= f.text_field :name, autofocus: true%>
   </div>
   
   <p>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function () {
+$("#new_brand").validate({
+debug: true,
+rules: {
+"brand[name]": {required: true}
+}
+});
+});
+</script>

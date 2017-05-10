@@ -1,26 +1,91 @@
-<h2>Log in</h2>
+<%= render 'layouts/header'%>
+<div class="middlePage">
+<div class="page-header">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"> Sign In</h3>
   </div>
+  <div class="panel-body">
+  
+  <div class="row">
+  
+<div class="col-md-5" >
+         <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                                    
+                             
+                                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                                                                     
+                                        
+                                </div>
+                                
+</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: "form-horizontal"}) do |f| %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+<fieldset>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <%= devise_error_messages! %>
+           
+            
+  
+               <%= f.label :email, class: "cols-sm-2 control-label"%>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                   <%= f.email_field :email, autofocus: true,
+                   class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+                </div>
+              </div>
+            
+
+            
+            
+             <%= f.label :password,class: "cols-sm-2 control-label" %>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                 
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password",required:true  %>
+                  
+                </div>
+              </div>
+  
+             <% if devise_mapping.rememberable? -%>
+   <div class="spacing"><%= f.check_box :remember_me ,id: "checkboxes-0" ,value: "1"%><small> Remember me</small></div>
+     
+ <%end%>
+
+
+    <%= f.submit "Log in" ,class: "actions btn btn-info btn-sm pull-right" ,id: "singlebutton"%>
+
+  <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account! 
+                                        <a href="#">
+                                            Sign Up Here
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>  
 <% end %>
+ 
+<%= render "devise/shared/links" %> 
 
-<%= render "devise/shared/links" %>
+
+</fieldset>
+
+</div>
+    
+</div>
+    
+</div>
+</div>
+
+</div>
+
+  

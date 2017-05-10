@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 	end
 	def edit
 		@booking = Booking.find(params[:id])
+		@user=Uservehicle.where(user_id: current_user.id)
 	end
 
 	def create

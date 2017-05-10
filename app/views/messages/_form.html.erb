@@ -4,27 +4,27 @@
 <%= form_for @message do |f| %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, required: :true %>
+    <%= f.text_field :name, autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, required: :true %>
+    <%= f.email_field :email, autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true, required: :true %>
+    <%= f.text_field :phone, autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :subject %><br />
-    <%= f.text_field :subject, autofocus: true, required: :true %>
+    <%= f.text_field :subject, autofocus: true%>
   </div>
   
   <div class="field">
     <%= f.label :message %><br />
-    <%= f.text_field :message, autofocus: true, required: :true %>
+    <%= f.text_field :message, autofocus: true%>
   </div>
 
 
@@ -32,3 +32,19 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function () {
+$("#new_message").validate({
+debug: true,
+rules: {
+"message[name]": {required: true},
+"message[email]": {required: true, email: true},
+"message[phone]": {required: true,minlength: 10,maxlength: 10,digits: true},
+"message[subject]": {required: true},
+"message[message]": {required: true}
+}
+});
+});
+
+</script>
