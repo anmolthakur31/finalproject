@@ -1,10 +1,12 @@
 class BrandsController < ApplicationController
 	def new
 		@brand = Brand.new
+		authorize @brand
 	end
 
 	def edit
 		@brand = Brand.find(params[:id])
+		authorize @brand
 	end
 
 	def create
