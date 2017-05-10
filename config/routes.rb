@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   root "extras#home"  
   resources :services
   get 'home' => 'extras#home'
-    get 'admin' => 'extras#admin'
   get 'faq' => 'extras#faq'
   get 'our_team' => 'extras#our_team'
   get 'about_us' => 'extras#about_us'
   get 'tnc' => 'extras#tnc'
   get 'privacy_policy' => 'extras#privacy_policy'
+  get 'admin' => 'members#admin'
   resources :messages
   resources :prelandings
   resources :brands
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :uservehicles
   resources :userroles
-  resources :timeslots
   resources :bookings
+  resources :members
   # map.check_email "registrations/check_email", :controller => "registrations", :action => "check_email"
   # map.resources :users
 

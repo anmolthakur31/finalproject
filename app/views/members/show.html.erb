@@ -1,0 +1,9 @@
+<%if @user.name?%>
+  <%=@user.name%>
+<%else%>
+  <%=@user.email%>
+<%end%>
+
+<%if @user.image.exists?%>
+<%= image_tag @user.image.url(:small) %>
+<%end%>
