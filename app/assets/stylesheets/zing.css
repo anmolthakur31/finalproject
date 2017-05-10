@@ -63,7 +63,7 @@ background-color: #f13c20;
 }
 .hdlinks>li{
 
-  margin-right: 13px;
+  margin-right: 0px;
 }
 
 .hdlinks li a {
@@ -85,8 +85,8 @@ background-color: #f13c20;
 .hdlinks > li > a:focus,
 .hdlinks > li.active > a {
  
-  background-color: transparent;
-  color: white;
+  background-color: #f13c20!important;
+  color: black !important;
 
 }
 .brandcol{
@@ -124,7 +124,12 @@ background-color: #f13c20;
   font-family: "JS-regular";
    letter-spacing: 1px;
 }
-
+.links .open > a,
+.links .open > a:hover,
+.links .open > a:focus {
+  background-color: #e25845;
+  border: none;
+}
 
 .links > li > a:hover,
 .links > li > a:focus,
@@ -254,7 +259,6 @@ li.open a,
 .textcolor{
   color: #AC3B61;
 }
-
 
 
 
@@ -949,4 +953,70 @@ label.error{    top: 24px;
     color: #ce0000;
     font-size: 11px;
     right: 0;} 
-
+/*admin*/
+.heading h2{
+  text-align: center;
+  font-size: 26px;
+}
+.heading p{
+    margin-bottom: 46px;
+text-align: center;
+}
+/* DATATABLES */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  background: transparent;
+}
+table.dataTable thead .sorting_asc:after {
+  float: right;
+  font-family: fontawesome;
+}
+table.dataTable thead .sorting_desc:after {
+  content: "\f0dd";
+  float: right;
+  font-family: fontawesome;
+}
+table.dataTable thead .sorting:after {
+  content: "\f0dc";
+  float: right;
+  font-family: fontawesome;
+  color: rgba(50, 50, 50, 0.5);
+}
+.dataTables_wrapper {
+  padding-bottom: 30px;
+}
+/* TABLES */
+.table-bordered {
+  border: 1px solid #EBEBEB;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  background-color: #F5F5F6;
+  border-bottom-width: 1px;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #e7e7e7;
+}
+.table > thead > tr > th {
+  border-bottom: 1px solid #DDDDDD;
+  vertical-align: bottom;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-top: 1px solid #e7eaec;
+  line-height: 1.42857;
+  padding: 8px;
+  vertical-align: top;
+}
