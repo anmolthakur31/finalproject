@@ -56,9 +56,56 @@ body{
 
   background-color: transparent;
 }
-.custom {
+/*<!--header1-->*/
+.navbg{
+background-color: #f13c20;
+
+}
+.hdlinks>li{
+
+  margin-right: 13px;
+}
+
+.hdlinks li a {
+ color: white !important;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: "JS-regular";
+   letter-spacing: 1px;
+}
+
+.hdlinks .open > a,
+.hdlinks .open > a:hover,
+.hdlinks .open > a:focus {
+  background-color: #e25845;
+  border: none;
+}
+
+.hdlinks > li > a:hover,
+.hdlinks > li > a:focus,
+.hdlinks > li.active > a {
+ 
   background-color: transparent;
-  margin-bottom: 0;
+  color: white;
+
+}
+.brandcol{
+  color: white!important;
+}
+.barcol{
+  background-color:white!important;
+}
+
+.hdlinks > li > a {
+  position: relative;
+  display: block;
+  padding: 15px 12px;
+}
+ 
+ /*header*/
+.custom {
+  background-color: #f13c20;
+  margin-bottom: 0px;
 }
 
 .custom.affix {
@@ -67,7 +114,7 @@ body{
 }
 
 .links > li {
-  margin-right: 13px;
+  margin-right: 2px;
 }
 
 .links li a {
@@ -78,20 +125,13 @@ body{
    letter-spacing: 1px;
 }
 
-.links .open > a,
-.links .open > a:hover,
-.links .open > a:focus {
-  background-color: #e25845;
-  border: none;
-}
 
 .links > li > a:hover,
 .links > li > a:focus,
 .links > li.active > a {
-  border-bottom: 2px solid #f13c20;
-  background-color: transparent;
-  color: white;
-
+  border:none;
+   color: black;
+background-color: #f13c20;
 }
 
 
@@ -121,8 +161,11 @@ body{
 {
     font-size: 87px;
 }
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
 .editdropdown{
-
+margin-top: 2px;
   background-color: #f13c20;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .15);
@@ -134,8 +177,13 @@ body{
   border-radius:0px;
 }
 .editbutton:hover{
-  background-color: transparent;
+  background-color: #f13c20;
    border:2px solid white;
+   color: white;
+}
+.editdropdown >li >a:hover{
+  background-color: #f13c20!important;
+  color:black!important;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 
@@ -145,10 +193,8 @@ body{
 }
 
 .navbar-toggle {
-  border-color: #ffffff;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
+
+  border-radius: 0
   margin-top: 10px;
 }
 
@@ -156,7 +202,11 @@ body{
   background-color: #ffffff;
 }
 
-
+.navposition{
+  width: 457px!important;
+float:left!important;
+border-top: 1px solid white;
+}
 
 .container > .navbar-header {
   margin-left: 0;
@@ -343,8 +393,7 @@ padding-top: 10px;
 }
 
 .button1 {
-    position: absolute;
-  right: 39.5%;
+
   margin-top: 46px;
     background-color: transparent; 
     color: white; 
@@ -420,9 +469,9 @@ font-weight: 500;
 
 
  .buttonww {
-background-color: #4CAF50; 
+background-color:transparent; 
     border: none;
-    color: white;
+    color: #f13c20;
     font-family: "OS-semibold";
     padding: 16px 32px;
     text-align: center;
@@ -435,12 +484,16 @@ background-color: #4CAF50;
 }
 .button12 {
  
-    background-color: #f13c20; 
+    background-color: transparent; 
 
     border: 2px solid #f13c20;
 }
 
-
+.button12:hover{
+  background-color: #f13c20;
+  border: 2px solid #f13c20;
+  color: white;
+}
 .parent-img{
   position: relative;
   display: table;
@@ -715,10 +768,7 @@ font-size:12px;
 }
 @media only screen and (max-width: 425px) 
 {
-
    .icon{
-
-
     height: 41px;
   
     margin-bottom: 0px;
@@ -797,7 +847,13 @@ padding: 8px 12px !important;
     background: transparent;
     
 }
+#button:hover{
+    border: 2px solid #f13c20 !important;
 
+  background-color: #f13c20;
+
+
+}
 .main-center{
 
   margin-top: 30px;
@@ -840,12 +896,6 @@ span.input-group-addon i {
 
 
 
-
-
-p {
-  color:#CCC;
-}
-
 .spacing {
   padding-top:7px;
   padding-bottom:7px;
@@ -865,19 +915,19 @@ p {
   color:#CCC;
 }
 
-.btn-facebook{
+.button-facebook{
   background-color: #3b5998;
   color: #fff;
 }
-.btn-facebook:hover{
+.button-facebook:hover{
   background-color: #fff;
   color: #3b5998;
 }
-.btn-twitter{
+.button-twitter{
   background-color: #c23321;
   color: #fff;
 }
-.btn-twitter:hover{
+.button-twitter:hover{
   background-color: #fff;
   color: #c23321;
 }
@@ -892,8 +942,3 @@ p {
   margin-bottom: 10px;
   margin-top: 1px;
 }
-.navbar-fixed-top.scrolled {
-  background: #f13c20;
-  transition: background-color 50ms linear;
-}
-

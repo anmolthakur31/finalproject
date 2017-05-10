@@ -13,7 +13,7 @@
 <h1>MAKE YOUR CAR LAST LONGER</h1>
 <p>Great customer service, down to the last detail</p>
 
-<button class="button button1">BOOK NOW</button>
+<p><button class="button button1">BOOK NOW</button></p>
 
 </div>
 </div>
@@ -29,7 +29,7 @@
 <img class="icon"  src="/assets/work.png" class="img-responsive"></div>
 <h1>We Keep Your Motor Running</h1>
 <p>Give Your Engine The Care It Needs.</p>
-<button class="button button1">BOOK NOW</button>
+<p><button class="button button1">BOOK NOW</button></p>
 </div>
 </div>
 </div>
@@ -44,7 +44,7 @@
 <img class="icon"  src="/assets/wrench.png" class="img-responsive"></div>
 <h1>Where every detail counts</h1>
 <p>We are driven to serve you.</p>
-<button class="button button1">BOOK NOW</button>
+<p><button class="button button1">BOOK NOW</button></p>
 </div>
 </div>
 </div>
@@ -310,7 +310,7 @@ riding away like nothing, ever, happened!.</p>
 
 
 				<div class="main-login main-center">
-				<h5 >READY TO SIGNUP</h5>
+				<h5 >SIGNUP FOR FREE</h5>
 				
 					<%= form_for(:user, url: registration_path(:user),html: {class: "form-group"})do |f| %>
 						
@@ -319,7 +319,7 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									    <%= f.text_field :name, autofocus: true, class: "form-control",id: "name",placeholder: "Enter your Name", required: true %>
+									    <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name", required: true %>
 								
 								</div>
 							</div>
@@ -329,7 +329,7 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									 <%= f.email_field :email, autofocus: true,
+									 <%= f.email_field :email,
 									 class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
 								</div>
 							</div>
@@ -340,7 +340,7 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									   <%= f.text_field :phone, autofocus: true, required: :true,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+									   <%= f.text_field :phone, required: :true,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
 									
 								</div>
 							</div>
@@ -377,12 +377,12 @@ riding away like nothing, ever, happened!.</p>
 <br>
 
 	<div class="col-md-6 col-sm-6 col-xs-12 nopadd">
-        <a class="btn btn-block btn-social btn-facebook btnbord">
+        <a class="btn btn-block btn-social button-facebook btnbord">
             <span class="fa fa-facebook"></span> Sign Up
         </a>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
-   <a class="btn btn-block btn-social btn-twitter btnbord" >
+   <a class="btn btn-block btn-social button-twitter btnbord" >
         <span class="fa fa-twitter"></span> Sign up
     </a>
     </div>

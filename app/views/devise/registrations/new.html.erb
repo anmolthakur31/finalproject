@@ -1,104 +1,12 @@
-  
+  <%=render"layouts/header1"%>
   <style type="text/css">
 
-.main{
-  margin:50px 15px;
-}
-
-h1.title { 
-  font-size: 50px;
-  font-family: 'Passion One', cursive; 
-  font-weight: 400; 
-}
-
-hr{
-  width: 10%;
-  color: #fff;
-}
-
-.form-group{
-  margin-bottom: 15px;
-}
-
-label{
-  margin-bottom: 8px;
-  margin-bottom: 8px;
-}
-
-input,
-input::-webkit-input-placeholder {
-    font-size: 11px;
-    padding-top: 3px;
-}
-
-.main-login{
-  background-color: #fff;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
-}
-.form-control {
-    height: auto!important;
-padding: 8px 12px !important;
-}
-.input-group {
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-}
-#button {
-    border: 2px solid white;
-    margin-top: 28px;
-    padding: 6px 12px;
-    color: white;
-    text-transform: uppercase;
-    text-shadow: 0 1px #fff;
-    cursor: pointer;
-    -moz-border-radius: 3px 3px;
-    -webkit-border-radius: 3px 3px;
-    border-radius: 3px 3px;
-    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    background: transparent;
-    
-}
-.main-center{
-  margin-top: 30px;
-  margin: 0 auto;
-  max-width: 400px;
-    padding: 10px 40px;
- background: rgba(0, 0, 0, 0.4);
-      color: #FFF;
-    text-shadow: none;
-  -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
--moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-
-}
-span.input-group-addon i {
-    color: #f13c20;
-    font-size: 17px;
-}
-
-.login-button{
-  margin-top: 5px;
-}
-
-.login-register{
-  font-size: 11px;
-  text-align: center;
-}
 
   </style>
   <div class="container">
       <div class="row main">
   <div class="main-login main-center">
-        <h5 >READY TO SIGNUP</h5>
+        <h5 >SIGNUP For FREE</h5>
     <!--    <p>Signup once and rejoice services</p> -->
           
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "form-group"}) do |f| %>
@@ -160,14 +68,15 @@ span.input-group-addon i {
                                 <%= f.submit "Sign up", id: "button", class: "btn btn-primary btn-lg btn-block login-button actions"%>
 
 <br>
+</div>
 
   <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
-        <a class="btn btn-block btn-social btn-facebook btnbord">
+        <a class="btn btn-block btn-social button-facebook btnbord">
             <span class="fa fa-facebook"></span> Sign Up
         </a>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
-   <a class="btn btn-block btn-social btn-twitter btnbord" >
+   <a class="btn btn-block btn-social button-twitter btnbord" >
         <span class="fa fa-twitter"></span> Sign up
     </a>
     </div>
@@ -176,5 +85,5 @@ span.input-group-addon i {
  
 <% end %>
 </div>
-</div>
+
 <%= render "devise/shared/links" %>
