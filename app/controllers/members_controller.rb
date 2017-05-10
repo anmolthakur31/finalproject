@@ -8,6 +8,7 @@ class MembersController < ApplicationController
 	def admin
 
 		@user=User.new
+		@users=User.all
 		authorize @user
-	end
+		
 end
