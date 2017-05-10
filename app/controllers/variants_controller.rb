@@ -1,10 +1,12 @@
 class VariantsController < ApplicationController
 		def new
 		@variant = Variant.new
+		authorize @variant
 	end
 
 	def edit
 		@variant = Variant.find(params[:id])
+		authorize @variant
 	end
 
 	def create
