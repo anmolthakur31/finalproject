@@ -1,6 +1,7 @@
 class PrelandingsController < ApplicationController
 	def new
 		@prelanding = Prelanding.new
+		authorize @prelanding
 	end
 	def create
 		@prelanding = Prelanding.new(prelanding_params)

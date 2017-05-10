@@ -7,6 +7,7 @@ class VehiclesController < ApplicationController
 		@models=Brand.order(:id)
 		@variant=Variant.new
 		@variants=Variant.all
+		authorize @vehicle
 
 	end
 
@@ -18,6 +19,7 @@ class VehiclesController < ApplicationController
 		@models=Brand.order(:id)
 		@variant=Variant.new
 		@variants=Variant.all
+		authorize @vehicle
 	end
 
 	def create

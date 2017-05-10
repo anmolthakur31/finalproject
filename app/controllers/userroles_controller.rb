@@ -1,13 +1,17 @@
 class UserrolesController < ApplicationController
 	def index
 		@userroles=Userrole.all
+		@userrole = Userrole.new
+		authorize @userrole
 	end
 	def new
 		@userrole = Userrole.new
+		authorize @userrole
 	end
 
 	def edit
 		@userrole = Userrole.find(params[:id])
+		authorize @userrole
 	end
 
 	def create
