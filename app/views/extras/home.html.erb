@@ -312,14 +312,16 @@ riding away like nothing, ever, happened!.</p>
 				<div class="main-login main-center">
 				<h5 >SIGNUP FOR FREE</h5>
 				
-					<%= form_for(:user, url: registration_path(:user),html: {class: "form-group"})do |f| %>
+					<%= form_for(:user, url: registration_path(:user),html: {class: "form-group", id: "user_home"}) do |f| %>
 						
 						
 						
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									    <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name", required: true %>
+
+									    <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name" %>
+
 								
 								</div>
 							</div>
@@ -329,8 +331,9 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									 <%= f.email_field :email,
-									 class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+
+									 <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+
 								</div>
 							</div>
 						
@@ -340,7 +343,9 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									   <%= f.text_field :phone, required: :true,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+
+									   <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+
 									
 								</div>
 							</div>
@@ -408,5 +413,16 @@ $('.bxslider').bxSlider({
  });
 });
 
-
+$(document).ready(function () {
+$("#user_home").validate({
+debug: true,
+rules: {
+"user[name]": {required: true},
+"user[phone]": {required: true,minlength: 10,maxlength: 10,digits: true},
+"user[email]": {required: true, email: true}, 
+"user[password]": {required: true, minlength: 6},
+"user[password_confirmation]": {required: true, equalTo: "#password"}
+}
+});
+});
 </script>

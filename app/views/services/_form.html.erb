@@ -3,16 +3,29 @@
 
   <div class="field">
     <%= f.label "Name" %><br>
-    <%= f.text_field :name, required: :true , autofoucs: :true%>
+    <%= f.text_field :name, autofoucs: :true%>
   </div><br>
   <div class="field">
     <%= f.label "Description:" %><br>
-    <%= f.text_area :description, required: :true %>
+    <%= f.text_area :description%>
   </div><br>
   <div class="field">
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo ,required: true%>
   </div><br>
   <p>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function () {
+$("#new_service").validate({
+debug: true,
+rules: {
+"service[name]": {required: true},
+"service[description]": {required: true},
+"service[photo]": {required: true}
+}
+});
+});
+</script>

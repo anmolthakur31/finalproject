@@ -45,4 +45,15 @@
        $('#f2').removeAttr('disabled');
      }
 }).trigger("change");
+
+$(document).ready(function () {
+$("#new_uservehicle").validate({
+debug: true,
+rules: {
+"uservehicle[manf_year]": {required: true},
+"uservehicle[reg_no]": {required: true},
+"uservehicle[vehicle_id]": {required: true}
+}
+});
+});
 </script>

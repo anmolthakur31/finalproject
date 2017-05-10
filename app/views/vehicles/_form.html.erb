@@ -102,4 +102,16 @@ $("#vehicle_brand_id").change(function () {
        $('#vehicle_model_id').removeAttr('disabled');
      }
 }).trigger("change");
+
+$(document).ready(function () {
+$("#new_vehicle").validate({
+debug: true,
+rules: {
+"vehicle[brand_id]": {required: true},
+"vehicle[model_id]": {required: true},
+"vehicle[variant_id]": {required: true},
+"vehicle[startyear]": {required: true}
+}
+});
+});
 </script>

@@ -12,7 +12,8 @@
 
   <div class="field">
       <%= f.label "Select Timeslot" %><br>
-      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "timepicker" %>
+      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off" %>
+      <%#= f.select :timeslot, %>
 
   </div><br>
 
@@ -24,8 +25,8 @@
 <% end %>
 
 <script>
-  jQuery(function() {
-$(function(){
+ 
+
     $('#date').datepicker({
         
         format: 'dd-mm-yyyy',
@@ -35,6 +36,22 @@ $(function(){
         daysOfWeekDisabled: "0,6"
 
     });
-});
-});
+    $(function() {
+                    $('#time').timepicker({ 'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] });
+                });
+//     $('#time').timepicker({ 'scrollDefault': 'now' });
+
+// $(document).ready(function(){
+//     $('#time').timepicker({
+//     'disableTimeRanges': [
+//         ['1am', '2am'],
+//         ['3am', '4:01am']
+//     ]
+// });
+// });
+    $("#time").click(function(){
+        $(".bootstrap-timepicker-widget").toggle();
+    });
+
+
 </script>

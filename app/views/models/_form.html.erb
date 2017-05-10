@@ -4,8 +4,8 @@
 <%= form_for(@model, remote: remote, html: {role: :form, 'data-model' => 'model'}) do |f| %>
 
 	<div class="field">
-	    <%= f.label "Select Brand" %>
-	    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+	    <%= f.label "Brand:" %>
+	    <%= f.collection_select :brand_id, Brand.all, :id, :name,prompt: 'Select Brand' %>
 	</div>
   
   <div class="field">
@@ -17,3 +17,22 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function () {
+$("#new_model").validate({
+debug: true,
+rules: {
+"model[name]": {required: true},
+"model[brand_id]": {required: true}
+}
+});
+$("#model_brand_id").change(function () {
+   if ($("#model_brand_id").val() == 0) {
+     $('#model_name').attr('disabled', 'disabled');
+     } else {
+       $('#model_name').removeAttr('disabled');
+     }
+}).trigger("change");
+});
+</script>
