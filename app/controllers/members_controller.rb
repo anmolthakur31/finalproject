@@ -1,11 +1,13 @@
 class MembersController < ApplicationController
 	def show
 		@user=User.find(params[:id])
+
+		authorize @user
 	end
 
 	def admin
 
-		@user=User.all
-
+		@user=User.new
+		authorize @user
 	end
 end
