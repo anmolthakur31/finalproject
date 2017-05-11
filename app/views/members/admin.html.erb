@@ -38,7 +38,7 @@
            <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
                     <tr>
-                        <th>Sr.No.</th>
+                   
                         <th>Name</th>
                         <th>Email id</th>
                         <th>Phone</th>
@@ -49,7 +49,7 @@
 
     <% @users.each do |user| %>
                     <tr class="gradeX">
-                        <td></td>
+                
                         <td><%=user.name%>
                         </td>
                         <td><%=user.email%></td>
@@ -95,7 +95,7 @@
            <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
                     <tr>
-                        <th>Sr.No.</th>
+                   
                         <th>Brand</th>
                         <th>Model</th>
                         <th>Variant</th>
@@ -106,11 +106,11 @@
 
     <%Vehicle.all.each do |vehicle| %>
                     <tr class="gradeX">
-                        <td></td>
-                        <td><%=vehicle.brand_id.name%>
+                
+                        <td><%=vehicle.brands.name%>
                         </td>
-                        <td><%=vehicle.model_id.name%></td>
-                        <td class="center"><%=vehicle.variant_id.name%>
+                        <td><%=vehicle.models.name%></td>
+                        <td class="center"><%=vehicle.variants.name%>
                         </td>
                         <td class="center"><%=vehicle.startyear%> </td>
                     </tr>
@@ -152,7 +152,7 @@
            <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
                     <tr>
-                        <th>Sr.No.</th>
+                   
                         <th>Name</th>
                
                     </tr>
@@ -161,7 +161,7 @@
 
     <%Service.all.each do |service| %>
                     <tr class="gradeX">
-                        <td></td>
+                
                         <td><%=service.name%>
                         </td>
                   
@@ -204,7 +204,7 @@
            <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
                     <tr>
-                        <th>Sr.No.</th>
+                   
                         <th>Dateslot</th>
                         <th>Timeslot</th>
                         <th>User-Vehicle</th>
@@ -215,14 +215,14 @@
 
     <%Booking.all.each do |booking| %>
                     <tr class="gradeX">
-                        <td></td>
+                
                         <td><%=booking.dateslot%>
                         </td>
                         <td><%=booking.timeslot%>
                         </td>
                           <td><%=booking.timeslot%>
                         </td>
-                          <td><%=booking.uservehicle_id.reg_no%>
+                          <td><%=booking.uservehicles.reg_no%>
                         </td>
                   
                     </tr>

@@ -1129,12 +1129,7 @@ font-size:29px;
 }
 
 /* LOGIN */
-.login-container {
-  float: left;
-  width: 100%;
-  min-height: 100%;
-  background: url("/assets/formbg.png");
-}
+
 .login-container .login-box {
   width: 400px;
   margin: 0px auto;
@@ -1144,7 +1139,7 @@ font-size:29px;
 .login-container .login-box .login-body {
   width: 100%;
   float: left;
-  background: rgba(255, 255, 255, 0.1);
+  
   padding: 20px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1154,7 +1149,8 @@ font-size:29px;
   color: #FFF;
   font-size: 19px;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  text-align: center;
 }
 .login-container .login-box .login-body .form-control {
   border: 0px;
@@ -1176,67 +1172,32 @@ font-size:29px;
   color: #FFF;
   border: 0px;
 }
-.login-container .login-box .login-body .login-or {
-  width: 40px;
-  height: 25px;
-  background: rgba(0, 0, 0, 0.2);
-  position: relative;
-  margin: 25px auto;
-  text-align: center;
-  line-height: 25px;
-  color: #FFF;
-}
-.login-container .login-box .login-body .login-or:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 0;
-  height: 0;
-  top: -10px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 10px solid rgba(0, 0, 0, 0.2);
-}
-.login-container .login-box .login-body .login-or:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 0;
-  height: 0;
-  bottom: -10px;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 10px solid rgba(0, 0, 0, 0.2);
-}
+
+
 .login-container .login-box .login-body .login-subtitle {
   line-height: 20px;
   padding: 5px 0px;
-  font-size: 12px;
+  font-size: 16px;
   color: #FFF;
+  text-align: center;
 }
-.login-container .login-box .login-body .login-subtitle a {
-  color: #3fbae4;
-}
-.login-container .login-box .login-footer {
-  width: 100%;
-  float: left;
-  padding: 10px;
-  color: #FFF;
-}
-.login-container .login-box .login-footer a {
-  color: #FFF;
-}
+
+
 .login-container.lightmode {
   background: url("/assets/sign.jpg") left top repeat;
   height: 628px;
 }
 .login-container.lightmode .login-box .login-body {
-  background: rgba(255, 255, 255, 0.2);
+
 }
 .login-container.lightmode .login-box .login-body .form-control {
   background: rgba(255, 255, 255, 0.4);
   color: #333;
 }
 .login-container.lightmode .login-box .login-subtitle a {
-  color: #33414e;
+    color: #f13c20;
+  font-size: 16px;
+}
+.passbtn{
+  padding: 12px 12px;
 }
