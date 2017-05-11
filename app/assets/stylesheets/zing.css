@@ -1,4 +1,35 @@
-
+.http-error-outside {
+  margin: 0;
+  background: #fff;
+}
+.http-error-outside .row {
+  margin-top: 50px;
+}
+.http-error-outside .error-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.http-error-outside .error-bg.error-bg1 {
+  background-image: url('/assets/formbg5.png');
+}
+.http-error-outside .error-bg.error-bg2 {
+  background-image: url('/assets/formbg5.png');
+  opacity: .5;
+}
+.http-error-outside .error-number {
+  font-size: 60px;
+}
+.http-error-outside .error-text {
+  margin: 10px 0 20px 0;
+}
+.http-error-outside .icon-list {
+  margin-top: 10px;
+}
 @font-face{
   font-family: 'OS-light';
   src: url('/assets/OpenSans-Light.ttf');
@@ -106,6 +137,8 @@ background-color: #f13c20;
 .custom {
   background-color: #f13c20;
   margin-bottom: 0px;
+  z-index: 99;
+
 }
 
 .custom.affix {
