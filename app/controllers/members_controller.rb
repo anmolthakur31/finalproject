@@ -11,5 +11,5 @@ class MembersController < ApplicationController
 		@users=User.all
 		# authorize @user
 	end
-		
+
 end
