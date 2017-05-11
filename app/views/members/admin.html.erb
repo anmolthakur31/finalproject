@@ -107,10 +107,10 @@
     <%Vehicle.all.each do |vehicle| %>
                     <tr class="gradeX">
                         <td></td>
-                        <td><%=vehicle.brand_id.name%>
+                        <td><%=vehicle.brand.name%>
                         </td>
-                        <td><%=vehicle.model_id.name%></td>
-                        <td class="center"><%=vehicle.variant_id.name%>
+                        <td><%=vehicle.model.name%></td>
+                        <td class="center"><%=vehicle.variant.name%>
                         </td>
                         <td class="center"><%=vehicle.startyear%> </td>
                     </tr>
@@ -218,11 +218,9 @@
                         <td></td>
                         <td><%=booking.dateslot%>
                         </td>
-                        <td><%=booking.timeslot%>
-                        </td>
-                          <td><%=booking.timeslot%>
-                        </td>
-                          <td><%=booking.uservehicle_id.reg_no%>
+                        <td><%=booking.timeslot%></td>
+                        
+                          <td><%=booking.uservehicle.reg_no%>
                         </td>
                   
                     </tr>

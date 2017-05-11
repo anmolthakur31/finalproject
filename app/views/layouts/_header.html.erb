@@ -27,7 +27,11 @@
         
    <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #f13c20;border-color: white;">
+                        <%#if current_user.image.exists?%>
+                        <!-- <span><%#= image_tag current_user.image.url(:small) %></span> -->
+                        <%#else%>
                         <span class="glyphicon glyphicon-user"></span>
+                        <%#end%>
                         <strong style="text-transform:uppercase;"><%= current_user.name%></strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
