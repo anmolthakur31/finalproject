@@ -1,19 +1,25 @@
 class BookingsController < ApplicationController
 	def index
+		@booking = Booking.new
 		@bookings=Booking.all
+		authorize @booking
 	end
 
 	def new
 		@booking = Booking.new
+		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
+		
 	end
 
 
 	def show
 		@booking = Booking.find(params[:id])
+		authorize @booking
 	end
 	def edit
 		@booking = Booking.find(params[:id])
+		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
 	end
 

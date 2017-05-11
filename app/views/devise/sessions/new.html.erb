@@ -59,5 +59,15 @@
             
         </div>
 <% end %>
-<%= render "layouts/footer"%>
+
+<script>
+   $(document).ready(function () {
+$("#new_user").validate({
+rules: {
+"user[email]": {required: true, email: true},
+"user[password]": {required: true, minlength: 6}
+}    
+});
+});
+  </script>
 

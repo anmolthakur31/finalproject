@@ -23,3 +23,13 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<script>
+   $(document).ready(function () {
+$("#new_user").validate({
+rules: {
+"user[password]": {required: true, minlength: 6},
+"user[password_confirmation]": {required: true, equalTo: "#user_password"}
+}
+});
+});
+  </script>

@@ -27,3 +27,13 @@
 </div>
 
 
+<%= render "devise/shared/links" %>
+<script>
+   $(document).ready(function () {
+$("#new_user").validate({
+rules: {
+"user[email]": {required: true, email: true}
+}    
+});
+});
+  </script>
