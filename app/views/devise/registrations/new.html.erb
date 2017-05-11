@@ -1,60 +1,63 @@
-  <%=render"layouts/header1"%>
-  <style type="text/css">
+<div class="login-container lightmode">
+        
+            <div class="login-box">
+ 
+                <div class="login-body">
 
-
-  </style>
-  <div class="container">
-      <div class="row main">
-  <div class="main-login main-center">
-        <h5 >SIGNUP For FREE</h5>
-    <!--    <p>Signup once and rejoice services</p> -->
           
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "form-group"}) do |f| %>
-  <%= devise_error_messages! %>
+   <div class="login-title"><strong >Sign Up</strong></div>
             <br>
-              <div class="cols-sm-10">
+    <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <%= f.text_field :name, autofocus: true, class: "form-control",id: "name",placeholder: "Enter your Name", required: true %>
+
+                      <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name" %>
+
                 
                 </div>
               </div>
             
   <br>
+            
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                   <%= f.email_field :email, autofocus: true,
-                   class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
-                </div>
-              </div>
-            
-<br>
-      
- 
-        
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                     <%= f.text_field :phone, autofocus: true, required: :true,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
-                  
-                </div>
-              </div>
-            
-<br>
-            
-    
-              <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                 
-    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password" %>
-                  
+
+
+                   <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+
+
                 </div>
               </div>
             
 <br>
           
+        
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+
+                     <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+
+                  
+                </div>
+              </div>
+            
+<br>
+            
+            
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password" %>
+                  
+                </div>
+              </div>
+            
+
+        <br>  
               
               <div class="cols-sm-10">
                 <div class="input-group">
@@ -64,11 +67,11 @@
                 </div>
               </div>
             
-
-                                <%= f.submit "Sign up", id: "button", class: "btn btn-primary btn-lg btn-block login-button actions"%>
-
 <br>
-</div>
+                                <%= f.submit "Sign up", id: "button", class: "btn btn-primary btn-lg btn-block login-button actions"%>
+            
+    
+<br>
 
   <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
         <a class="btn btn-block btn-social button-facebook btnbord">
@@ -80,14 +83,20 @@
         <span class="fa fa-twitter"></span> Sign up
     </a>
     </div>
-              </div>
+<div class="row">
+                    <div class="login-subtitle col-md-12">
+
+                        Already have an account ? <%=link_to "Sign In", new_session_path(resource_name),class: " passbtn" %>
+                    </div>
+           
+                </div>
       
  
 <% end %>
 </div>
 
 </div>
-<%= render "devise/shared/links" %>
+
 <script>
 $(document).ready(function () {
 $("#new_user").validate({
