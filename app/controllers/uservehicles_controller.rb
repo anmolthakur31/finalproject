@@ -3,6 +3,7 @@ class UservehiclesController < ApplicationController
 		@uservehicle = Uservehicle.new
 		@brands=Brand.all
 		@vehicles= Brand.order(:id)
+		authorize @uservehicle
 
 	end
 
@@ -10,6 +11,7 @@ class UservehiclesController < ApplicationController
 		@uservehicle = Uservehicle.find(params[:id])
 		@brands=Brand.all
 		@vehicles= Brand.order(:id)
+		authorize @uservehicle
 	end
 
 	def create

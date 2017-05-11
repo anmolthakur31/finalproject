@@ -1,15 +1,15 @@
 class ServicesController < ApplicationController
-	def index
-		@services=Service.all
-	end
 	def new
 		@service = Service.new
+		authorize @service
 	end
 	def show
 		@service = Service.find(params[:id])
+		authorize @service
 	end
 	def edit
 		@service = Service.find(params[:id])
+		authorize @service
 	end
 
 	def create
