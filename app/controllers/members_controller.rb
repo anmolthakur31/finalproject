@@ -9,7 +9,7 @@ class MembersController < ApplicationController
 
 		@user=User.new
 		@users=User.all
-		# authorize @user
+		authorize @user
 	end
 
 end

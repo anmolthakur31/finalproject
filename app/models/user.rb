@@ -8,7 +8,7 @@ class User < ApplicationRecord
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\z/i
 
 	validates :name, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/,
-    message: "Only allows letters" }
+    flash: "Only allows letters" }
 	has_attached_file :image, :styles => { :small => "150x150>"}
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
