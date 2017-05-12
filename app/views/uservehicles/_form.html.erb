@@ -10,10 +10,10 @@
       <%= f.grouped_collection_select :vehicle_id, @vehicles, :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {id: 'f2'} %>
   </div><br>
 
-
+<%year = 1%>
   <div class="field">
     <%= f.label "Manufacture Year:" %><br>
-    <%= f.select :manf_year, 2000..Date.today.year %>
+    <%= f.select :manf_year,(year)..(Date.today.year) %>
   </div><br>
 
   <div class="field">
