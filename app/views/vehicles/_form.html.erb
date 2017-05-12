@@ -3,13 +3,13 @@
 
 	<div class="field" id="brandbox">
 	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, @brands, :id, :name,prompt: 'Select Brand' %>
+	    <%= f.collection_select :brand_id, @brands, :id, :name,prompt: 'Select Brand'%>
       <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
 	</div><br>
 
 <div class="field" id="modelbox">
       <%= f.label "Model:" %><br>
-      <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model' %>
+      <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model'%>
       <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
 

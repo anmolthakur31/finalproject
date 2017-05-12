@@ -9,11 +9,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    return true if user.present?
+    return true if user.present? && (user.userrole_id==3)
   end
  
   def update?
-     return true if user.present? 
+     return true if user.present? && (user.userrole_id==3) && user == booking.uservehicle.user 
   end
  
   def destroy?
