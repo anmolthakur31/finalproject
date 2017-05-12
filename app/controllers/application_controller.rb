@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	include Pundit
 	rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-	before_filter :store_current_location, :unless => :devise_controller?
+	before_action :store_current_location, :unless => :devise_controller?
   	
   	def after_sign_in_path_for(resource)
       if (@user.userrole_id==1 || @user.userrole_id==2)
