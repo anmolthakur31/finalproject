@@ -7,6 +7,8 @@ class VehiclesController < ApplicationController
 		@models=Brand.order(:id)
 		@variant=Variant.new
 		@variants=Variant.all
+				    @brandf = Brand.order("created_at desc").limit(1)
+
 		authorize @vehicle
 
 	end

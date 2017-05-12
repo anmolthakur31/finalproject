@@ -39,16 +39,7 @@
                 minuteStep: 60,
                 showInputs: true,
                 disableFocus: true,
-            }).on('changeTime.timepicker', function(e) {    
-    var h= e.time.hours;
-    var m= e.time.minutes;
-    var mer= e.time.meridian;
-    //convert hours into minutes
-    m+=h*60;
-    //10:15 = 10h*60m + 15m = 615 min
-    if(mer=='AM' && m<615)
-        $('#timepicker').timepicker('setTime', '10:15 AM');
-  });
+            })
     $("#time").click(function(){
         $(".bootstrap-timepicker-widget").toggle();
 
