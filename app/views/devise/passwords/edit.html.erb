@@ -1,28 +1,42 @@
-<h2>Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+
+
+<div class="login-container lightmode">
+        
+            <div class="login-box">
+ 
+                <div class="login-body">
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put,class: "form-group"} ) do |f| %>
+   <div class="login-title"><strong >Change Your Password</strong></div>
+            <br>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+   <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password" %>
+                  
+                </div>
+              </div>
+              <br>
+  <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Confirm new your Password" %>
+              
+                </div>
+              </div>
+ 
+<br>
+    <%= f.submit "Change my password", id: "button", class: "btn btn-primary btn-lg btn-block login-button actions" %>
   </div>
 <% end %>
+</div>
+</div>
 
-<%= render "devise/shared/links" %>
 <script>
    $(document).ready(function () {
 $("#new_user").validate({

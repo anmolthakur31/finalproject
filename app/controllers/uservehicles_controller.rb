@@ -3,7 +3,7 @@ class UservehiclesController < ApplicationController
 		@uservehicle = Uservehicle.new
 		@brands=Brand.all
 		@vehicles= Brand.order(:id)
-		# authorize @uservehicle
+		authorize @uservehicle
 
 	end
 

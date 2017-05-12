@@ -1154,8 +1154,9 @@ font-size:29px;
 
 
 .login-container.lightmode {
-  background: url("/assets/sign.jpg") left top repeat;
+  background: url("/assets/formbg51.jpg") left top no-repeat;
   height: 628px;
+  background-size: cover;
 }
 .login-container.lightmode .login-box .login-body {
   background: rgba(255, 255, 255, 0.2);
