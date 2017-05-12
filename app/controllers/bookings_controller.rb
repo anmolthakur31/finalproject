@@ -26,7 +26,8 @@ class BookingsController < ApplicationController
 	def create
 		@booking = Booking.new(booking_params)
 		@booking.save
-	    redirect_to services_path
+		redirect_to admin_path(admin)
+	    # redirect_to member_path(member)
 	    flash.notice = 'Booking was successfully created'
 	end
 
