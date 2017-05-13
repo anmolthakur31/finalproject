@@ -1672,3 +1672,14 @@ fieldset[disabled] .checkbox label {
 .m-l-13{
   margin-left: 13px;
 }    
+.style_image {
+  border: 1px solid white;
+  border-radius:  30px ;
+}
+.style_image1 {
+  border: 1px solid white;
+  border-radius:  90px ;
+}
+.m-t-7{
+  margin-top: 7px;
+}

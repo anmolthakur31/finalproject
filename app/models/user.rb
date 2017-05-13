@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 	validates :name, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/,
     flash: "Only allows letters" }
-	has_attached_file :image, :styles => { :small => "150x150>"}
+	has_attached_file :image, :styles => { :small => "90x90>" ,:thumb => "30x30>"}
                     
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
