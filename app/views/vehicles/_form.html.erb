@@ -1,34 +1,56 @@
-
-<%= form_for @vehicle, remote: true do |f| %>
-
-	<div class="field" id="brandbox">
-	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, @brands, :id, :name,prompt: 'Select Brand' %>
-      <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
-	</div><br>
-
-<div class="field" id="modelbox">
-      <%= f.label "Model:" %><br>
-      <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model' %>
-      <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
-  </div><br>
-
-
-  <div class="field" id="variantbox">
-      <%= f.label "Variant:" %><br>
-      <%= f.collection_select :variant_id, @variants, :id, :name ,prompt: 'Select Variant'%>
-      <span><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%></span>
-  </div><br>
-
-
-  <div class="field">
-    <%= f.label :startyear %><br />
-    <%= f.text_field :startyear, required: :true %>
-  </div><br>
-  
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+  <div class="container">             
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+           <div class="panel-title">Add A Vehicle
+           </div>
+          <div style="float:right; font-size: 85%; position: relative; top:-10px">
+          </div>
+        </div>  
+        <div class="panel-body" >
+        <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
+          <div id="brandbox" class="form-group required">
+          <%= f.label "Brand",class: "control-label col-md-4  requiredField" %><br> 
+            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+            <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "btn btn-danger btn-select btn-select-light"}%>
+              <button class="btn btn-default"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%>
+              </button>
+            </div>
+             </div>
+              
+          <div id="modelbox" class="form-group required">
+          <%= f.label "Model", class: "control-label col-md-4 modellabel requiredField"%>
+            <div class="controls col-md-8 ">
+            <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model',class: "input-md  textinput textInput form-control",style: "margin-bottom: 10px" %>
+              <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%>
+              </span>
+            </div>
+          </div>
+          <div id="variantbox" class="form-group required">
+          <%= f.label "Variant",class: "control-label col-md-4  requiredField" %>
+            <div class="controls col-md-8 ">
+            <%= f.collection_select :variant_id, @variants, :id, :name ,prompt: 'Select Variant',class: "input-md emailinput form-control",style: "margin-bottom: 10px" %>
+              <span><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%>
+              </span>
+            </div>     
+          </div>
+          <div  class="form-group required">
+          <%= f.label :startyear,class: "control-label col-md-4  requiredField" %>
+            <div class="controls col-md-8 "> 
+            <%= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control",style: "margin-bottom: 10px"%>    
+             </div>
+          </div>
+          <div class="form-group"> 
+            <div class="aab controls col-md-4 ">
+            </div>
+              <div class="controls col-md-8 ">
+              <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
+              </div>
+          </div>    
+        </div>
+      </div>
+    </div> 
+  </div>
 <% end %>
 
 <div class="modal fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,10 +106,10 @@
 
 <script type="text/javascript">
 jQuery(function() {
- let models = $('#vehicle_model_id').html();
+ var models = $('#vehicle_model_id').html();
  return $('#vehicle_brand_id').change(function() {
-  let brand = $('#vehicle_brand_id :selected').text();
-  let options = $(models).filter(`optgroup[label='${brand}']`).html();
+  var brand = $('#vehicle_brand_id :selected').text();
+   var options = $(models).filter(`optgroup[label='${brand}']`).html();
   if (options) {
    return $('#vehicle_model_id').html(options);
   } else {
@@ -113,4 +135,7 @@ rules: {
 }
 });
 });
+
 </script>
+
+   
