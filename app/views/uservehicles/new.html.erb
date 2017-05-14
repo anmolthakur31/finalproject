@@ -1,7 +1,3 @@
 <h3>Add a vehicle</h3>
 
-<%if user_signed_in?%>
 <%= render 'form'%>
-<%else%>
-<p>Please Login/SignUn to add vehicle <%= link_to "SignIn",new_user_session_path %></p>
-<%end%>

@@ -21,17 +21,17 @@
 </ul>  
 <ul class="nav navbar-nav navbar-right links " > 
  
-<li ><a href="#" >SERVICES</a></li>
-   <li><a href="#">CONTACT US</a></li>
+<li ><a href="#" class="m-t-7">SERVICES</a></li>
+   <li><a href="#" class="m-t-7">CONTACT US</a></li>
         <% if user_signed_in? %>
         
    <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #f13c20;border-color: white;">
-                        <%#if current_user.image.exists?%>
-                        <!-- <span><%#= image_tag current_user.image.url(:small) %></span> -->
-                        <%#else%>
-                        <span class="glyphicon glyphicon-user"></span>
-                        <%#end%>
+                        <%if current_user.image.exists?%>
+                         <span><%= image_tag current_user.image.url(:thumb) , :class => "style_image"%></span> 
+                        <%else%>
+                        <span class="glyphicon glyphicon-user m-t-7"></span>
+                        <%end%>
                         <strong style="text-transform:uppercase;"><%= current_user.name%></strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
@@ -41,7 +41,11 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <p class="text-center">
-                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                           <%if current_user.image.exists?%>
+                                           <span><%= image_tag current_user.image.url(:small) , :class => "style_image1"%></span> 
+                                          <%else%>
+                                           <span class="glyphicon glyphicon-user icon-size"></span>
+                                         <%end%>
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
@@ -66,7 +70,7 @@
                     </ul>
                 </li>
   <%else%>
- <li ><%=link_to "SIGN IN", new_user_session_path%>  </li>
+ <li ><%=link_to "SIGN IN", new_user_session_path , :class => 'm-t-7'%>  </li>
   
        <%end%>
        

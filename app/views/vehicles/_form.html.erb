@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <div class="container">             
     <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
       <div class="panel panel-info">
@@ -51,6 +52,39 @@
       </div>
     </div> 
   </div>
+=======
+
+<%= form_for @vehicle, remote: true do |f| %>
+
+	<div class="field" id="brandbox">
+	    <%= f.label "Brand:" %><br>
+	    <%= f.collection_select :brand_id, @brands, :id, :name,prompt: 'Select Brand'%>
+      <span><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%></span>
+	</div><br>
+
+<div class="field" id="modelbox">
+      <%= f.label "Model:" %><br>
+      <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, prompt: 'Select Model'%>
+      <span><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%></span>
+  </div><br>
+
+
+  <div class="field" id="variantbox">
+      <%= f.label "Variant:" %><br>
+      <%= f.collection_select :variant_id, @variants, :id, :name ,prompt: 'Select Variant'%>
+      <span><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%></span>
+  </div><br>
+
+
+  <div class="field">
+    <%= f.label :startyear %><br />
+    <%= f.text_field :startyear, required: :true %>
+  </div><br>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+>>>>>>> 11e9799b67e6f0a356e4ce7a34c44b33c9dbf230
 <% end %>
 
 <div class="modal fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
