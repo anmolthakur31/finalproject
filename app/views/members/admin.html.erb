@@ -5,9 +5,9 @@
 
     <link rel="stylesheet" href="/assets/Datatables/admin1.css">
     <link rel="stylesheet" href="assets/Datatables/elements.css">
+    <link rel="stylesheet" href="/assets/Datatables/plugins.css">
     <link rel="stylesheet" href="/assets/Datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/assets/Datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" href="/assets/Datatables/plugins.css">
 
                         <!-- END PLUGINS CSS -->
 
@@ -170,7 +170,6 @@
                                                                 <th>Description</th>
                                                                 <th>Joining Date</th>
                                                                 <th>Update on</th>
-                                                                <th>Deletion Date</th>
                                                             </tr>
                                                         </tfoot>
 
@@ -179,10 +178,8 @@
                                                             <tr>
                                                                 <td><%=service.name%></td>
                                                                 <td><%=service.description%></td>
-                                                                <td><%=service.name%></td>
                                                                 <td><%=service.created_at%></td>
                                                                 <td><%=service.updated_at%></td>
-                                                                <td><%#=service.deleted_at%></td>
                                                             </tr>
                                                             <%end%>
                                                         </tbody>
