@@ -12,9 +12,13 @@
   </head>
 
   <body>
-
-      <%= render 'layouts/header'%>
-
+      <%if user_signed_in?%>
+        <%if current_user.userrole_id == 2%>
+           <%= render 'layouts/header1'%>
+           <%end%>
+        <%else%>
+         <%= render 'layouts/header'%>
+      <%end%>
       <% unless flash.empty? %>
       <script>
           <% flash.each do |f| %>

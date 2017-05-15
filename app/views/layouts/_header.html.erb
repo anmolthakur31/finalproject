@@ -1,6 +1,6 @@
 
   <nav  class="navbar custom">
-    <div class="clearfix">
+    <div class="wrapper">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header bb">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -27,42 +27,13 @@
         
    <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #f13c20;border-color: white;">
-                        <%if current_user.image.exists?%>
-                         <span><%= image_tag current_user.image.url(:thumb) , :class => "style_image"%></span> 
-                        <%else%>
-                        <span class="glyphicon glyphicon-user m-t-7"></span>
-                        <%end%>
-                        <strong style="text-transform:uppercase;"><%= current_user.name%></strong>
-                        <span class="glyphicon glyphicon-chevron-down"></span>
+                         <span><%= image_tag current_user.image.url(:thumb) , :class => "style_image" ,:style => "height:30px;width:30px;"%></span> 
+                        <span class="glyphicon glyphicon-chevron-down" style="top: 4px;"></span>
                     </a>
-                    <ul class="dropdown-menu editdropdown" style="margin-top: 1px; right: 2px;">
-                        <li>
-                            <div class="userlogin">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <p class="text-center">
-                                           <%if current_user.image.exists?%>
-                                           <span><%= image_tag current_user.image.url(:small) , :class => "style_image1"%></span> 
-                                          <%else%>
-                                           <span class="glyphicon glyphicon-user icon-size"></span>
-                                         <%end%>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p class="text-left" style="color: white;"><strong>
-                                        <%=current_user.name%></strong></p>
-                                        <p class="text-left small" style="color: white;">
-                                        <%=current_user.email%></p>
-                                        <p class="text-left">
-                                            <a href="#" class="btn btn-primary btn-block btn-sm editbutton">Profile</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider login-session-bg"></li>
-                        
-   <li><a href="#">My Vehicles</a></li>
+                    <ul class="dropdown-menu editdropdown" style="margin-top: 1px; ">
+                  <li><a href="#">Profile</a></li>
+                 <li class="divider login-session-bg"></li>     
+                 <li><a href="#">My Vehicles</a></li>
                  <li class="divider login-session-bg"></li>
                  <li><a href="#">My Bookings</a></li>
                  <li class="divider login-session-bg"></li>
