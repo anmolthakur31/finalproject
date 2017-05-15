@@ -146,9 +146,6 @@ background-color: #f13c20;
   padding-top: 0;
 }
 
-.links > li {
-  margin-right: 2px;
-}
 
 .links li a {
  color: white;
@@ -1682,4 +1679,8 @@ fieldset[disabled] .checkbox label {
 }
 .m-t-7{
   margin-top: 7px;
+}
+.header1{
+  text-decoration: none;
+  margin-top: 2px;
 }
