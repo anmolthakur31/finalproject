@@ -3,9 +3,11 @@
   <head>
     <title>Serveforwheels</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+              <%= javascript_include_tag 'preyield' , 'data-turbolinks-track': 'reload' %>
+
  
   </head>
 
@@ -28,6 +30,7 @@
 
     <%= yield %>
 
+            <%= javascript_include_tag 'postyield' , 'data-turbolinks-track': 'reload' %>
 
 
  
