@@ -146,9 +146,6 @@ background-color: #f13c20;
   padding-top: 0;
 }
 
-.links > li {
-  margin-right: 2px;
-}
 
 .links li a {
  color: white;
@@ -241,9 +238,11 @@ margin-top: 2px;
 }
 
 .navposition{
-  width: 457px!important;
+/*  width: 457px!important;
+*/
+  left: auto;
 float:left!important;
-border-top: 1px solid white;
+border-top: 0px solid white;
 }
 
 .container > .navbar-header {
@@ -1251,7 +1250,7 @@ font-size:29px;
   width: 50%;
   float: left;
   padding: 0px 0px 5px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 0px solid #E5E5E5;
   font-size: 12px;
 }
 .dataTables_length label,
@@ -1272,7 +1271,7 @@ font-size:29px;
   float: right;
   padding-left: 5px;
   padding: 0px 0px 5px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 0px solid #E5E5E5;
   font-size: 12px;
 }
 .dataTables_filter label {
@@ -1657,6 +1656,19 @@ fieldset[disabled] .checkbox label {
 .dropdown-item-checkbox{
   display: none;
 }
+@media only screen and (max-width:719px) {
+.zeropadding{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+}
+.bb{
+border-bottom: 1px solid white;
+}
+a {
+    text-decoration: none !important;
+}
+
 .border-circle{
    font-size: 20px;
     border-radius: 50%;
@@ -1682,4 +1694,8 @@ fieldset[disabled] .checkbox label {
 }
 .m-t-7{
   margin-top: 7px;
+}
+.header1{
+  text-decoration: none;
+  margin-top: 2px;
 }

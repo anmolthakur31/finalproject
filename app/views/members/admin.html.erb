@@ -1,0 +1,264 @@
+
+ 
+
+                        <!-- BEGIN PLUGINS CSS -->
+
+    <link rel="stylesheet" href="/assets/Datatables/admin1.css">
+    <link rel="stylesheet" href="assets/Datatables/elements.css">
+    <link rel="stylesheet" href="/assets/Datatables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/assets/Datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/assets/Datatables/plugins.css">
+
+                        <!-- END PLUGINS CSS -->
+
+                        
+                        <!-- BEGIN CORE CSS -->
+
+    <link rel="stylesheet" href="/assets/corecss/bootstrap.css">
+    <link rel="stylesheet" href="/assets/corecss/font-awesome.css">
+    <link rel="stylesheet" href="/assets/corecss/zing.css">
+                        
+                        <!-- END CORE CSS -->
+
+
+
+
+
+
+
+<!--                               content begins                                     -->
+
+
+
+
+
+
+
+    
+
+    <div class="content">
+        <div class="container-fluid" style="margin-top: 50px;">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 heading">
+                    <h2 style="margin-bottom: 50px;">Serve4Wheels</h2>
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#home">Users</a>
+                            </li>
+                            <li><a data-toggle="tab" href="#menu1">Vehicles</a></li>
+                            <li><a data-toggle="tab" href="#menu2">Services</a></li>
+                            <li><a data-toggle="tab" href="#menu3">Bookings</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <h3>Users</h3>
+                                <div class="wrapper wrapper-content animated fadeInRight">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="overflow-table">
+                                                <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without search -->                         
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone Number</th>
+                                                            <th>Joining Date</th>
+                                                            <th>Update on</th>
+                                                            <th>User Role</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone Number</th>
+                                                            <th>Joining Date</th>
+                                                            <th>Update on</th>
+                                                            <th>User Role</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        <% @users.each do |user| %>
+                                                        <tr>
+                                                            <td><%=user.name%></td>
+                                                            <td><%=user.email%></td>
+                                                            <td><%=user.phone%></td>
+                                                            <td><%=user.created_at%></td>
+                                                            <td><%=user.updated_at%></td>
+                                                            <td><%=user.userrole.rolename%></td>
+                                                        </tr>
+                                                        <%end%>
+                                                    </tbody>
+                                                </table>
+                                            </div><!--.overflow-table-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu1" class="tab-pane fade">
+                                <h3>Vehicles</h3>
+                                <div class="wrapper wrapper-content animated fadeInRight">
+                                    <div class="row">
+                                        <div class="col-lg-12">            
+                                            <div class="overflow-table">
+                        <!-- <table class="display datatables-alphabet-sorting"> -->
+                                                <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without search -->                         
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Brand</th>
+                                                            <th>Model</th>
+                                                            <th>Variant</th>
+                                                            <th>Starting Year</th>
+                                                            <th>Created On</th>
+                                                            <th>Updated on</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>Brand</th>
+                                                            <th>Model</th>
+                                                            <th>Variant</th>
+                                                            <th>Starting Year</th>
+                                                            <th>Created On</th>
+                                                            <th>Updated on</th>
+                                                        </tr>
+                                                    </tfoot>
+
+                                                    <tbody>
+                                                        <% @vehicles.each do |vehicle| %>
+                                                        <tr>
+                                                            <td><%=vehicle.brand.name%></td>
+                                                            <td><%=vehicle.model.name%></td>
+                                                            <td><%=vehicle.variant.name%></td>
+                                                            <td><%=vehicle.startyear%></td>
+                                                            <td><%=vehicle.created_at%></td>
+                                                            <td><%=vehicle.updated_at%></td>
+                                                        </tr>
+                                                        <%end%>
+                                                    </tbody>
+                                                </table>
+                                            </div><!--.overflow-table-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <h3>Services</h3>
+                                    <div class="wrapper wrapper-content animated fadeInRight">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="overflow-table">
+                                                    <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without alphabet search -->                         
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                                <th>Joining Date</th>
+                                                                <th>Update on</th>
+                                                                <th>Deletion Date</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                                <th>Joining Date</th>
+                                                                <th>Update on</th>
+                                                                <th>Deletion Date</th>
+                                                            </tr>
+                                                        </tfoot>
+
+                                                        <tbody>
+                                                            <% @services.each do |service| %>
+                                                            <tr>
+                                                                <td><%=service.name%></td>
+                                                                <td><%=service.description%></td>
+                                                                <td><%=service.name%></td>
+                                                                <td><%=service.created_at%></td>
+                                                                <td><%=service.updated_at%></td>
+                                                                <td><%#=service.deleted_at%></td>
+                                                            </tr>
+                                                            <%end%>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!--.overflow-table-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div id="menu3" class="tab-pane fade">
+                                <h3>Bookings</h3>
+                                    <div class="wrapper wrapper-content animated fadeInRight">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="overflow-table">
+                                                    <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without alphabet search -->                         
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Dateslot</th>
+                                                                <th>Timeslot</th>
+                                                                <th>User Vehicle</th>
+                                                                <th>Vehicle Registration</th>
+                                                                <th>Total Cost</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tfoot>
+                                                           <tr>
+                                                                <th>Dateslot</th>
+                                                                <th>Timeslot</th>
+                                                                <th>User Vehicle</th>
+                                                                <th>Vehicle Registration</th>
+                                                                <th>Total Cost</th>
+                                                            </tr>
+                                                        </tfoot>
+
+                                                        <tbody>
+                                                            <% @bookings.each do |booking| %>
+                                                            <tr>
+                                                                <td><%=booking.dateslot%></td>
+                                                                <td><%=booking.timeslot%></td>
+                                                                <td>
+                                                                <%=booking.uservehicle.vehicle.brand.name%>
+                                                                <%=booking.uservehicle.vehicle.model.name%>
+                                                                <%=booking.uservehicle.vehicle.variant.name%>
+                                                                </td>
+                                                                <td><%=booking.uservehicle.reg_no%></td>
+                                                                <td><%=booking.total_cost%></td>
+                                                            </tr>
+                                                            <%end%>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!--.overflow-table-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--.content-->
+
+
+    <!-- BEGIN INITIALIZATION-->
+
+
+    <script>
+    $(document).ready(function () {
+        Pleasure.init();
+        Layout.init();
+        TablesDataTables.init();
+    });
+    </script>
+
+
+    <!-- END INITIALIZATION-->
