@@ -12533,15 +12533,15 @@ h6 {
 */
 .footer {
   position: relative;
-  padding: 40px;
+ /* padding: 40px;
   margin-top: 40px !important;
   margin-left: -40px;
-  margin-right: -40px;
+  margin-right: -40px;*/
   border-top: 1px solid #f0f0f0;
 }
 .footer span {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.54);
+  /*color: rgba(0, 0, 0, 0.54);*/
   font-weight: bold;
 }
 .footer ul.social {

@@ -1,18 +1,27 @@
-
-<div class="http-error-outside">
-
-	<div class="error-bg error-bg1"></div><!--.error-bg1-->
-
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1 col-md-6 col-lg-6 col-lg-offset-3">
-				<div class="error-number">500</div>
+ <div class="container" style="margin: 20px 0px;">
+   <div class="row">
+   	  <div class="col-xs-10 col-xs-offset-1 col-md-6 col-lg-6 col-lg-offset-3 " style="padding: 30px">
+       <img src="/assets/error404" width="100" height="auto">
+   	  	<div class="f-100">500</div>
 				<div class="error-text">
 					<h3>Sorry,this page is not available currently.</h3>
 				</div>
-
-				
-			</div>
-		</div><!--.row-->
-	</div><!--.container-->
-</div>
+   	  </div>
+   </div>
+ </div>
+ <script type="text/javascript">
+  <!--
+  
+  $(document).ready(function() {
+   
+   var docHeight = $(window).height();
+   var footerHeight = $('#sticky').height();
+   var footerTop = $('#sticky').position().top + footerHeight;
+   
+   if (footerTop < docHeight) {
+    $('#sticky').css('margin-top', 10 + (docHeight - footerTop) + 'px');
+   }
+  });
+  
+  // -->
+ </script>
