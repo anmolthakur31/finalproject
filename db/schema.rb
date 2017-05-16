@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509080752) do
+ActiveRecord::Schema.define(version: 20170515134316) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "dateslot"
@@ -95,6 +95,10 @@ ActiveRecord::Schema.define(version: 20170509080752) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "userrole_id",            default: 3
+    t.datetime "deleted_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["userrole_id"], name: "index_users_on_userrole_id", using: :btree
