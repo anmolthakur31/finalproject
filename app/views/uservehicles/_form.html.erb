@@ -1,4 +1,6 @@
-<%= form_for @uservehicle do |f| %> 
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@uservehicle, remote: remote, html: {role: :form, 'data-model' => 'uservehicle'}) do |f| %>
 
 	<div class="field">
 	    <%= f.label "Brand:" %><br>

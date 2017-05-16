@@ -1,8 +1,9 @@
-<%= form_for @booking do |f| %>
+<%= form_for @booking, remote: true do |f| %>
 
   <div class="field">
       <%= f.label "Select vehicle" %><br>
       <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name %>
+      <span><%= link_to "Add vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
   
   <div class="field">
@@ -51,3 +52,19 @@ $('#timepicker').timepicker({
         showInputs: true,        
         showMeridian: true,        
 }) -->
+<div class="modal fade" id="new_uservehicle_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new uservehicle</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'uservehicles/form', modal: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
