@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/Datatables/plugins.css">
     <link rel="stylesheet" href="/assets/Datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/assets/Datatables/dataTables.bootstrap.css">
+    
 
                         <!-- END PLUGINS CSS -->
 
@@ -65,7 +66,7 @@
                                                             <th>Email</th>
                                                             <th>Phone Number</th>
                                                             <th>Joining Date</th>
-                                                            <th>Update on</th>
+                                                            <th>Deleted on</th>
                                                             <th>User Role</th>
                                                         </tr>
                                                     </thead>
@@ -75,7 +76,7 @@
                                                             <th>Email</th>
                                                             <th>Phone Number</th>
                                                             <th>Joining Date</th>
-                                                            <th>Update on</th>
+                                                            <th>Deleted on</th>
                                                             <th>User Role</th>
                                                         </tr>
                                                     </tfoot>
@@ -86,7 +87,7 @@
                                                             <td><%=user.email%></td>
                                                             <td><%=user.phone%></td>
                                                             <td><%=user.created_at%></td>
-                                                            <td><%=user.updated_at%></td>
+                                                            <td><%=user.deleted_at%></td>
                                                             <td><%=user.userrole.rolename%></td>
                                                         </tr>
                                                         <%end%>
@@ -161,6 +162,7 @@
                                                                 <th>Joining Date</th>
                                                                 <th>Update on</th>
                                                                 <th>Deletion Date</th>
+                                                                <th>Deletion Date</th>
                                                             </tr>
                                                         </thead>
 
@@ -170,6 +172,8 @@
                                                                 <th>Description</th>
                                                                 <th>Joining Date</th>
                                                                 <th>Update on</th>
+                                                                <th>Deletion Date</th>
+                                                                <th>Deletion Date</th>
                                                             </tr>
                                                         </tfoot>
 
@@ -178,6 +182,8 @@
                                                             <tr>
                                                                 <td><%=service.name%></td>
                                                                 <td><%=service.description%></td>
+                                                                <td><%=service.created_at%></td>
+                                                                <td><%=service.updated_at%></td>
                                                                 <td><%=service.created_at%></td>
                                                                 <td><%=service.updated_at%></td>
                                                             </tr>
@@ -204,6 +210,7 @@
                                                                 <th>User Vehicle</th>
                                                                 <th>Vehicle Registration</th>
                                                                 <th>Total Cost</th>
+                                                                <th>Total Cost</th>
                                                             </tr>
                                                         </thead>
 
@@ -213,6 +220,7 @@
                                                                 <th>Timeslot</th>
                                                                 <th>User Vehicle</th>
                                                                 <th>Vehicle Registration</th>
+                                                                <th>Total Cost</th>
                                                                 <th>Total Cost</th>
                                                             </tr>
                                                         </tfoot>
@@ -228,6 +236,7 @@
                                                                 <%=booking.uservehicle.vehicle.variant.name%>
                                                                 </td>
                                                                 <td><%=booking.uservehicle.reg_no%></td>
+                                                                <td><%=booking.total_cost%></td>
                                                                 <td><%=booking.total_cost%></td>
                                                             </tr>
                                                             <%end%>
