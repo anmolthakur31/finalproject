@@ -7809,11 +7809,11 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
   top: 50%;
   margin-top: -14px;
   font-family: 'IonIcons';
-  content: '\f2f4';
+  content: '\f2c7';
 }
 .accordion .panel-heading.active a:after,
 .toggle .panel-heading.active a:after {
-  content: '\f2c7';
+  content: '\f2f4';
 }
 .accordion .panel-body,
 .toggle .panel-body {

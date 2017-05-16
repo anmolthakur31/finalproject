@@ -1654,10 +1654,14 @@ fieldset[disabled] .checkbox label {
 .dropdown-item-checkbox{
   display: none;
 }
-@media only screen and (max-width:719px) {
+@media only screen and (max-width:768px) {
 .zeropadding{
   padding-right: 0px;
   padding-left: 0px;
+}
+.media-font{
+  font-size: 15px!important;
+  padding: 13px 35px 13px 20px !important;
 }
 }
 .bb{
@@ -1683,12 +1687,8 @@ a {
   margin-left: 13px;
 }    
 .style_image {
-  border: 1px solid white;
+  border: 1px white;
   border-radius:  30px ;
-}
-.style_image1 {
-  border: 1px solid white;
-  border-radius:  90px ;
 }
 .m-t-7{
   margin-top: 7px;
@@ -1704,3 +1704,6 @@ a {
         float: right;
         color: #212121;
       }
+.p-l-r-30{
+  padding: 10px 30px
+}
