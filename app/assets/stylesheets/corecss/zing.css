@@ -191,7 +191,10 @@ background-color: #f13c20;
     padding-bottom: 0px;
     padding-top: 0px;
 }
+.carousel-inner > .item > img {
 
+  height:645px;
+}
 .icon-size
 {
     font-size: 87px;
@@ -301,14 +304,7 @@ li.open a,
  .img-container img { opacity: 0.4;
  position: relative; }
 
-@media only screen and (min-width: 980px) {
-.bx-wrapper{
-  height: 678px; 
-  display: block;
-  overflow: hidden;
-  margin-bottom: 0px;
- }
- }
+
 
 
 .under{
@@ -317,10 +313,13 @@ li.open a,
     top: 15%;
     left: 50px;
     right: 50px;
-
-
-
 }
+.intro-content , .intro-content2, .intro-content1{
+top: 9%;
+left: 0%;
+right:0%;
+}
+
 .intro-content h1{
     font-size: 46px;
   font-family: 'robotoregular';
