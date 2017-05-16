@@ -346,11 +346,11 @@ li.open a,
   opacity: 0.8;
 padding-top: 10px;
 }
-.intro-content h1:hover{
+/*.intro-content h1:hover{
   color:white;
   opacity: 0.7;
 }
-
+*/
  .intro-content2 h1{
     font-size: 47px;
   font-family: 'robotoregular';
@@ -376,10 +376,10 @@ text-transform: uppercase;
   opacity: 0.8;
 padding-top: 10px;
 }
-.intro-content2 h1:hover{
+/*.intro-content2 h1:hover{
   color:white;
   opacity: 0.7;
-}
+}*/
 .intro-content1 h1{
     font-size: 46px;
   font-family: 'robotoregular';

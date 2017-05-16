@@ -30,7 +30,11 @@ class BookingsController < ApplicationController
 		@booking = Booking.new(booking_params)
 		@booking.save
 		redirect_to admin_path(admin)
-	    # redirect_to member_path(member)
+		if (current_user.userrole_id==1 || current_user.userrole_id==2)
+     		redirect_to admin_path(resource) 
+      	else     
+     		redirect_to member_path(resource)
+      	end
 	    flash.notice = 'Booking was successfully created'
 	end
 
