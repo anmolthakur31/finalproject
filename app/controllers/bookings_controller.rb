@@ -21,27 +21,28 @@ class BookingsController < ApplicationController
 		authorize @booking
 	end
 	def edit
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
+		@uservehicle = Uservehicle.new
 		@booking = Booking.find(params[:id])
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
 	end
 
 	def create
+		@member=current_user
 		@booking = Booking.new(booking_params)
-		@booking.save
-		redirect_to admin_path(admin)
-		if (current_user.userrole_id==1 || current_user.userrole_id==2)
-     		redirect_to admin_path(resource) 
-      	else     
-     		redirect_to member_path(resource)
-      	end
+		@booking.save  
+     		redirect_to member_path(@member)
+    
 	    flash.notice = 'Booking was successfully created'
 	end
 
 	def update
+		@member=current_user
 		@booking = Booking.find(params[:id])
 		@booking.update(booking_params)
-		redirect_to services_path
+		redirect_to member_path(@member)
 		flash.notice = 'Booking was successfully created'
 	end
 

@@ -15,14 +15,14 @@ class ServicesController < ApplicationController
 	def create
 		@service = Service.new(service_params)
 		@service.save
-	    redirect_to services_path
+	    redirect_to service_path
 	    flash.notice = 'Service was successfully created'
 	end
 
 	def update
 		@service = Service.find(params[:id])
 		@service.update(service_params)
-		redirect_to services_path
+		redirect_to service_path
 		flash.notice = 'Service was successfully created'
 	end
 
