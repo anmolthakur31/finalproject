@@ -4,8 +4,8 @@
 <%= form_for(@variant, remote: remote, html: {role: :form, 'data-model' => 'variant', class: "form-horizontal"}) do |f| %>
 
 <div class="form-group required">
-					          <%= f.label "Variant", class: "control-label col-md-5 requiredField"%>
-					            <div class="controls col-md-3 "> 
+					          <%= f.label "Variant", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+					            <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
            <%= f.text_field :name, autofocus: true, required: :true,class: "input-md textinput textInput form-control",style: "margin-bottom: 10px"%>   
 						           </div> 
 					  </div>

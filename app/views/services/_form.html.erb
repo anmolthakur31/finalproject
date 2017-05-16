@@ -1,20 +1,37 @@
+<div class="panel-body" >
+<%= form_for @service , :html => { :multipart => true, class: "form-horizontal" } do |f| %>
+ <div class="form-group required">
+  
+   <%= f.label "Name of Service", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+      <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
+           <%= f.text_field :name, autofocus: true, required: :true,class: "input-md textinput textInput form-control",style: "margin-bottom: 10px"%>   
+                       </div> 
+  </div>
+  <div class="form-group required">
+  
+   <%= f.label "Description", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+      <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
+           <%= f.text_area :description, required: :true,class: "input-md textinput textInput form-control",style: "margin-bottom: 10px"%>   
+                       </div> 
+  </div>
+  
+<div class="form-group required">
+  
+   <%= f.label "Image", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+       
+     <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
+           <%= f.file_field :image, required: :true,class: "input-md textinput textInput form-control text-center",style: "margin-bottom: 10px"%>   
+                       </div> 
+  </div>
+   <div class="form-group">
+                          <div class="controls col-md-4 col-md-offset-4 text-center">
+                             <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
+                          </div>
+                    </div>
 
-<%= form_for @service , :html => { :multipart => true } do |f| %>
+   
+</div>
 
-  <div class="field">
-    <%= f.label "Name" %><br>
-    <%= f.text_field :name, autofoucs: :true%>
-  </div><br>
-  <div class="field">
-    <%= f.label "Description:" %><br>
-    <%= f.text_area :description%>
-  </div><br>
-  <div class="field">
-    <%= f.file_field :photo ,required: true%>
-  </div><br>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
 <% end %>
 
 <script type="text/javascript">

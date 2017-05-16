@@ -4,8 +4,8 @@
 				        <div class="panel-body" >
 				<%= form_for(@brand, remote: remote, html: {role: :form, 'data-model' => 'brand', class: "form-horizontal"}) do |f| %>
 					     <div class="form-group required">
-					          <%= f.label "Name of Brand", class: "control-label col-md-5 requiredField"%>
-						           <div class="controls col-md-3"> 
+					          <%= f.label "Name of Brand", class: "control-label col-md-5 col-xs-12 col-sm-5 requiredField text-center" ,:style => "margin-top: 2px;"%>
+						           <div class="controls col-md-3 col-xs-12 col-sm-5 text-center "> 
 						           <%= f.text_field :name, autofocus: true, required: :true,class: "input-md textinput textInput form-control",style: "margin-bottom: 10px"%>   
 						           </div> 
 					  </div>
