@@ -14,7 +14,7 @@
             <div class="controls col-md-6 ">
             <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
               </div>
-              <div class="col-md-2 btn btn-default"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%>
             </div>
            </div>
               
@@ -23,7 +23,7 @@
             <div class="controls col-md-6 ">
            <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
                </div>
-              <div class="col-md-2 btn btn-default"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%>
           </div>
         </div>
           <div id="variantbox" class="form-group required">
@@ -31,7 +31,7 @@
             <div class="controls col-md-6 ">
             <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
              </div> 
-              <div class="col-md-2 btn btn-default"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%>
               </div>
                
           </div>
