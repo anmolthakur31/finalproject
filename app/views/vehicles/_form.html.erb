@@ -1,20 +1,25 @@
 
   <div class="container">             
-    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
       <div class="panel panel-info">
-        <div class="panel-heading">
-           <div class="panel-title text-center">Add A Vehicle
+
+           <div class="panel-title text-center " style="  border-bottom: 2px solid #f13c20;
+  width: 151px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;">Add A Vehicle
+
            </div>
        
-        </div>  
+    
         <div class="panel-body" >
         <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
           <div id="brandbox" class="form-group required">
-          <%= f.label "Brand",class: "control-label col-md-3  requiredField" ,:style => "margin-top: 18px;"%><br> 
+          <%= f.label "Brand",class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br> 
             <div class="controls col-md-6 ">
             <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
               </div>
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
             </div>
            </div>
               
@@ -23,7 +28,7 @@
             <div class="controls col-md-6 ">
            <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
                </div>
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
           </div>
         </div>
           <div id="variantbox" class="form-group required">
@@ -31,7 +36,7 @@
             <div class="controls col-md-6 ">
             <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
              </div> 
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal'%>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
               </div>
                
           </div>
