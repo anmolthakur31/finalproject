@@ -7,6 +7,9 @@ class BookingsController < ApplicationController
 
 	def new
 		@booking = Booking.new
+		@brands=Brand.all
+		@vehicles= Brand.order(:id)
+		@uservehicle = Uservehicle.new
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
 		
