@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	before_action :store_current_location, :unless => :devise_controller?
   	
   	def after_sign_in_path_for(resource)
-      if (@user.userrole_id==1 || @user.userrole_id==2)
+      if (current_user.userrole_id==1 || current_user.userrole_id==2)
      admin_path(resource) 
       else     
      member_path(resource)

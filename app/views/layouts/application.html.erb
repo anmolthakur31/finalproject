@@ -3,16 +3,24 @@
   <head>
     <title>Serveforwheels</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+              <%= javascript_include_tag 'preyield' , 'data-turbolinks-track': 'reload' %>
+
  
   </head>
 
   <body>
-
-      <%= render 'layouts/header'%>
-
+      <%if user_signed_in?%>
+        <%if current_user.userrole_id == 2%>
+           <%= render 'layouts/header1'%>
+        <%else%>
+           <%= render 'layouts/header'%>
+        <%end%>
+      <%else%>
+         <%= render 'layouts/header'%>
+      <%end%>
       <% unless flash.empty? %>
       <script>
           <% flash.each do |f| %>
@@ -24,6 +32,7 @@
 
     <%= yield %>
 
+            <%= javascript_include_tag 'postyield' , 'data-turbolinks-track': 'reload' %>
 
 
  

@@ -3,7 +3,7 @@ class UservehiclesController < ApplicationController
 		@uservehicle = Uservehicle.new
 		@brands=Brand.all
 		@vehicles= Brand.order(:id)
-		authorize @uservehicle
+		authorize @uservehicle 
 
 	end
 
@@ -17,9 +17,20 @@ class UservehiclesController < ApplicationController
 	def create
 		@uservehicle = Uservehicle.new(uservehicle_params)
 		@uservehicle.user_id=current_user.id
-		@uservehicle.save
-	    redirect_to services_path
-	    flash.notice = 'Vehicle was successfully created'
+		respond_to do |format|
+	      if @uservehicle.save
+	        format.html { redirect_to root_url, notice: 'Uservehicle was successfully created.' }
+	        format.json { render action: 'show', status: :created, location: @uservehicle }
+	        format.js
+	      else
+	        format.html { render action: 'new' }
+	        format.json { render json: @uservehicle.errors, status: :unprocessable_entity }
+	        format.js
+	      end
+	  end
+		# @uservehicle.save
+	 #    redirect_to services_path
+	 #    flash.notice = 'Vehicle was successfully created'
 	end
 
 	def update

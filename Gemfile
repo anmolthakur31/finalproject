@@ -56,3 +56,6 @@ gem 'paperclip'
 gem 'devise'
 gem 'pundit'
 gem 'bootstrap-datepicker-rails'
+gem "paranoia"
+gem 'omniauth'
+gem 'omniauth-facebook'
