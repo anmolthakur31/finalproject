@@ -1045,12 +1045,20 @@ span.input-group-addon i {
   margin-top: 1px;
 }
 
-label.error{    top: 24px;
+label.error{
+   top: 24px;
     z-index: 9;
     position: absolute;
     color: #ce0000;
     font-size: 11px;
     right: 0;} 
+}
+label.error1{    top: 23px;
+    z-index: 9;
+    position: absolute;
+    color: #ce0000;
+    font-size: 11px;
+    right: 16px;} 
 /*admin*/
 .heading h2{
   text-align: center;
