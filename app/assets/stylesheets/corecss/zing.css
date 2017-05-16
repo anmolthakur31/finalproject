@@ -719,7 +719,7 @@ text-align: center;
 
 }
 .footer {
-  background-color:#171f2d;
+  background-color:#333;
   padding: 25px;
   color: rgba(255,255,255,1.00);
 
@@ -1377,7 +1377,7 @@ td.dataTables_empty {
 .card {
 
   background: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -1706,4 +1706,40 @@ a {
       }
 .p-l-r-30{
   padding: 10px 30px
+}
+.f-20{
+  font-size: 20px;
+}
+.m-l-6{
+  margin-left: 10px;
+}
+.p-t-15{
+      padding-top: 15px;
+}
+.member1 {
+  background-image: url('/assets/hemant.jpg');
+}
+.member2 {
+  background-image: url('/assets/anmol.jpg');
+}
+.member3 {
+  background-image: url('/assets/gauri.jpg');
+}
+.member4 {
+  background-image: url('/assets/supreet.jpg');
+}
+#sticky {
+  width:100%;
+  height:auto;
+  bottom:0;          
+  left:0;    
+}
+.f-100{
+   font-size: 100px;
+}
+.p-t-20{
+  padding-top: 20px;
+}
+.p-r-10{
+  padding-right: 10px;
 }
