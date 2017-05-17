@@ -523,7 +523,7 @@ var Layout = {
 		Pleasure.callOnResize.push( this.handleSidebar );
 
 		// Listen Message Events
-		this.listenMessageEvents();
+		// this.listenMessageEvents();
 		this.listenSendButtonOnMessages();
 
 		// Parallax

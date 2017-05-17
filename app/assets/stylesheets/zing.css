@@ -198,7 +198,6 @@ background-color: #f13c20;
 .item ,.itemimg {
     height: 100% !important;
     width:  100% !important;
-
 }
 .icon-size
 {
@@ -351,7 +350,6 @@ right:0%;
 padding-top: 10px;
 }
 
-
  .intro-content2 h1{
     font-size: 47px;
   font-family: 'robotoregular';
@@ -377,7 +375,14 @@ text-transform: uppercase;
   opacity: 0.8;
 padding-top: 10px;
 }
+<<<<<<< HEAD
+/*.intro-content2 h1:hover{
+  color:white;
+  opacity: 0.7;
+}*/
+=======
 
+>>>>>>> 471b285d9e2300a1f8d37ddf2574f5db70fc6970
 .intro-content1 h1{
     font-size: 46px;
   font-family: 'robotoregular';
@@ -941,6 +946,8 @@ margin-left: auto;
 .form-control {
     height: auto!important;
 padding: 8px 12px !important;
+border:1px solid black;
+border-radius: 5px; 
 }
 
 #button {
@@ -1418,4 +1425,7 @@ a {
 .p-r-10{
   padding-right: 10px;
 
+}
+.m-b-10{
+  margin-bottom: 10px;
 }
