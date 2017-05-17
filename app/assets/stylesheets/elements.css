@@ -13679,10 +13679,10 @@ ul.action li i {
   padding-left: 0;
   padding-right: 0;
 }
-.row.image-row {
+/*.row.image-row {
   margin-left: -2px;
   margin-right: -2px;
-}
+}*/
 .row.image-row [class^="col-"],
 .row.image-row [class*=" col-"] {
   padding-left: 2px;

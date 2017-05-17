@@ -372,14 +372,7 @@ text-transform: uppercase;
   opacity: 0.8;
 padding-top: 10px;
 }
-<<<<<<< HEAD
-/*.intro-content2 h1:hover{
-  color:white;
-  opacity: 0.7;
-}*/
-=======
 
->>>>>>> 471b285d9e2300a1f8d37ddf2574f5db70fc6970
 .intro-content1 h1{
     font-size: 46px;
   font-family: 'robotoregular';
@@ -1421,7 +1414,6 @@ a {
 }
 .p-r-10{
   padding-right: 10px;
-<<<<<<< HEAD:app/assets/stylesheets/corecss/zing.css
 }
 .image{
     background: url(/assets/formbg5.png);
@@ -1476,6 +1468,9 @@ a {
 .sample-member1{
   background-image: url('/assets/ceo.jpg');
 }
+.p-20{
+  padding: 20px;
+}
 .p-30{
   padding: 30px;
 }
@@ -1508,14 +1503,26 @@ a {
     font-size: 54px;
   }
   .letter-spacing{
-    letter-spacing: 15px;
+    letter-spacing: 10px;
   }
 .hover-color:hover{
   color: black;
-=======
 
 }
 .m-b-10{
   margin-bottom: 10px;
->>>>>>> f6ee648094f7ebacb88299f8decc8a07f7ea75f0:app/assets/stylesheets/zing.css
+}
+.w-h{
+  width: 100%;
+  height: auto;
+}
+.m-t-b-20{
+  margin: 20px 0px;
+}
+.head2{
+  font-size: 30px;
+  padding: 50px 0px;
+}
+.img-border{
+  border: 1px solid black;
 }
