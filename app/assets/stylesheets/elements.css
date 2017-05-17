@@ -8314,7 +8314,7 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
   border-top: 3px solid #f39c12;
   border-bottom: 1px solid #f0f0f0;
   background: #fff;
-  padding: 15px 30px;
+  padding: 8px 30px;
 }
 .card.card-meal .card-heading .card-title {
   float: none;
@@ -8340,7 +8340,7 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
 .card.card-meal .card-body .image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 300px;
 }
 .card.card-meal .card-body .users {
   width: 100%;
@@ -15270,7 +15270,7 @@ pre .hljs {
   background-image: url('../../globals/img/faces/8.jpg');
 }
 .sample-member9 {
-  background-image: url('../../globals/img/faces/large/8.jpg');
+  background-image: url('/assets/gauri.jpg');
 }
 .sample-bg1 {
   background-image: url('../../globals/img/picjumbo/large/1.jpg');
