@@ -4,6 +4,7 @@
  * make sure you copy the url from the website since the url may change between versions.
  * */
 #toast-container > div.toast {
+	background-image: none!important;
     opacity: 1 !important;
     z-index: 2222 !important;
 }
