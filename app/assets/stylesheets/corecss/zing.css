@@ -191,13 +191,18 @@ background-color: #f13c20;
     padding-bottom: 0px;
     padding-top: 0px;
 }
-.carousel-inner > .item > img {
+.carousel-inner{
+    height: 650px;
+}
 
-  height:645px;
+.item ,.itemimg {
+    height: 100% !important;
+    width:  100% !important;
+
 }
 .icon-size
 {
-    font-size: 87px;
+    font-size: 32px;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: transparent;
