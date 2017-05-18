@@ -13,6 +13,8 @@ class ExtrasController < ApplicationController
 	end
 	def home
 	end
+	def contact_us
+	end
 
 	private
 		def check
