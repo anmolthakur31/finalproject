@@ -17,9 +17,10 @@ class UservehiclesController < ApplicationController
 	def create
 		@uservehicle = Uservehicle.new(uservehicle_params)
 		@uservehicle.user_id=current_user.id
+		@member=current_user
 		respond_to do |format|
 	      if @uservehicle.save
-	        format.html { redirect_to root_url, notice: 'Uservehicle was successfully created.' }
+	        format.html { redirect_to member_path(@member), notice: 'Uservehicle was successfully created.' }
 	        format.json { render action: 'show', status: :created, location: @uservehicle }
 	        format.js
 	      else
@@ -36,7 +37,8 @@ class UservehiclesController < ApplicationController
 	def update
 		@uservehicle = Uservehicle.find(params[:id])
 		@uservehicle.update(uservehicle_params)
-		redirect_to services_path
+		@member=current_user
+		redirect_to member_path(@member)
 		flash.notice = 'Vehicle was successfully created'
 	end
 

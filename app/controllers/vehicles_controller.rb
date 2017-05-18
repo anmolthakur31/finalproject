@@ -27,14 +27,16 @@ class VehiclesController < ApplicationController
 	def create
 		@vehicle = Vehicle.new(vehicle_params)
 		@vehicle.save
-	    redirect_to services_path
+		@memeber=current_user
+	    redirect_to admin_path(@member)
 	    flash.notice = 'Vehicle was successfully created'
 	end
 
 	def update
 		@vehicle = Vehicle.find(params[:id])
 		@vehicle.update(vehicle_params)
-		redirect_to services_path
+		@memeber=current_user
+	    redirect_to admin_path(@member)
 		flash.notice = 'Vehicle was successfully created'
 	end
 
