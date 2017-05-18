@@ -1,37 +1,43 @@
-
-<h3>Leave a message</h3>
-
-<%= form_for @message do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject, autofocus: true%>
-  </div>
-  
-  <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_field :message, autofocus: true%>
-  </div>
-
-
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
-<% end %>
+ 
+  <h5 >Leave A Message</h5>
+    <%= form_for @message ,html: {class: "form-group"} do |f| %>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          
+        <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name" %>
+        </div>
+      </div>
+    <br>
+      <div class="cols-sm-10">
+        <div class="input-group">
+           
+        <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+        </div>  
+      </div>          
+    <br>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          
+        <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+        </div>
+      </div>         
+    <br>
+      <div class="cols-sm-10">
+        <div class="input-group">
+                   
+        <%= f.text_field :subject, autofocus: true,class: "form-control",placeholder: "Enter your Subject" %>
+        </div>
+      </div>         
+    <br>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          
+        <%= f.text_field :message, autofocus: true,class: "form-control",placeholder: "Enter your Message" %>
+        </div>
+      </div>        
+    <br>
+    <%= f.submit 'Submit', class: "btn btn-primary btn-lg btn-block login-button actions"%>
+    <% end %> 
 
 <script type="text/javascript">
 $(document).ready(function () {
