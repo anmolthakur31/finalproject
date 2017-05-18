@@ -13,9 +13,10 @@ class ExtrasController < ApplicationController
 	end
 	def home
 	end
-	def contact_us
-	end
-
+    def contact_us
+    	@message=Message.new
+    end
+    
 	private
 		def check
 	      if user_signed_in?

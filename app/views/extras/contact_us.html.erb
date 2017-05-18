@@ -1,0 +1,60 @@
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel">
+          <div class="panel-heading">	
+          </div>
+          <div class="panel-body">
+            <div id="gmaps_1" class="example-map">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
+          <i class="fa fa-heart">
+            </i>
+              <h4 class="contact-text">CONTACT US</h4>
+          </div>
+      </div>
+      <div class="row">
+ <div class="col-xs-12 contact-contain">
+            <div class="row">
+                <div id="contact-center" class="col-sm-6 center contact-left" style="background-color: rgba(6, 6, 6, 0.18);">
+                <%=render "messages/form"%>
+                    </div>
+                <div id="contact-right" class="col-sm-6 center" style="background:  url('http://42works.net/wp-content/themes/42worksv2/img/maps/indiaMap.png');">
+                    <div id="text-4" class="widget widget_text fullwidth"><h4 class="widgettitle">INDIA</h4>      <div class="textwidget"> Plot F-7, Industrial Area - Phase 8<br/>Mohali, Punjab, India - 160055<br/>
+<a href="mailto:contact@42works.net">contact@Serve4wheels.net</a><br/>
++91 172 4020042</div>
+    </div>                </div>
+            </div>
+        </div>
+</div>
+
+</div>
+ 
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudcR7C4aHHkRFRGD8xm7eU6oagPqmxOY">
+</script>
+<script>
+$(document).ready(function () {
+Pleasure.init();
+Layout.init();
+MapsGoogle.init();
+});
+
+$(document).ready(function () {
+$("#new_message").validate({
+rules: {
+"message[name]": {required: true},
+"message[email]": {required: true, email: true},
+"message[phone]": {required: true,minlength: 10,maxlength: 10,digits: true},
+"message[subject]": {required: true},
+"message[message]": {required: true}
+}
+});
+});
+
+</script>

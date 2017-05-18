@@ -1,64 +1,56 @@
-
-  <div class="container">             
-    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
+<style type="text/css">
+  label.error{
+   top: 23px;
+    z-index: 9;
+    position: absolute;
+    color: #ce0000;
+    font-size: 11px;
+    right: 15px;} 
+}
+</style>
       <div class="panel panel-info">
-
-           <div class="panel-title text-center " style="  border-bottom: 2px solid #f13c20;
-  width: 151px;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;">Add A Vehicle
-
-           </div>
-       
-    
-        <div class="panel-body" >
-        <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
-          <div id="brandbox" class="form-group required">
-          <%= f.label "Brand",class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br> 
-            <div class="controls col-md-6 ">
-            <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
-              </div>
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
-            </div>
-           </div>
-              
-          <div id="modelbox" class="form-group required">
-          <%= f.label "Model", class: "control-label col-md-3 requiredField"%>
-            <div class="controls col-md-6 ">
-           <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
-               </div>
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
-          </div>
+  <div class="panel-body" >
+  <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
+    <div id="brandbox" class="form-group required">
+    <%= f.label "Brand",class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br> 
+      <div class="controls col-md-6 ">
+      <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
+      </div>
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
         </div>
-          <div id="variantbox" class="form-group required">
-          <%= f.label "Variant",class: "control-label col-md-3  requiredField" %>
-            <div class="controls col-md-6 ">
-            <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
-             </div> 
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
-              </div>
-               
-          </div>
-          <div  class="form-group required">
-          <%= f.label :startyear,class: "control-label col-md-3  requiredField" %>
-            <div class="controls col-md-6 "> 
-            <%= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control m-b-10"%>    
-             </div>
-          </div>
-          <div class="form-group">
-              <div class="controls col-md-4 col-md-offset-4 text-center">
-              <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
-              </div>
-          </div>    
+      </div>  
+
+      <div id="modelbox" class="form-group required">
+      <%= f.label "Model", class: "control-label col-md-3 requiredField"%>
+        <div class="controls col-md-6 ">
+        <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
+        </div>
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
         </div>
       </div>
-    </div> 
-  </div>
-
+      <div id="variantbox" class="form-group required">
+      <%= f.label "Variant",class: "control-label col-md-3  requiredField" %>
+        <div class="controls col-md-6 ">
+        <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
+        </div> 
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+        </div>
+      </div>
+      <div  class="form-group required">
+      <%= f.label :startyear,class: "control-label col-md-3  requiredField" %>
+        <div class="controls col-md-6 "> 
+        <%= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control m-b-10"%>    
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="controls col-md-12 col-md-offset-3 text-center">
+        <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
+        </div>
+        </div>    
+      </div>
+      </div>
 
 <% end %>
-
 <div class="modal fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
