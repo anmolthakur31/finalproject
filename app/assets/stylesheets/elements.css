@@ -4332,7 +4332,7 @@ fieldset[disabled] .btn-flat.active {
   box-shadow: none;
 }
 .form-control.error {
-  margin-bottom: 25px;
+/*  margin-bottom: 25px;*/
 }
 textarea {
   resize: none;
@@ -5983,7 +5983,7 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
   border: 0;
 }
 .panel:before {
-  position: absolute;
+  /*position: absolute;*/
   content: '';
   left: 0;
   top: 0;
