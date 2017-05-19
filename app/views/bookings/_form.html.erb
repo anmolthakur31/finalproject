@@ -25,7 +25,13 @@
 
 <script>
  
-
+$(document).ready(function () {
+$("#new_booking").validate({
+rules: {
+"booking[dateslot]": {required: true},
+}
+});
+});
     $('#date').datepicker({
         
         format: 'dd-mm-yyyy',

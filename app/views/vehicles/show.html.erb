@@ -1,0 +1,8 @@
+<div style="text-align: center;"><h1>Vehicle</h1>
+<h3>Brand</h3><%=@vehicle.brand.name%>
+<h3>Model</h3><%=@vehicle.model.name%>
+<h3>Year</h3><%=@vehicle.variant.name%>
+<h3>Starting Year</h3><%=@vehicle.startyear%>
+<p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. </p>
+<h5><%=link_to "Edit",edit_vehicle_path(@vehicle)%></h5>
+</div>

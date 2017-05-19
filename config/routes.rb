@@ -28,6 +28,7 @@ match "/500", :to => "errors#internal_server_error", :via => :all
   resources :userroles
   resources :bookings
   resources :members
+  resources :vehicle_services
   # map.check_email "registrations/check_email", :controller => "registrations", :action => "check_email"
   # map.resources :users
 

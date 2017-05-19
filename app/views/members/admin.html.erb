@@ -4,16 +4,13 @@
 
 
 
-
-
-
     
 
     <div class="content">
         <div class="container-fluid" style="margin-top: 50px;margin-bottom: 50px;">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 heading">
-                    <h2 style="margin-bottom: 50px;">Serve4Wheels</h2>
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                    <h2 style="margin-bottom: 50px;text-align: center;">Serve4Wheels</h2>
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <ul class="nav nav-tabs">
                             <li class="active">
@@ -231,10 +228,15 @@
 
 
     <script>
-    $(document).ready(function () {
-        TablesDataTables.init();
+    $(window).ready(function () {
+    var dataTable=TablesDataTables.init();
     });
+    document.addEventListener("turbolinks:before-cache", function() {
+      dataTable.destroy();
+    }); 
+   
     </script>
+
 
 
     <!-- END INITIALIZATION-->
