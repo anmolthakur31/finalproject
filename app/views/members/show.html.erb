@@ -9,9 +9,6 @@
     color: #ce0000;
     font-size: 11px;
     } 
-    .panel .panel-body{
-    	padding: 60px;
-    }
     hr{
     	margin-top: 0px;
     	margin-bottom: 0px;
@@ -22,6 +19,9 @@
     }
     .btn{
       box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
+    }
+    .fileinput{
+      margin-bottom: 40px;
     }
 
 </style>
@@ -45,24 +45,21 @@
 									
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab9_1">
-											<span class="pumping-heart color-orange"><i class="fa fa-user" aria-hidden="true"></i></span>
-												<span class="text-center color-orange m-b-40">
-													 <span class="border-head2">P</span>
-													  <span class="border-head2">R</span>
-													  <span class="border-head2">O</span>
-													  <span class="border-head2">F</span>
-													  <span class="border-head2">I</span>
-													  <span class="border-head2">L</span>
-													  <span class="border-head2">E</span>
-												</span>
-											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+											<div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
+                          <i class="fa fa-user">
+                          </i>
+                         <h4>PROFILE</h4>
+                        </div>
+                     </div>
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  text-center">
 											 <div class="field relative">
 	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "image"}) do |f| %> 
 
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @user.image.exists?%>
-                                                  <%= image_tag @user.image.url , :size =>'250x200' %>
+                                                  <%= image_tag @user.image.url , :size =>'220x200' %>
                                                    <%end%>
                                                </div>
                  
@@ -107,9 +104,14 @@
 										</div>
 											</div>
 											<div class="tab-pane" id="tab9_2">
-												<h5 class="text-center">Password</h5>
+												<div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
+                          <i class="fa fa-lock"></i>
+                          <h4>PASSWORD</h4>
+                         </div>
+                       </div>
 												<p>
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly"}) do |f| %>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center"}) do |f| %>
 
 
                                                  <div class="field relative">
