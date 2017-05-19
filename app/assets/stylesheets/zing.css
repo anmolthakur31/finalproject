@@ -307,7 +307,7 @@ li.open a,
 }
 
 .item ,.itemimg {
-    height: 100% !important;
+   /* height: 100% !important;*/
     width:  100% !important;
 }
 .intro-content , .intro-content2, .intro-content1{
