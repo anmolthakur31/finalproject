@@ -3421,7 +3421,7 @@ tbody.collapse.in {
 }
 .dropup,
 .dropdown {
-  position: relative;
+  /*position: relative;*/
 }
 .dropdown-toggle:focus {
   outline: 0;
@@ -3874,11 +3874,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   list-style: none;
 }
 .nav > li {
-  position: relative;
+  /*position: relative;*/
   display: block;
 }
 .nav > li > a {
-  position: relative;
+ /* position: relative;*/
   display: block;
   padding: 10px 15px;
 }

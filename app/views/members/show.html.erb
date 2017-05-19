@@ -1,9 +1,173 @@
-<%if @user.name?%>
-  <%=@user.name%>
-<%else%>
-  <%=@user.email%>
-<%end%>
+<style type="text/css">
+	.relative{
+		position: relative;
+	}
+	label.error{
+   top: 24px;
+    z-index: 9;
+    position: absolute;
+    color: #ce0000;
+    font-size: 11px;
+    } 
+    .panel .panel-body{
+    	padding: 60px;
+    }
+    hr{
+    	margin-top: 0px;
+    	margin-bottom: 0px;
 
-<%if @user.image.exists?%>
-<%= image_tag @user.image.url(:small) %>
-<%end%>
+    }
+    .nav > li > a {
+    	padding: 14px 15px;
+    }
+
+</style>
+<img src="/assets/userdash.jpg" class="img-responsive" width="100%" height="400">       
+ <div class="clearfix">
+                           <ul class="nav nav-tabs tabs-left text-center back-color-tab" style="height: 60px;">
+											<li class="active"><a href="#tab9_1" data-toggle="tab" style="font-size: 20px;" >Profile</a></li>
+											<hr>
+											<li><a href="#tab9_2" data-toggle="tab" style="font-size: 20px;">Password</a></li>
+											<hr>
+											<li><a href="#tab9_3" data-toggle="tab" style="font-size: 20px;line-height: 1.3">Orders</a></li>
+										</ul>
+				<div class="panel">
+					<div class="panel-body p-60">
+
+						<div class="row no-gutters">
+
+							<div class="styled-tabs tab-primary">
+								<div class="col-md-12">
+								
+									
+										<div class="tab-content">
+											<div class="tab-pane active" id="tab9_1">
+												<h2 class="text-center color-orange m-b-40">
+													 <span class="border-head2">P</span>
+													  <span class="border-head2">R</span>
+													  <span class="border-head2">O</span>
+													  <span class="border-head2">F</span>
+													  <span class="border-head2">I</span>
+													  <span class="border-head2">L</span>
+													  <span class="border-head2">E</span>
+												</h2>
+											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+											 <div class="field relative">
+	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %> 
+
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
+                                                   <%if @user.image.exists?%>
+                                                  <%= image_tag @user.image.url , :size =>'250x200' %>
+                                                   <%end%>
+                                               </div>
+                 
+                                                <div>
+                                                 <span class="btn btn-default btn-file">
+                                                  <span class="fileinput-new">Select image</span>
+                                                   <span class="fileinput-exists">Change</span>
+                                                    <%if @user.image.exists?%>
+                                                         <%= f.file_field :image %>
+                                              
+                                                      <%else%>
+                                                        <%= f.file_field :image %>
+                                                      <%end%>
+                                                       </span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                             </div>
+                                             </div>
+	                                            <%end%>
+										 </div>
+										</div>
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 verticalLine>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
+
+                                                 <div class="field relative">
+                                                    <%= f.label :email %><br />
+                                                     <%= f.email_field :email, autofocus: true , :class => "form-control"%>
+                                                  </div>
+
+                                                  <div class="field relative">
+                                                    <%= f.label :name %><br />
+                                                     <%= f.text_field :name, autofocus: true , :class => "form-control"%>
+                                                  </div>
+
+                                                  <div class="field relative">
+                                                    <%= f.label :phone_number %><br />
+                                                     <%= f.text_field :phone, autofocus: true, :class => "form-control" %>
+                                                  </div>
+                                                 <div class="actions">
+                                                     <%= f.submit "Update" %>
+                                                 </div>
+                                            <% end %>
+										</div>
+											</div>
+											<div class="tab-pane" id="tab9_2">
+												<h5 class="text-center">Password</h5>
+												<p>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly"}) do |f| %>
+
+
+                                                 <div class="field relative">
+                                                     <%= f.label :password %> <br />
+                                                     <%= f.password_field :password, autocomplete: "off" %>
+                                                  </div>
+
+                                                 <div class="field relative">
+                                                    <%= f.label :password_confirmation %><br />
+                                                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                                                 </div>
+
+                                                 <div class="field relative">
+                                                    <%= f.label :current_password %> <br />
+                                                    <%= f.password_field :current_password, autocomplete: "off" %>
+                                                 </div>
+                                                 <br>
+
+                                                 <div class="actions">
+                                                     <%= f.submit "Update" %>
+                                                 </div>
+                                            <% end %>
+										</p>
+											</div>
+											<div class="tab-pane" id="tab9_3">
+												<h5>Orders</h5>
+												<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries ytgcdy dcnunc  jcndjnd  jnsdu dnsujnd hsdus.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+											</div>
+										</div>
+									</div>
+								
+							</div><!--.styled-tabs-->
+
+						</div><!--.row-->
+
+					</div><!--.panel-body-->
+				</div><!--.panel-->
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+    $("#nopassword").validate({
+      rules: {
+    "user[email]": {required: true},
+    "user[name]": {required: true},
+    "user[phone]": {required: true},
+    "user[image]": {required: true}
+}
+});
+});
+	$(document).ready(function () {
+    $("#passwordonly").validate({
+      rules: {
+    "user[password]": {required: true},
+    "user[password_confirmation]": {required: true},
+    "user[current_password]": {required: true}
+}
+});
+});
+
+	$(document).ready(function () {
+		Pleasure.init();
+		Layout.init();
+	});
+
+</script>

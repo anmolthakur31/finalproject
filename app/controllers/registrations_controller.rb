@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  
 	def new
 		redirect_to root_path
 	end
@@ -24,6 +25,15 @@ class RegistrationsController < Devise::RegistrationsController
 end
   private
 
+ def update_resource(resource, params)
+  
+    if params[:password].blank? && params[:password_confirmation].blank?
+      resource.update_without_password(params)
+    else
+     super
+    end
+  end
+
   def sign_up_params
     params.require(:user).permit(:name, :email,:phone, :password, :password_confirmation)
   end
@@ -32,4 +42,12 @@ end
     params.require(:user).permit(:name, :email,:phone,:image, :password, :password_confirmation, :current_password)
   end
 
+  def user_params
+    params(:user).permit(:name, :email,:phone,:image)
+  end
+
+  # def params
+  #   params(:user).permit( :password, :password_confirmation, :current_password)
+  # end
 end
+ 
