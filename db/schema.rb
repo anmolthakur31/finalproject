@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515134316) do
+ActiveRecord::Schema.define(version: 20170519081846) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "dateslot"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20170515134316) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "timeslot"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
     t.index ["uservehicle_id"], name: "index_bookings_on_uservehicle_id", using: :btree
   end
 
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170515134316) do
   end
 
   create_table "timeslots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -144,6 +147,7 @@ ActiveRecord::Schema.define(version: 20170515134316) do
     t.index ["variant_id"], name: "index_vehicles_on_variant_id", using: :btree
   end
 
+  add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "uservehicles"
   add_foreign_key "models", "brands"
   add_foreign_key "users", "userroles"

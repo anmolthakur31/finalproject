@@ -9,9 +9,6 @@
     color: #ce0000;
     font-size: 11px;
     } 
-    .panel .panel-body{
-    	padding: 60px;
-    }
     hr{
     	margin-top: 0px;
     	margin-bottom: 0px;
@@ -20,16 +17,22 @@
     .nav > li > a {
     	padding: 14px 15px;
     }
+    .btn{
+      box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
+    }
+    .fileinput{
+      margin-bottom: 40px;
+    }
 
 </style>
 <img src="/assets/userdash.jpg" class="img-responsive" width="100%" height="400">       
  <div class="clearfix">
-                           <ul class="nav nav-tabs tabs-left text-center back-color-tab" style="height: 60px;">
-											<li class="active"><a href="#tab9_1" data-toggle="tab" style="font-size: 20px;" >Profile</a></li>
-											<hr>
-											<li><a href="#tab9_2" data-toggle="tab" style="font-size: 20px;">Password</a></li>
-											<hr>
-											<li><a href="#tab9_3" data-toggle="tab" style="font-size: 20px;line-height: 1.3">Orders</a></li>
+                     <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
+											<li class="active"><a href="#tab9_1" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
+											<li><a href="#tab9_2" data-toggle="tab" class="f-20 mf-10">Password</a></li>
+											<li><a href="#tab9_3" data-toggle="tab" class="f-20 mf-10">My vehicles</a></li>
+                      <li><a href="#tab9_4" data-toggle="tab" class="f-20 mf-10">My Bookings</a></li>
+
 										</ul>
 				<div class="panel">
 					<div class="panel-body p-60">
@@ -42,23 +45,21 @@
 									
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab9_1">
-												<h2 class="text-center color-orange m-b-40">
-													 <span class="border-head2">P</span>
-													  <span class="border-head2">R</span>
-													  <span class="border-head2">O</span>
-													  <span class="border-head2">F</span>
-													  <span class="border-head2">I</span>
-													  <span class="border-head2">L</span>
-													  <span class="border-head2">E</span>
-												</h2>
-											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+											<div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
+                          <i class="fa fa-user">
+                          </i>
+                         <h4>PROFILE</h4>
+                        </div>
+                     </div>
+											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  text-center">
 											 <div class="field relative">
-	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %> 
+	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "image"}) do |f| %> 
 
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @user.image.exists?%>
-                                                  <%= image_tag @user.image.url , :size =>'250x200' %>
+                                                  <%= image_tag @user.image.url , :size =>'220x200' %>
                                                    <%end%>
                                                </div>
                  
@@ -79,7 +80,8 @@
 	                                            <%end%>
 										 </div>
 										</div>
-										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 verticalLine>
+
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
 
                                                  <div class="field relative">
@@ -101,11 +103,16 @@
                                                  </div>
                                             <% end %>
 										</div>
-											</div>
+									</div><!-- tabpane -->
 											<div class="tab-pane" id="tab9_2">
-												<h5 class="text-center">Password</h5>
+												<div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
+                          <i class="fa fa-lock"></i>
+                          <h4>PASSWORD</h4>
+                         </div>
+                       </div>
 												<p>
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly"}) do |f| %>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center"}) do |f| %>
 
 
                                                  <div class="field relative">
@@ -129,12 +136,21 @@
                                                  </div>
                                             <% end %>
 										</p>
-											</div>
-											<div class="tab-pane" id="tab9_3">
-												<h5>Orders</h5>
-												<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries ytgcdy dcnunc  jcndjnd  jnsdu dnsujnd hsdus.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-											</div>
-										</div>
+									</div><!-- tabpane -->
+									<div class="tab-pane" id="tab9_3">
+												<h5>List of vehicles</h5>
+											<%@user.uservehicles.all.each do |uservehicle|%>
+                      <%=uservehicle.vehicle.brand.name%> <%=uservehicle.vehicle.model.name%> <%=uservehicle.vehicle.variant.name%> (<%=uservehicle.reg_no%>) <td><%= link_to 'Edit', edit_uservehicle_path(uservehicle) %></td><br>
+                      <%end%>
+                      <%= link_to 'Add new vehicle', new_uservehicle_path %>
+									</div><!-- tabpane -->
+                  <div class="tab-pane" id="tab9_4">
+
+                       <%@user.bookings.all.each do |booking|%>
+                      <%=booking.uservehicle.uservehicle_name%> <%=booking.dateslot%>  <%=booking.timeslot%><td><%= link_to 'Edit', edit_booking_path(booking) %></td><br>
+                      <%end%>
+
+                  </div><!-- tabpane -->
 									</div>
 								
 							</div><!--.styled-tabs-->
@@ -145,16 +161,7 @@
 				</div><!--.panel-->
 </div>
 <script type="text/javascript">
-	$(document).ready(function () {
-    $("#nopassword").validate({
-      rules: {
-    "user[email]": {required: true},
-    "user[name]": {required: true},
-    "user[phone]": {required: true},
-    "user[image]": {required: true}
-}
-});
-});
+
 	$(document).ready(function () {
     $("#passwordonly").validate({
       rules: {
@@ -164,10 +171,31 @@
 }
 });
 });
+  $(document).ready(function () {
+    $("#nopassword").validate({
+      rules: {
+    "user[email]": {required: true},
+    "user[name]": {required: true},
+    "user[phone]": {required: true}
+}
+});
 
-	$(document).ready(function () {
-		Pleasure.init();
-		Layout.init();
-	});
+    $("#passwordonly").validate({
+      rules: {
+    "user[password]": {required: true},
+    "user[password_confirmation]": {required: true},
+    "user[current_password]": {required: true}
+}
+});
+     $("#image").validate({
+      rules: {
+    "user[image]": {required: true}
+}
+});
+    Pleasure.init();
+    Layout.init();
+
+
+});
 
 </script>

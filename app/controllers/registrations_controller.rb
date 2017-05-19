@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
         end
     else
         clean_up_passwords resource
-        resource.errors.full_messages.each {|x| flash[x] = x} # Rails 4 simple way
+        resource.errors.full_messages.each {|x| flash[x] = x}
         redirect_to root_path 
     end
 end
@@ -42,12 +42,6 @@ end
     params.require(:user).permit(:name, :email,:phone,:image, :password, :password_confirmation, :current_password)
   end
 
-  def user_params
-    params(:user).permit(:name, :email,:phone,:image)
-  end
 
-  # def params
-  #   params(:user).permit( :password, :password_confirmation, :current_password)
-  # end
 end
  
