@@ -307,7 +307,7 @@ li.open a,
 }
 
 .item ,.itemimg {
-    height: 100% !important;
+
     width:  100% !important;
 }
 .intro-content , .intro-content2, .intro-content1{
@@ -1676,7 +1676,7 @@ margin-left: auto;
   margin-bottom: 50px;
 
 }
-.pumping-heart .fa-heart{
+.pumping-heart .fa-phone{
     font-size: 40px;
     animation: beat 1s infinite alternate;
   transform-origin: center;
@@ -1716,7 +1716,13 @@ color: #373737;
   letter-spacing: 1px;
 
 }
-
+.contact-text{
+  color: #373737;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: "OS-regular";
+  letter-spacing: 1px;
+}
 
 /* Heart beat animation */
  
@@ -1826,3 +1832,22 @@ color: #373737;
     font-family: inherit;
 }
 
+
+
+#text-4{
+  position: absolute;
+  top: 23%;
+  left: 0%;
+  right: 0%;
+}
+.message{
+    margin-top: 10px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px solid #f13c20;
+}
+
+#map{
+  height: 400px;
+  width: 100%;
+}
