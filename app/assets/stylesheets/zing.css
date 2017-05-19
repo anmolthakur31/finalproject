@@ -684,6 +684,7 @@ text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
+
 .brands{
   text-align: center;
   margin-bottom: 20px;
@@ -1329,6 +1330,12 @@ a {
     border-spacing: 0px;
     font-size: 30px;
   }
+  .border-head2{
+    border-bottom: 2px solid black;   
+    margin-right: -10px; 
+    border-spacing: 0px;
+    font-size: 30px;
+  }
   .color-white{
     color: white;
   }
@@ -1658,6 +1665,12 @@ margin-left: auto;
 .img-border{
   border: 1px solid black;
 }
+.m-b-40{
+  margin-bottom: 40px;
+}
+.back-color-tab{
+  background-color: #e3e3e3;
+}
 .pumping-heart{
   height: 134px;
   margin-bottom: 50px;
@@ -1734,9 +1747,7 @@ color: #373737;
  }
 
 } 
-0px;
-    position: fixed;
-}*/
+
 #header > a.pull-left, #header .nav-btn {
     position: fixed;
     z-index: 999;
@@ -1798,5 +1809,4 @@ color: #373737;
     color: #333;
     font-family: inherit;
 }
-
 
