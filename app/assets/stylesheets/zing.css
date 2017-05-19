@@ -221,8 +221,13 @@ margin-top: 2px;
   background-color: #f13c20!important;
   color:black!important;
 }
+.height-60{
+  height: 60px;
+}
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-
+.contact-left{
+  display: none;
+}
 .navbar-nav {
   margin: 0;
 }
@@ -663,7 +668,12 @@ text-align: center;
 
 }
 @media only screen and (max-width: 767px){
-
+ .mf-10{
+ font-size: 12px !important;
+ }
+ .mh-45{
+  height: 48px;
+ }
 
 #fade-quote-carousel blockquote {
     text-align: center;
@@ -1866,3 +1876,11 @@ color: #373737;
   height: 400px;
   width: 100%;
 }
+@media only screen and (max-width: 350px){
+  .mf-10{
+    font-size: 10px!important;
+  }
+  .mh-45{
+    height: 45px!important;
+  }
+  }
