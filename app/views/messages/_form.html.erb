@@ -1,36 +1,35 @@
  
-  <h3 class="contact-text"> LEAVE A MESSAGE</h3>
-
-    <%= form_for @message ,html: {class: "form-group"} do |f| %>
+  <h3 class="contact-text formunder1"> LEAVE A MESSAGE</h3>
+    <%= form_for @message ,html: {class: "form-group text-center w-36 m-t-35"} do |f| %>
       <div class="cols-sm-12 text-center">
-        <div class="input-group">
+        <div class="input-group ">
           
-        <%= f.text_field :name, class: "form-control",autofocus: true,id: "name",placeholder: "Enter your Name" %>
+        <%= f.text_field :name, class: "form-control text-center",autofocus: true,id: "name",placeholder: "Enter your Name" %>
         </div>
       </div>
     <br>
       <div class="cols-sm-10">
-        <div class="input-group">
+        <div class="input-group ">
            
-        <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+        <%= f.email_field :email,class: "form-control text-center", id: "email",placeholder: "Enter your Email",required:true %>
         </div>  
       </div>          
     <br>
       <div class="cols-sm-10">
-        <div class="input-group">
+        <div class="input-group ">
           
-        <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+        <%= f.text_field :phone,class: "form-control text-center", id: "username",placeholder: "Enter your Phone no." %>
         </div>
       </div>         
     <br>
       <div class="cols-sm-10">
-        <div class="input-group">
+        <div class="input-group ">
           
-        <%= f.text_field :message, autofocus: true,class: "form-control",placeholder: "Enter your Message" %>
+        <%= f.text_area :message, autofocus: true,class: "form-control text-center",placeholder: "Enter your Message" %>
         </div>
       </div>        
     <br>
-    <%= f.submit 'Submit', class: "btn btn-primary btn-lg btn-block login-button actions"%>
+    <%= f.submit 'Submit', class: "btn btn-primary btn-lg btn-block login-button actions  button-border color-orange w-36"%>
     <% end %> 
 
 <script type="text/javascript">

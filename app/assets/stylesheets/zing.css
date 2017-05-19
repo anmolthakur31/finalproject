@@ -1653,7 +1653,9 @@ margin-left: auto;
 
 }
 
-
+.m-t-35{
+  margin-top: 35px;
+}
 
 .m-t-b-20{
   margin: 20px 0px;
@@ -1835,3 +1837,28 @@ color: #373737;
   height: 400px;
   width: 100%;
 }
+.w-36{
+  width: 35%;
+}
+.formunder1{
+  border-bottom: 2px solid #f13c20;
+  width: 230px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  } 
+
+  .button-border{
+    border: 2px solid #f13c20;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 8px 12px;
+     background-color: white;
+  }
+  .btn-primary:hover{
+    border: 2px solid #f13c20;
+    border-radius: 0px;
+    box-shadow: none;
+    color: white;
+    background-color: #f13c20;
+  }
