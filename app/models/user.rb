@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,:omniauth_providers => [:facebook]
     has_many :uservehicles , dependent: :destroy
+    has_many :bookings
     belongs_to :userrole
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\z/i
 
