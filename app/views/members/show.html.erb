@@ -20,6 +20,9 @@
     .nav > li > a {
     	padding: 14px 15px;
     }
+    .btn{
+      box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
+    }
 
 </style>
 <img src="/assets/userdash.jpg" class="img-responsive" width="100%" height="400">       
@@ -42,13 +45,19 @@
 									
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab9_1">
-												<h2 class="text-center color-orange m-b-40">
-													 <span class="border-head2">PROFILE</span>
-												
-												</h2>
+											<span class="pumping-heart color-orange"><i class="fa fa-user" aria-hidden="true"></i></span>
+												<span class="text-center color-orange m-b-40">
+													 <span class="border-head2">P</span>
+													  <span class="border-head2">R</span>
+													  <span class="border-head2">O</span>
+													  <span class="border-head2">F</span>
+													  <span class="border-head2">I</span>
+													  <span class="border-head2">L</span>
+													  <span class="border-head2">E</span>
+												</span>
 											<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 											 <div class="field relative">
-	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %> 
+	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "image"}) do |f| %> 
 
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
@@ -74,7 +83,8 @@
 	                                            <%end%>
 										 </div>
 										</div>
-										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
 
                                                  <div class="field relative">
@@ -162,14 +172,26 @@
       rules: {
     "user[email]": {required: true},
     "user[name]": {required: true},
-    "user[phone]": {required: true},
+    "user[phone]": {required: true}
+}
+});
+
+    $("#passwordonly").validate({
+      rules: {
+    "user[password]": {required: true},
+    "user[password_confirmation]": {required: true},
+    "user[current_password]": {required: true}
+}
+});
+     $("#image").validate({
+      rules: {
     "user[image]": {required: true}
 }
 });
+    Pleasure.init();
+    Layout.init();
+
+
 });
-	$(document).ready(function () {
-		Pleasure.init();
-		Layout.init();
-	});
 
 </script>

@@ -5,7 +5,7 @@
           <div class="panel-heading">	
           </div>
           <div class="panel-body">
-            <div id="gmaps_1" class="example-map">
+            <div id="map">
             </div>
           </div>
         </div>
@@ -13,20 +13,23 @@
     </div>
   <div class="row">
       <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
-          <i class="fa fa-heart">
+          <i class="fa fa-phone">
             </i>
-              <h4 class="contact-text">CONTACT US</h4>
+              <h4>CONTACT US</h4>
           </div>
       </div>
       <div class="row">
  <div class="col-xs-12 contact-contain">
             <div class="row">
-                <div id="contact-center" class="col-sm-6 center contact-left" style="background-color: rgba(6, 6, 6, 0.18);">
+                <div id="contact-center" class="col-sm-6 col-md-6 col-xs-12 col-lg-6 text-center contact-left">
                 <%=render "messages/form"%>
                     </div>
-                <div id="contact-right" class="col-sm-6 center" style="background:  url('http://42works.net/wp-content/themes/42worksv2/img/maps/indiaMap.png');">
+                <div  class="col-sm-6 col-lg-6 col-xs-12 col-md-6 text-center">
+                <div class="text-center">
+                <img src="/assets/india.png" class="img-responsive" style="position: relative;width: 100%; opacity: 0.3;">
+                </div>
                     <div id="text-4" class="widget widget_text fullwidth"><h4 class="widgettitle">INDIA</h4>      <div class="textwidget"> Plot F-7, Industrial Area - Phase 8<br/>Mohali, Punjab, India - 160055<br/>
-<a href="mailto:contact@42works.net">contact@Serve4wheels.net</a><br/>
+contact@Serve4wheels.net<br/>
 +91 172 4020042</div>
     </div>                </div>
             </div>
@@ -36,15 +39,28 @@
 </div>
  
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudcR7C4aHHkRFRGD8xm7eU6oagPqmxOY">
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyDudcR7C4aHHkRFRGD8xm7eU6oagPqmxOY&callback=initMap">
+    </script>
 </script>
 <script>
 $(document).ready(function () {
 Pleasure.init();
 Layout.init();
-MapsGoogle.init();
-});
 
+});
+    function initMap() {
+        var uluru = {lat: 30.7305165, lng: 76.7020368};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
 $(document).ready(function () {
 $("#new_message").validate({
 rules: {
