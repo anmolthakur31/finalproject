@@ -5,7 +5,7 @@
           <div class="panel-heading">	
           </div>
           <div class="panel-body">
-            <div id="gmaps_1" class="example-map">
+            <div id="map">
             </div>
           </div>
         </div>
@@ -21,10 +21,10 @@
       <div class="row">
  <div class="col-xs-12 contact-contain">
             <div class="row">
-                <div id="contact-center" class="col-sm-7 col-md-7 col-xs-12 col-lg-7 text-center contact-left">
+                <div id="contact-center" class="col-sm-6 col-md-6 col-xs-12 col-lg-6 text-center contact-left">
                 <%=render "messages/form"%>
                     </div>
-                <div  class="col-sm-5 col-lg-5 col-xs-12 col-md-5 text-center">
+                <div  class="col-sm-6 col-lg-6 col-xs-12 col-md-6 text-center">
                 <div class="text-center">
                 <img src="/assets/india.png" class="img-responsive" style="position: relative;width: 100%; opacity: 0.3;">
                 </div>
@@ -39,7 +39,10 @@ contact@Serve4wheels.net<br/>
 </div>
  
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDudcR7C4aHHkRFRGD8xm7eU6oagPqmxOY">
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyDudcR7C4aHHkRFRGD8xm7eU6oagPqmxOY&callback=initMap">
+    </script>
 </script>
 <script>
 $(document).ready(function () {
@@ -47,7 +50,17 @@ Pleasure.init();
 Layout.init();
 
 });
-
+    function initMap() {
+        var uluru = {lat: 30.7305165, lng: 76.7020368};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
 $(document).ready(function () {
 $("#new_message").validate({
 rules: {

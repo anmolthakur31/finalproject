@@ -1,8 +1,8 @@
  
   <h3 class="contact-text"> LEAVE A MESSAGE</h3>
-  <hr class="message">
+
     <%= form_for @message ,html: {class: "form-group"} do |f| %>
-      <div class="cols-sm-10">
+      <div class="cols-sm-12 text-center">
         <div class="input-group">
           
         <%= f.text_field :name, class: "form-control",autofocus: true,id: "name",placeholder: "Enter your Name" %>

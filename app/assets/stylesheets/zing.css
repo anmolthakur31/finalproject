@@ -1828,6 +1828,10 @@ color: #373737;
     margin-top: 10px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #f13c20;
+  border-top: 2px solid #f13c20;
 }
 
+#map{
+  height: 400px;
+  width: 100%;
+}
