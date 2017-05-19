@@ -1677,6 +1677,22 @@ margin-left: auto;
 
 }
 .pumping-heart .fa-heart{
+    font-size: 40px;
+    animation: beat 1s infinite alternate;
+  transform-origin: center;
+    -webkit-animation: beat 1s infinite alternate;
+  -moz-animation: beat 1s infinite alternate;
+  -ms-animation: beat 1s infinite alternate;
+  -o-animation: beat 1s infinite alternate;
+  animation: beat 1s infinite alternate;
+
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -o-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+.pumping-heart .fa-user{
     font-size: 90px;
     animation: beat 1s infinite alternate;
   transform-origin: center;
