@@ -1,3 +1,9 @@
 <div><%= @service.name%></div>
 <div><%= @service.description%></div>
 <%= image_tag @service.photo.url(:small)%>
+
+<div style="float: right;">
+	<%Service.all.each do |service|%>
+		<%=link_to service.name, service_path(service)%><br>
+	<%end%>
+</div>
