@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170519113802) do
 
+  create_table "booked_services", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "booking_id"
+    t.integer  "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_booked_services_on_booking_id", using: :btree
+    t.index ["service_id"], name: "index_booked_services_on_service_id", using: :btree
+  end
+
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "dateslot"
     t.integer  "uservehicle_id"
@@ -149,6 +158,8 @@ ActiveRecord::Schema.define(version: 20170519113802) do
     t.index ["variant_id"], name: "index_vehicles_on_variant_id", using: :btree
   end
 
+  add_foreign_key "booked_services", "bookings"
+  add_foreign_key "booked_services", "services"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "uservehicles"
   add_foreign_key "models", "brands"

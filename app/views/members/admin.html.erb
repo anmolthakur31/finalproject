@@ -1,8 +1,27 @@
+
+<style type="text/css">
+    .form-control{
+  border: 1px solid black !important;
+  border-radius: 6px !important;
+    height: auto!important;
+padding: 8px 12px !important;
+}
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+
+</style>
+
+<!--                               content begins                                     -->
+
 <div class="content">
         <div class="container-fluid" style="margin-top: 50px;margin-bottom: 50px;">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                     <h2 class="text-center" style="margin-bottom: 50px;">Serve4Wheels</h2>
+
 
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <ul class="nav nav-tabs">
@@ -12,10 +31,13 @@
                             <li><a data-toggle="tab" href="#menu1">Vehicles</a></li>
                             <li><a data-toggle="tab" href="#menu2">Services</a></li>
                             <li><a data-toggle="tab" href="#menu3">Bookings</a></li>
+                            <li><a data-toggle="tab" href="#menu4">Brands</a></li>
+                            <li><a data-toggle="tab" href="#menu5">Models</a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
-                                <h3>Users</h3>
+                                <h3>Users
+                                </h3>
                                 <div class="wrapper wrapper-content animated fadeInRight">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -32,16 +54,6 @@
                                                             <th>User Role</th>
                                                         </tr>
                                                     </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Email</th>
-                                                            <th>Phone Number</th>
-                                                            <th>Joining Date</th>
-                                                            <th>Deleted on</th>
-                                                            <th>User Role</th>
-                                                        </tr>
-                                                    </tfoot>
                                                     <tbody>
                                                         <% @users.each do |user| %>
                                                         <tr>
@@ -61,7 +73,12 @@
                                 </div>
                             </div>
                             <div id="menu1" class="tab-pane fade">
-                                <h3>Vehicles</h3>
+                                <h3>Vehicles
+                                    <a href="<%=new_vehicle_path%>">
+                                        <i class="fa fa-plus-square" aria-hidden="true" style="float: right;"></i>
+                                    </a>
+                                </h3>
+
                                 <div class="wrapper wrapper-content animated fadeInRight">
                                     <div class="row">
                                         <div class="col-lg-12">            
@@ -75,21 +92,12 @@
                                                             <th>Model</th>
                                                             <th>Variant</th>
                                                             <th>Starting Year</th>
-                                                            <th>Created On</th>
-                                                            <th>Updated on</th>
+                                                            <th>Created at</th>
+                                                            <th>Updated at</th>
+                                                            <th>Edit</th>
+                                                            <th>Delete</th>
                                                         </tr>
                                                     </thead>
-
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Brand</th>
-                                                            <th>Model</th>
-                                                            <th>Variant</th>
-                                                            <th>Starting Year</th>
-                                                            <th>Created On</th>
-                                                            <th>Updated on</th>
-                                                        </tr>
-                                                    </tfoot>
 
                                                     <tbody>
                                                         <% @vehicles.each do |vehicle| %>
@@ -100,6 +108,18 @@
                                                             <td><%=vehicle.startyear%></td>
                                                             <td><%=vehicle.created_at%></td>
                                                             <td><%=vehicle.updated_at%></td>
+                                                            <td>
+                                                                <button class="btn btn-primary btn-xs dt-edit">
+                                                                    <a href="<%=edit_vehicle_path(vehicle)%>">
+                                                                    <span class="glyphicon glyphicon-pencil"></span>
+                                                                    </a>
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-xs dt-delete">
+                                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                                </button>
+                                                            </td>
                                                         </tr>
                                                         <%end%>
                                                     </tbody>
@@ -110,7 +130,11 @@
                                 </div>
                             </div>
                             <div id="menu2" class="tab-pane fade">
-                                <h3>Services</h3>
+                                <h3>Services
+                                    <a href="<%=new_service_path%>">
+                                        <i class="fa fa-plus-square" aria-hidden="true" style="float: right;"></i>
+                                    </a>
+                                </h3>
                                     <div class="wrapper wrapper-content animated fadeInRight">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -125,19 +149,10 @@
                                                                 <th>Update on</th>
                                                                 <th>Deletion Date</th>
                                                                 <th>Deletion Date</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
                                                             </tr>
                                                         </thead>
-
-                                                        <tfoot>
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Description</th>
-                                                                <th>Joining Date</th>
-                                                                <th>Update on</th>
-                                                                <th>Deletion Date</th>
-                                                                <th>Deletion Date</th>
-                                                            </tr>
-                                                        </tfoot>
 
                                                         <tbody>
                                                             <% @services.each do |service| %>
@@ -148,6 +163,17 @@
                                                                 <td><%=service.updated_at%></td>
                                                                 <td><%=service.created_at%></td>
                                                                 <td><%=service.updated_at%></td>
+                                                                <td>
+                                                                    <button class="btn btn-primary btn-xs dt-edit">
+                                                                        <a href="<%=edit_service_path(service)%>">
+                                                                        <span class="glyphicon glyphicon-pencil"></span></a>
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-danger btn-xs dt-delete">
+                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
                                                             </tr>
                                                             <%end%>
                                                         </tbody>
@@ -173,19 +199,10 @@
                                                                 <th>Vehicle Registration</th>
                                                                 <th>Total Cost</th>
                                                                 <th>Total Cost</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
                                                             </tr>
                                                         </thead>
-
-                                                        <tfoot>
-                                                           <tr>
-                                                                <th>Dateslot</th>
-                                                                <th>Timeslot</th>
-                                                                <th>User Vehicle</th>
-                                                                <th>Vehicle Registration</th>
-                                                                <th>Total Cost</th>
-                                                                <th>Total Cost</th>
-                                                            </tr>
-                                                        </tfoot>
 
                                                         <tbody>
                                                             <% @bookings.each do |booking| %>
@@ -200,6 +217,108 @@
                                                                 <td><%=booking.uservehicle.reg_no%></td>
                                                                 <td><%=booking.total_cost%></td>
                                                                 <td><%=booking.total_cost%></td>
+                                                                <td>
+                                                                    <button class="btn btn-primary btn-xs dt-edit">
+                                                                        <a href="<%=edit_booking_path(booking)%>">
+                                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                                        </a>
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-danger btn-xs dt-delete">
+                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <%end%>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!--.overflow-table-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu4" class="tab-pane fade">
+                                <h3>Brands
+                                    <a href="<%=new_brand_path%>">
+                                        <i class="fa fa-plus-square" aria-hidden="true" style="float: right;"></i>
+                                    </a>
+                                </h3>
+                                    <div class="wrapper wrapper-content animated fadeInRight">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="overflow-table">
+                                                    <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without alphabet search -->                         
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <% @brands.each do |brand| %>
+                                                            <tr>
+                                                                <td><%=brand.name%></td>
+                                                                <td>
+                                                                    <button class="btn btn-primary btn-xs dt-edit">
+                                                                        <a href="<%=edit_brand_path(brand)%>">
+                                                                        <span class="glyphicon glyphicon-pencil"></span></a>
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-danger btn-xs dt-delete">
+                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <%end%>
+                                                        </tbody>
+                                                    </table>
+                                                </div><!--.overflow-table-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="menu5" class="tab-pane fade">
+                                <h3>Models
+                                    <a href="<%=new_model_path%>">
+                                        <i class="fa fa-plus-square" aria-hidden="true" style="float: right;"></i>
+                                    </a>
+                                </h3>
+                                    <div class="wrapper wrapper-content animated fadeInRight">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="overflow-table">
+                                                    <table class="display datatables-basic">
+                        <!-- <table class="display datatables-basic"> gives tables view without alphabet search -->                         
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Brand Name</th>
+                                                                <th>Model Name</th>
+                                                                <th>Edit</th>
+                                                                <th>Delete</th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <% @models.each do |modelc| %>
+                                                            <tr>
+                                                                <td><%=modelc.brand.name%></td>
+                                                                <td><%=modelc.name%></td>
+                                                                <td>
+                                                                    <button class="btn btn-primary btn-xs dt-edit">
+                                                                        <a href="<%=edit_model_path(modelc)%>">
+                                                                        <span class="glyphicon glyphicon-pencil"></span></a>
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-danger btn-xs dt-delete">
+                                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                                    </button>
+                                                                </td>
                                                             </tr>
                                                             <%end%>
                                                         </tbody>
@@ -221,10 +340,15 @@
 
 
     <script>
-    $(document).ready(function () {
-        TablesDataTables.init();
+    $(window).ready(function () {
+    var dataTable=TablesDataTables.init();
     });
+    document.addEventListener("turbolinks:before-cache", function() {
+      dataTable.destroy();
+    }); 
+   
     </script>
+
 
 
     <!-- END INITIALIZATION-->
