@@ -7,8 +7,7 @@ class VehiclesController < ApplicationController
 		@models=Brand.order(:id)
 		@variant=Variant.new
 		@variants=Variant.all
-				    @brandf = Brand.order("created_at desc").limit(1)
-
+		@brandf = Brand.order("created_at desc").limit(1)
 		authorize @vehicle
 
 	end
@@ -28,14 +27,13 @@ class VehiclesController < ApplicationController
 
 	def create
 		@vehicle = Vehicle.new(vehicle_params)
-		
 		@vehicle.save
 		
 		params[:vehicle][:vehicle_id]  = @vehicle.id
-		params[:vehicle][:service_id].each do |ba|
+		params[:vehicle][:service_id].each do |ab|
 		a = VehicleService.new
 		a.vehicle_id = @vehicle.id
-		a.service_id = ba
+		a.service_id = ab
 		a.save!
 	end
 		@memeber=current_user
@@ -50,7 +48,13 @@ class VehiclesController < ApplicationController
 	    redirect_to admin_path(@member)
 		flash.notice = 'Vehicle was successfully created'
 	end
-
+	def destroy
+		@vehicle = Vehicle.find(params[:id])
+		@vehicle.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Vehicle was successfully deleted.' }
+		end
+	end
 	private
 
 	def vehicle_params

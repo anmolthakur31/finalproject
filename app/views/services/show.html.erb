@@ -1,5 +1,3 @@
 <div><%= @service.name%></div>
 <div><%= @service.description%></div>
-<div class="col-sm-4 col-md-8 col-xs-6 col-lg-4">
-<%= image_tag @service.photo.url(:original),:class=>"img-responsive"%>
-</div>
+<%= image_tag @service.photo.url(:small)%>

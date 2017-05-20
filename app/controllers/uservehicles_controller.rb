@@ -41,7 +41,13 @@ class UservehiclesController < ApplicationController
 		redirect_to member_path(@member)
 		flash.notice = 'Vehicle was successfully created'
 	end
-
+	def destroy
+		@uservehicle = Uservehicle.find(params[:id])
+		@uservehicle.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Your Vehicle was successfully deleted.' }
+		end
+	end
 	private
 
 	def uservehicle_params

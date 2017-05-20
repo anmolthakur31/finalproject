@@ -45,6 +45,13 @@ class BookingsController < ApplicationController
 		redirect_to member_path(@member)
 		flash.notice = 'Booking was successfully created'
 	end
+	def destroy
+		@booking = Booking.find(params[:id])
+		@booking.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Booking was successfully deleted.' }
+	end
+	end
 
 	private
 

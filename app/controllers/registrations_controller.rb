@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  
 	def new
 		redirect_to root_path
 	end
@@ -18,11 +19,20 @@ class RegistrationsController < Devise::RegistrationsController
         end
     else
         clean_up_passwords resource
-        resource.errors.full_messages.each {|x| flash[x] = x} # Rails 4 simple way
+        resource.errors.full_messages.each {|x| flash[x] = x}
         redirect_to root_path 
     end
 end
   private
+
+ def update_resource(resource, params)
+  
+    if params[:password].blank? && params[:password_confirmation].blank?
+      resource.update_without_password(params)
+    else
+     super
+    end
+  end
 
   def sign_up_params
     params.require(:user).permit(:name, :email,:phone, :password, :password_confirmation)
@@ -32,4 +42,6 @@ end
     params.require(:user).permit(:name, :email,:phone,:image, :password, :password_confirmation, :current_password)
   end
 
+
 end
+ 

@@ -15,6 +15,7 @@ match "/500", :to => "errors#internal_server_error", :via => :all
   get 'faq' => 'extras#faq'
   get 'our_team' => 'extras#our_team'
   get 'about_us' => 'extras#about_us'
+  get 'contact_us' => 'extras#contact_us'
   get 'tnc' => 'extras#tnc'
   get 'privacy_policy' => 'extras#privacy_policy'
   get 'admin' => 'members#admin'

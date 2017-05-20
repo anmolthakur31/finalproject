@@ -12,6 +12,9 @@ class MembersController < ApplicationController
 		@bookings=Booking.all
 		@users=User.all
 		authorize @user
+		@brands=Brand.all
+		@models=Model.all
+		
 	end
 
 end

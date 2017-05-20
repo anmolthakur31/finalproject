@@ -13,7 +13,7 @@
 
   <div class="field">
       <%= f.label "Select Timeslot" %><br>
-      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off" %>
+      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off", dropdown: true %>
   </div><br>
 
   
@@ -46,6 +46,7 @@ rules: {
                 minuteStep: 60,
                 showInputs: true,
                 disableFocus: true,
+                defaultTime: '00:00'
             })
     $("#time").click(function(){
         $(".bootstrap-timepicker-widget").toggle();

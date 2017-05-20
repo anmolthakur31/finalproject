@@ -25,7 +25,13 @@ class ServicesController < ApplicationController
 		redirect_to service_path(@service)
 		flash.notice = 'Service was successfully created'
 	end
-
+	def destroy
+		@service = Service.find(params[:id])
+		@service.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Service was successfully deleted.' }
+		end
+	end
 	private
 
 	def service_params
