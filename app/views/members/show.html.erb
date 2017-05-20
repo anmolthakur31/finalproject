@@ -85,7 +85,7 @@
 										</div>
 
 										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group"}) do |f| %>
 
                                                  <div class="field relative">
                                                     <%= f.label :email %><br />
