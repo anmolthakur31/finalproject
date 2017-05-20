@@ -145,16 +145,12 @@
                       <%= link_to 'Add new vehicle', new_uservehicle_path %>
 									</div><!-- tabpane -->
                   <div class="tab-pane" id="tab9_4">
-<<<<<<< HEAD
-                      
-                      
-=======
+
 
                        <%@user.bookings.all.each do |booking|%>
                       <%=booking.uservehicle.uservehicle_name%> <%=booking.dateslot%>  <%=booking.timeslot%><td><%= link_to 'Edit', edit_booking_path(booking) %></td><br>
                       <%end%>
 
->>>>>>> 840471cb2c5bcae496dec65fec38e869c9fcf0c4
                   </div><!-- tabpane -->
 									</div>
 								
