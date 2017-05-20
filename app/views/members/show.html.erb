@@ -85,7 +85,7 @@
 										</div>
 
 										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group"}) do |f| %>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
 
                                                  <div class="field relative">
                                                     <%= f.label :email %><br />
@@ -183,7 +183,6 @@
                          <%end%>
 									</div><!-- tabpane -->
                   <div class="tab-pane" id="tab9_4">
-
                         <div class="text-center pumping-heart color-orange">
                           <i class="fa fa-shopping-cart"></i>
                           <h4>MY BOOKINGS</h4>
@@ -227,7 +226,6 @@
                          </div><!--.panel-->
                          </div>
                          <%end%>
-
                   </div><!-- tabpane -->
 									</div>
 								
