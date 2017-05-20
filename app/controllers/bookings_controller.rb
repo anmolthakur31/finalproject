@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
 	def create
 		@member=current_user
 		@booking = Booking.new(booking_params)
+		@booking.user_id=current_user.id
 		@booking.save  
      		redirect_to member_path(@member)
     
@@ -41,6 +42,7 @@ class BookingsController < ApplicationController
 	def update
 		@member=current_user
 		@booking = Booking.find(params[:id])
+		@booking.user_id=current_user.id
 		@booking.update(booking_params)
 		redirect_to member_path(@member)
 		flash.notice = 'Booking was successfully created'

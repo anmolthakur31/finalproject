@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170519064635) do
 
   create_table "booked_services", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170519064635) do
     t.index ["booking_id"], name: "index_booked_services_on_booking_id", using: :btree
     t.index ["service_id"], name: "index_booked_services_on_service_id", using: :btree
   end
+=======
+ActiveRecord::Schema.define(version: 20170519081846) do
+>>>>>>> 840471cb2c5bcae496dec65fec38e869c9fcf0c4
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "dateslot"
@@ -28,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170519064635) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "timeslot"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
     t.index ["uservehicle_id"], name: "index_bookings_on_uservehicle_id", using: :btree
   end
 
@@ -154,8 +160,12 @@ ActiveRecord::Schema.define(version: 20170519064635) do
     t.index ["variant_id"], name: "index_vehicles_on_variant_id", using: :btree
   end
 
+<<<<<<< HEAD
   add_foreign_key "booked_services", "bookings"
   add_foreign_key "booked_services", "services"
+=======
+  add_foreign_key "bookings", "users"
+>>>>>>> 840471cb2c5bcae496dec65fec38e869c9fcf0c4
   add_foreign_key "bookings", "uservehicles"
   add_foreign_key "models", "brands"
   add_foreign_key "users", "userroles"
