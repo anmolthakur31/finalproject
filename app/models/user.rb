@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
 	validates :name, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/,
     flash: "Only allows letters" }
-	has_attached_file :image, :styles => { :small => "90x90>" ,:thumb => "30x30>"},
+	has_attached_file :image, :styles => { :small => "90x90>" ,:thumb => "30x30>" ,:medium => "220x200>"},
                             :default_url => 'default.jpg'
                     
 	validates_attachment_size :image, :less_than => 5.megabytes

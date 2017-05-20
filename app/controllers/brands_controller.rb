@@ -16,22 +16,24 @@ class BrandsController < ApplicationController
 		@brand = Brand.new(brand_params)
 
 		respond_to do |format|
-      if @brand.save
-        format.html { redirect_to root_url, notice: 'Brand was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @brand }
-        format.js
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @brand.errors, status: :unprocessable_entity }
-        format.js
-      end
-    end
-
-		# @brand.save
-	 #    redirect_to services_path
-	 #    flash.notice = 'Brand was successfully created'
+	      if @brand.save
+	        format.html { redirect_to root_url, notice: 'Brand was successfully created.' }
+	        format.json { render action: 'show', status: :created, location: @brand }
+	        format.js
+	      else
+	        format.html { render action: 'new' }
+	        format.json { render json: @brand.errors, status: :unprocessable_entity }
+	        format.js
+	      end
+	    end
 	end
-
+	def destroy
+		@brand = Brand.find(params[:id])
+		@brand.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Brand was successfully deleted.' }
+		end
+	end
 	def update
 		@brand = Brand.find(params[:id])
 		@brand.update(brand_params)
