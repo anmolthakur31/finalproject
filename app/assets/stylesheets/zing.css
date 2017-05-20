@@ -225,7 +225,7 @@ margin-top: 2px;
   height: 60px;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
- 
+
 .navbar-nav {
   margin: 0;
 }
@@ -305,7 +305,7 @@ li.open a,
  .img-container img { opacity: 0.4;
  position: relative; }
  
-.carousel-inner{
+.carousel-inner {
     height: 650px;
 }
 
@@ -1376,7 +1376,7 @@ a {
 
 .formunder{
   border-bottom: 2px solid #f13c20;
-  width: 151px;
+  width: 152px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
@@ -1940,8 +1940,13 @@ color: #373737;
 }
 
 
+.w-100{
+  width: 100%;
+}
+
 .w-36{
   width: 35%;
+
 }
 .formunder1{
   border-bottom: 2px solid #f13c20;
@@ -1958,7 +1963,7 @@ color: #373737;
     padding: 8px 12px;
      background-color: white;
   }
-  .btn-primary:hover{
+  .button-border:hover{
     border: 2px solid #f13c20;
     border-radius: 0px;
     box-shadow: none;
@@ -1991,3 +1996,16 @@ color: #373737;
   }
   
 
+.text-login{
+font-family: "OS-regular";
+color: black;
+letter-spacing: 1px;
+text-align: center;
+}
+.login-formbg{
+  background-image: url(/assets/formbg214.jpg);
+  height:468px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

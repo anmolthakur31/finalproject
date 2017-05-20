@@ -33,7 +33,7 @@
 <li ><a href="#" class="m-t-7">SERVICES</a></li>
    <li><a href="<%=contact_us_path%>" class="m-t-7">BOOK NOW</a></li>
   <% if user_signed_in? %>
-    <li class="visible-xs"><%= link_to "PROFILE",member_path(@user)%></li>    
+    <li class="visible-xs"><%= link_to "PROFILE",member_path(current_user)%></li>    
     <li class="visible-xs"><a href="#">MY VEHICLES</a></li>
     <li class="visible-xs"><a href="#">MY BOOKINGS</a></li>
     <li class="visible-xs"><%= link_to('SIGNOUT', destroy_user_session_path, :method => :delete) %> </li>   
@@ -42,11 +42,11 @@
                          <span><%= image_tag current_user.image.url(:thumb) , :class => "style_image" ,:style => "height:30px;width:30px;"%></span> 
                     </a>
                     <ul class="dropdown-menu editdropdown sub" style="margin-top: 1px; ">
-                  <li><%= link_to "Profile",member_path(@user)%></li>
+                  <li><%= link_to "Profile",member_path(current_user)%></li>
                  <li class="divider login-session-bg"></li>     
-                 <li><a href="http://localhost:3000/members/3#tab_tab9_3">My Vehicles</a></li>
+                 <li><a href="/members/3#tab_tab9_3">My Vehicles</a></li>
                  <li class="divider login-session-bg"></li>
-                 <li><a href="http://localhost:3000/members/3#tab_tab9_4">My Bookings</a></li>
+                 <li><a href="/members/3#tab_tab9_4">My Bookings</a></li>
                  <li class="divider login-session-bg"></li>
             <li><%= link_to('Signout', destroy_user_session_path, :method => :delete) %> </li>
                     </ul>

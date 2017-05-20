@@ -25,3 +25,17 @@ $(window).load(function(){
 });
 
 });
+
+ 
+  
+  $(document).ready(function() {
+   
+   var docHeight = $(window).height();
+   var footerHeight = $('#sticky').height();
+   var footerTop = $('#sticky').position().top + footerHeight;
+   
+   if (footerTop < docHeight) {
+    $('#sticky').css('margin-top', 10 + (docHeight - footerTop) + 'px');
+   }
+  });
+  

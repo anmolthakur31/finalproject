@@ -1,35 +1,39 @@
  
-  <h3 class="contact-text formunder1"> LEAVE A MESSAGE</h3>
-    <%= form_for @message ,html: {class: "form-group text-center w-36 m-t-35"} do |f| %>
+  <h3 class="contact-text formunder1"> LEAVE A MESSAGE </h3>
+    <%= form_for @message ,html: {class: "form-group m-t-35 text-center "} do |f| %>
       <div class="cols-sm-12 text-center">
-        <div class="input-group ">
+        <div class="input-group w-100">
           
-        <%= f.text_field :name, class: "form-control text-center",autofocus: true,id: "name",placeholder: "Enter your Name" %>
+        <%= f.text_field :name, class: "form-control ",id: "name",placeholder: "Enter your Name", style: "border-bottom: 1px solid #F5DCDC;" %>
         </div>
       </div>
     <br>
       <div class="cols-sm-10">
-        <div class="input-group ">
+        <div class="input-group w-100">
            
-        <%= f.email_field :email,class: "form-control text-center", id: "email",placeholder: "Enter your Email",required:true %>
+        <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true , style: "border-bottom: 1px solid #F5DCDC;"%>
         </div>  
       </div>          
     <br>
       <div class="cols-sm-10">
-        <div class="input-group ">
+        <div class="input-group w-100">
           
-        <%= f.text_field :phone,class: "form-control text-center", id: "username",placeholder: "Enter your Phone no." %>
+        <%= f.text_field :phone,class: "form-control ", id: "username",placeholder: "Enter your Phone number", style: "border-bottom: 1px solid #F5DCDC;" %>
         </div>
       </div>         
     <br>
       <div class="cols-sm-10">
-        <div class="input-group ">
+        <div class="input-group w-100">
           
-        <%= f.text_area :message, autofocus: true,class: "form-control text-center",placeholder: "Enter your Message" %>
+        <%= f.text_area :message,class: "form-control",placeholder: "Enter your Message", style: "border-bottom: 1px solid #F5DCDC;" %>
         </div>
       </div>        
     <br>
-    <%= f.submit 'Submit', class: "btn btn-primary btn-lg btn-block login-button actions  button-border color-orange w-36"%>
+    <div class="col-sm-5 col-sm-offset-3 ">
+        
+    <%= f.submit 'Submit',class: "btn btn-primary btn-lg btn-block login-button actions  button-border color-orange"%>
+   
+    </div>
     <% end %> 
 
 <script type="text/javascript">
