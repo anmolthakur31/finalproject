@@ -55,11 +55,12 @@
                          <h4>PROFILE</h4>
                         </div>
                      </div>
-											<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  text-center">
-											 <div class="field relative">
-	                                            <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "image"}) do |f| %> 
 
-                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center">
+                                          <div class="field relative">
+                                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @user.image.exists?%>
                                                   <%= image_tag @user.image.url(:medium) %>
@@ -80,13 +81,10 @@
                                                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                              </div>
                                              </div>
-	                                            <%end%>
-										 </div>
-										</div>
-
-										<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
-
+                                            
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                  <div class="field relative">
                                                     <%= f.label :email %><br />
                                                      <%= f.email_field :email, :class => "form-control"%>
@@ -103,6 +101,7 @@
                                                   </div>
                                                  <div class="actions">
                                                      <%= f.submit "Update" %>
+                                                 </div>
                                                  </div>
                                             <% end %>
 										</div>
@@ -255,22 +254,11 @@
       rules: {
     "user[email]": {required: true},
     "user[name]": {required: true},
-    "user[phone]": {required: true}
-}
-});
-
-    $("#passwordonly").validate({
-      rules: {
-    "user[password]": {required: true},
-    "user[password_confirmation]": {required: true},
-    "user[current_password]": {required: true}
-}
-});
-     $("#image").validate({
-      rules: {
+    "user[phone]": {required: true},
     "user[image]": {required: true}
 }
 });
+
     Pleasure.init();
     Layout.init();
 
