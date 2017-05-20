@@ -23,6 +23,9 @@
     .fileinput{
       margin-bottom: 40px;
     }
+    a:hover{
+      color: #f13c20;
+    }
 
 </style>
 <img src="/assets/userdash.jpg" class="img-responsive" width="100%" height="400">       
@@ -30,8 +33,8 @@
                      <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
 											<li class="active"><a href="#tab9_1" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
 											<li><a href="#tab9_2" data-toggle="tab" class="f-20 mf-10">Password</a></li>
-											<li><a href="#tab9_3" data-toggle="tab" class="f-20 mf-10">My vehicles</a></li>
-                      <li><a href="#tab9_4" data-toggle="tab" class="f-20 mf-10">My Bookings</a></li>
+											<li><a href="#tab9_3" data-toggle="tab" class="f-20 mf-10">Vehicles</a></li>
+                      <li><a href="#tab9_4" data-toggle="tab" class="f-20 mf-10">Bookings</a></li>
 
 										</ul>
 				<div class="panel">
@@ -59,7 +62,7 @@
                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @user.image.exists?%>
-                                                  <%= image_tag @user.image.url , :size =>'220x200' %>
+                                                  <%= image_tag @user.image.url(:medium) %>
                                                    <%end%>
                                                </div>
                  
@@ -86,17 +89,17 @@
 
                                                  <div class="field relative">
                                                     <%= f.label :email %><br />
-                                                     <%= f.email_field :email, autofocus: true , :class => "form-control"%>
+                                                     <%= f.email_field :email, :class => "form-control"%>
                                                   </div>
 
                                                   <div class="field relative">
                                                     <%= f.label :name %><br />
-                                                     <%= f.text_field :name, autofocus: true , :class => "form-control"%>
+                                                     <%= f.text_field :name,  :class => "form-control"%>
                                                   </div>
 
                                                   <div class="field relative">
                                                     <%= f.label :phone_number %><br />
-                                                     <%= f.text_field :phone, autofocus: true, :class => "form-control" %>
+                                                     <%= f.text_field :phone, :class => "form-control" %>
                                                   </div>
                                                  <div class="actions">
                                                      <%= f.submit "Update" %>
@@ -138,18 +141,92 @@
 										</p>
 									</div><!-- tabpane -->
 									<div class="tab-pane" id="tab9_3">
-												<h5>List of vehicles</h5>
-											<%@user.uservehicles.all.each do |uservehicle|%>
-                      <%=uservehicle.vehicle.brand.name%> <%=uservehicle.vehicle.model.name%> <%=uservehicle.vehicle.variant.name%> (<%=uservehicle.reg_no%>) <td><%= link_to 'Edit', edit_uservehicle_path(uservehicle) %></td><br>
-                      <%end%>
-                      <%= link_to 'Add new vehicle', new_uservehicle_path %>
+                        <div class="text-center pumping-heart color-orange">
+                          <i class="fa fa-car"></i>
+                          <h4>MY VEHICLES</h4>
+                         </div>
+                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'Add vehicle', new_uservehicle_path ,:class => "button-vehicle" %></div>
+                         <%@user.uservehicles.all.each do |uservehicle|%>
+                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                         <div class="panel">
+                             <div class="panel-heading">
+                             <div class="panel-title " style="background-color: #e3e3e3;"><h4>MY VEHICLE</h4>
+                             <div class="panel-buttons">
+                                <div class="btn-group btn-merged">
+                                 <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>'), edit_uservehicle_path(uservehicle) , :class => "color-black m-r-10 f-20"%>
+                                <%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>'), uservehicle_path(uservehicle) , method: :delete,:class => "color-black f-20"%>
+                                </div>
+                             </div><!--.panel-buttons-->
+                             </div><!--.panel-title-->
+                              </div><!--.panel-heading-->
+                              <div class="panel-body">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>REGISTRATION NUMBER</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=uservehicle.reg_no%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>BRAND</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=uservehicle.vehicle.brand.name%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>MODEL</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=uservehicle.vehicle.model.name%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>VARIANT</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=uservehicle.vehicle.variant.name%></div>
+                              </div>
+                              </div><!--.panel-body-->
+                         </div><!--.panel-->
+                         </div>
+
+                         <%end%>
 									</div><!-- tabpane -->
                   <div class="tab-pane" id="tab9_4">
 
-
-                       <%@user.bookings.all.each do |booking|%>
-                      <%=booking.uservehicle.uservehicle_name%> <%=booking.dateslot%>  <%=booking.timeslot%><td><%= link_to 'Edit', edit_booking_path(booking) %></td><br>
-                      <%end%>
+                        <div class="text-center pumping-heart color-orange">
+                          <i class="fa fa-shopping-cart"></i>
+                          <h4>MY BOOKINGS</h4>
+                         </div>
+                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'BOOK NOW', new_uservehicle_path ,:class => "button-vehicle" %></div>
+                          <%@user.bookings.all.each do |booking|%>
+                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                         <div class="panel">
+                             <div class="panel-heading">
+                             <div class="panel-title " style="background-color: #e3e3e3;"><h4>MY BOOKINGS</h4>
+                             <div class="panel-buttons">
+                                <div class="btn-group btn-merged">
+                                 <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>'), edit_booking_path(booking) , :class => "color-black m-r-10 f-20"%>
+                                </div>
+                             </div><!--.panel-buttons-->
+                             </div><!--.panel-title-->
+                              </div><!--.panel-heading-->
+                              <div class="panel-body">
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>REGISTRATION NUMBER</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"> <%=booking.uservehicle.reg_no%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>VEHICLE</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"> <%=booking.uservehicle.vehicle.vehicle_name%></div>
+                              </div>
+                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>SERVICE BOOKED</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"> <%=booking.uservehicle.reg_no%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>DATESLOT</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=booking.dateslot%></div>
+                              </div>
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>TIMESLOT</b></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"><%=booking.timeslot%></div>
+                              </div>
+                              
+                              </div><!--.panel-body-->
+                         </div><!--.panel-->
+                         </div>
+                         <%end%>
 
                   </div><!-- tabpane -->
 									</div>
