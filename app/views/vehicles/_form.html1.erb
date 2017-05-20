@@ -1,0 +1,170 @@
+
+  <div class="container">             
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
+      <div class="panel panel-info">
+
+           <div class="panel-title text-center " style="  border-bottom: 2px solid #f13c20;
+  width: 151px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;">Add A Vehicle
+
+           </div>
+       
+    
+        <div class="panel-body" >
+        <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
+          <div id="brandbox" class="form-group required">
+          <%= f.label "Brand",class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br> 
+            <div class="controls col-md-6 ">
+            <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
+              </div>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
+            </div>
+           </div>
+              
+          <div id="modelbox" class="form-group required">
+          <%= f.label "Model", class: "control-label col-md-3 requiredField"%>
+            <div class="controls col-md-6 ">
+           <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
+               </div>
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+          </div>
+        </div>
+          <div id="variantbox" class="form-group required">
+          <%= f.label "Variant",class: "control-label col-md-3  requiredField" %>
+            <div class="controls col-md-6 ">
+            <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
+             </div> 
+              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+              </div>
+               
+          </div>
+          <%unless @vehicle.new_record?%>
+          <div  class="form-group required">
+          <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
+            <div class="controls col-md-6 "> 
+            <%= hidden_field_tag "vehicle[service_ids][]", nil%>
+                <%Service.all.each do |service|%>
+                  <%= check_box_tag "vehicle[service_ids][]" ,service.id, @vehicle.service_ids.include?(service.id), id: dom_id(service) %>
+                  <%=label_tag dom_id(service),service.name %><br>
+
+                <%end%>        
+             </div>
+
+              <%=f.fields_for :vehicle_services do |builder|%>
+                <fieldset>
+                <%#=builder.label :basic_cost,"Cost"%>
+                <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
+                </fieldset>
+                <%end%>        
+          </div>
+
+          </div>
+          <%end%>
+          <div  class="form-group required">
+          <%= f.label :startyear,class: "control-label col-md-3  requiredField" %>
+            <div class="controls col-md-6 "> 
+            <%= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control m-b-10"%>    
+             </div>
+          </div>
+          <div class="form-group">
+              <div class="controls col-md-4 col-md-offset-4 text-center">
+              <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
+              </div>
+          </div>    
+        </div>
+      </div>
+    </div> 
+  </div>
+
+
+<% end %>
+
+<div class="modal fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new brand</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'brands/form', modal: true %>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_model_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new model</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'models/form', modal: true %>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_variant_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add new variant</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'variants/form', modal: true %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+jQuery(function() {
+ var models = $('#vehicle_model_id').html();
+ return $('#vehicle_brand_id').change(function() {
+  var brand = $('#vehicle_brand_id :selected').text();
+   var options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#vehicle_model_id').html(options);
+  } else {
+   return $('#vehicle_model_id').empty();
+ }
+ });
+});
+$("#vehicle_brand_id").change(function () {
+   if ($("#vehicle_brand_id").val() == 0) {
+     $('#vehicle_model_id').attr('disabled', 'disabled');
+     } else {
+       $('#vehicle_model_id').removeAttr('disabled');
+     }
+}).trigger("change");
+
+$(document).ready(function () {
+$("#new_vehicle").validate({
+rules: {
+"vehicle[brand_id]": {required: true},
+"vehicle[model_id]": {required: true},
+"vehicle[variant_id]": {required: true},
+"vehicle[startyear]": {required: true}
+}
+});
+});
+$(function(){
+  $(' input[type=checkbox]').click(function(){
+    $(this).parent('form').submit();
+    alert('sda');
+  });
+
+});
+
+</script>
+
+   

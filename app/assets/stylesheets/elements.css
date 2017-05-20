@@ -5982,8 +5982,13 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
   border: 0;
 }
 .panel:before {
+<<<<<<< HEAD
+/*  position: absolute;
+*/  content: '';
+=======
   /*position: absolute;*/
   content: '';
+>>>>>>> 89532538822b07805d5b56d2375f7c269cf13145
   left: 0;
   top: 0;
   width: 100%;

@@ -36,7 +36,13 @@ class ModelsController < ApplicationController
 		redirect_to services_path
 		flash.notice = 'Model was successfully created'
 	end
-
+	def destroy
+		@model = Model.find(params[:id])
+		@model.destroy
+		respond_to do |format|
+			format.html { redirect_to root_url, notice: 'Model was successfully deleted.' }
+		end
+	end
 	private
 
 	def model_params
