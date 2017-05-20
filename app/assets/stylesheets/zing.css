@@ -225,11 +225,7 @@ margin-top: 2px;
   height: 60px;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 649d29581c30ccfbd241d15c19994f94b1b22289
 .navbar-nav {
   margin: 0;
 }
