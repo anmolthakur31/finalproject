@@ -4323,7 +4323,7 @@ fieldset[disabled] .btn-flat.active {
   padding-right: 0;
   box-shadow: none;
   border: none;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid black;
   border-radius: 0;
   background: transparent;
 }

@@ -1,4 +1,15 @@
-
+<style type="text/css">
+	.form-control::-moz-placeholder {
+  color: white;
+  opacity: 0.8;
+}
+.form-control:-ms-input-placeholder {
+  color: white;
+}
+.form-control::-webkit-input-placeholder {
+  color: white;
+}
+</style>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -212,7 +223,7 @@ riding away like nothing, ever, happened!.</p>
                     <li data-target="#fade-quote-carousel" data-slide-to="5"></li>
 				  </ol>
 				  <!-- Carousel items -->
-				  <div class="carousel-inner">
+				  <div class="carousel-inner" style="height: auto;">
 				    <div class="item">
                     
 				    	<blockquote>
@@ -399,8 +410,8 @@ riding away like nothing, ever, happened!.</p>
 <br>
 
 	<div class="col-md-12 col-sm-12 col-xs-12 nopadd">
-        <a href="<%=user_facebook_omniauth_authorize_path%>" class="btn btn-block btn-social button-facebook btnbord">
-            <span class="fa fa-facebook"></span> Sign Up with facebook
+        <a href="<%=user_facebook_omniauth_authorize_path%>" class="btn btn-block button-facebook btnbord">
+            <span style="padding-right: 6px;" class="fa fa-facebook"></span> Sign Up with facebook
         </a>
         </div>
         <!-- <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
@@ -409,7 +420,7 @@ riding away like nothing, ever, happened!.</p>
     </a>
     </div> -->
  <div class="col-sm-12 col-md-12">
- <p class="text-center" style="margin-top: 10px; font-size: 19px;">Already a user? <span><%=link_to "Sign In", new_user_session_path, class: "signin"%></span>
+ <p class="text-center" style="margin-top: 10px; font-size: 19px;">Already a user? <span><%=link_to "SIGN IN", new_user_session_path, class: "signin"%></span>
  </p>
  </div>
 </div>

@@ -1,3 +1,17 @@
+<style type="text/css">
+  .form-control{
+  border: 1px solid black !important;
+  border-radius: 6px !important;
+    height: auto!important;
+padding: 8px 12px !important;
+}
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+
+</style>
 <div class="panel-body" >
 <%= form_for @service , :html => { :multipart => true, class: "form-horizontal" } do |f| %>
  <div class="form-group required">
@@ -18,10 +32,27 @@
 <div class="form-group required">
   
    <%= f.label "Image", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
-       
-     <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
-           <%= f.file_field :photo, required: :true,class: "input-md textinput textInput  text-center m-b-10"%>   
-                       </div> 
+  <div class="fileinput fileinput-new col-md-3 col-xs-12 col-sm-5 text-center " data-provides="fileinput">
+                                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
+                                                   <%if @service.photo.exists?%>
+                                                  <%= image_tag @service.photo.url , :size =>'220x200' %>
+                                                   <%end%>
+                                               </div>
+                 
+                                                <div>
+                                                 <span class="btn btn-default btn-file">
+                                                  <span class="fileinput-new">Select image</span>
+                                                   <span class="fileinput-exists">Change</span>
+                                                    <%if @service.photo.exists?%>
+                                                         <%= f.file_field :photo %>
+                                              
+                                                      <%else%>
+                                                        <%= f.file_field :photo %>
+                                                      <%end%>
+                                                       </span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                             </div>
+                                             </div> 
   </div>
    <div class="form-group">
                           <div class="controls col-md-12 col-md-offset-3 text-center">

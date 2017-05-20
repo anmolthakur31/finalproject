@@ -1,45 +1,42 @@
- <div class="login-container lightmode">
+<div class="container-fluid login-formbg">
+<div class="row">
+ <div class="col-md-12 bg-signup">
+
+
+        <div class="main-login main-center">
+        <h5 class="text-login" >LOGIN </h5>
         
-            <div class="login-box"> 
-                <div class="login-body">
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: "form-group"}) do |f| %>
-
-                    <div class="login-title"><strong >Log In</strong> </div>
-            <br>
+       <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {class: "form-group", id: "new_user"}) do |f| %>
               <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                      <%= f.text_field :email, autofocus: true, class: "form-control",id: "email",placeholder: "Enter your email", required: true %>
-                
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+
+                   <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true%>
+
                 </div>
               </div>
             
-  <br>
-            
-    
-              <div class="cols-sm-10">
+<br>
+  <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                 
-    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password" %>
+   
+ <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password",required:true %>
                   
                 </div>
               </div>
             
 <br>
-                       
-    <%= f.submit "Log in" ,id: "button", class: "btn btn-primary btn-lg btn-block login-button actions" %>
-                          
-                
-                        <div class="col-md-12" style="text-align: center;">
+ <%= f.submit "Log in" ,id: "button", class: "btn btn-primary btn-lg btn-block login-button actions" %>
+
+ <div class="col-md-12" style="text-align: center;">
                          <%= link_to "Forgot your password?", new_password_path(resource_name),class: "btn btn-link btn-block passbtn" %>
                            
                         </div>
-            
-                   <div class="col-md-12 col-sm-12 col-xs-12 nopadd">
-        <a href="<%=user_facebook_omniauth_authorize_path%>" class="btn btn-block btn-social button-facebook btnbord">
-            <span class="fa fa-facebook"></span> Sign In with facebook
+
+                <div class="col-md-12 col-sm-12 col-xs-12 nopadd">
+        <a href="<%=user_facebook_omniauth_authorize_path%>" class="btn btn-block button-facebook btnbord">
+            <span style="padding-right: 6px;" class="fa fa-facebook"></span> Sign In with facebook
         </a>
         </div>
         <!-- <div class="col-md-6 col-sm-6 col-xs-12 nopadd">
@@ -47,19 +44,17 @@
         <span class="fa fa-twitter"></span> Sign up
     </a>
     </div> -->
-                 <div class="row">
-                    <div class="login-subtitle col-md-12">
+ <div class="col-sm-12 col-md-12">
+ <p class="text-center" style="margin-top: 10px; font-size: 13px; color: black;"> Don't have an account yet?</p> <p style="text-align: center;"><%=link_to "Create an account", new_registration_path(resource_name),class: " passbtn" %></p>
 
-                        Don't have an account yet? <%=link_to "Create an account", new_registration_path(resource_name),class: " passbtn" %>
-                    </div>
-           
-                </div>
-              </div>
-            </div>
-            
-        </div>
+ </div>
+</div>
 <% end %>
-<%#= render "devise/shared/links" %>
+
+</div>
+</div>
+</div>
+
 
 <script>
    $(document).ready(function () {
