@@ -182,7 +182,6 @@
                          <%end%>
 									</div><!-- tabpane -->
                   <div class="tab-pane" id="tab9_4">
-
                         <div class="text-center pumping-heart color-orange">
                           <i class="fa fa-shopping-cart"></i>
                           <h4>MY BOOKINGS</h4>
@@ -226,7 +225,6 @@
                          </div><!--.panel-->
                          </div>
                          <%end%>
-
                   </div><!-- tabpane -->
 									</div>
 								
@@ -254,7 +252,19 @@
       rules: {
     "user[email]": {required: true},
     "user[name]": {required: true},
-    "user[phone]": {required: true},
+    "user[phone]": {required: true,minlength: 10,maxlength: 10,digits: true}
+}
+});
+
+    $("#passwordonly").validate({
+      rules: {
+    "user[password]": {required: true},
+    "user[password_confirmation]": {required: true},
+    "user[current_password]": {required: true}
+}
+});
+     $("#image").validate({
+      rules: {
     "user[image]": {required: true}
 }
 });

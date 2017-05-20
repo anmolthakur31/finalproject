@@ -348,7 +348,7 @@ riding away like nothing, ever, happened!.</p>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 
-									    <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name" %>
+									    <%= f.text_field :name, class: "form-control",id: "name",placeholder: "Enter your Name", style:" color: white;" %>
 
 								
 								</div>
@@ -360,7 +360,7 @@ riding away like nothing, ever, happened!.</p>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 
-									 <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true %>
+									 <%= f.email_field :email,class: "form-control", id: "email",placeholder: "Enter your Email",required:true, style:" color: white;"  %>
 
 								</div>
 							</div>
@@ -372,7 +372,7 @@ riding away like nothing, ever, happened!.</p>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
 
-									   <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number" %>
+									   <%= f.text_field :phone,class: "form-control", id: "username",placeholder: "Enter your Phone number", style:" color: white;"  %>
 
 									
 								</div>
@@ -387,7 +387,7 @@ riding away like nothing, ever, happened!.</p>
 									  <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password" %>
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your Password", style:" color: white;"  %>
 									
 								</div>
 							</div>
@@ -398,7 +398,7 @@ riding away like nothing, ever, happened!.</p>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									  <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Confirm your Password" %>
+									  <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Confirm your Password", style:" color: white;"  %>
 							
 								</div>
 							</div>
