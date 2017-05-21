@@ -21,8 +21,8 @@
    color: white;
 }
 </style>
-<div class="clearfix " style="padding: 31px;" >
-       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 " >
+<div class="clearfix "  >
+       <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 " style="padding-top: 30px;" >
         <div class="available-color"><b><u>AVAILABLE SERVICES</u></b></div>
        	  <%Service.all.each do |service|%>
           <span><a href="<%=service_path(service)%>"><%=image_tag service.photo.url(:thumb) , :class =>"b-r-15" %></a></span>
@@ -30,18 +30,18 @@
        	  <hr>   
        	  <%end%>
        </div>
-       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 p-20 border-left text-center ">
+       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 p-10 border-left text-center ">
            <div class="f-20 " style="margin-bottom: 20px;"><b><u><%= @service.name%></u></b></div>
            <div><%= image_tag @service.photo.url(:large) ,:class => "img-responsive box auto"%></div>
-           <div>
-             <span><%= link_to 'CHECKOUT PRICE', new_booking_path ,:class => "button-vehicle padding-less" %></span>
-            <%if user_signed_in?%>
-             <span><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle hidden-xs hidden-sm" %></span>
-             <div><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle1 m-t-16 visible-xs visible-sm" %></div>
-           <%end%>
-           </div>
            <div class="m-t-20"><b><u>Description:</u></b><p><%= @service.description%></p></div>
            <div class="m-t-20"><b><u>When it is required?</u></b><p><%= @service.required%></p></div>
             <div class="m-t-20"><b><u>What all is covered?</u></b><p><%= @service.covered%></p></div>
        </div>
+       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 m-t-30 text-center">
+           <%if user_signed_in?%>
+             <div class="animated zoomInUp"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle1  " %></div>
+           <%end%>
+             <div class="m-t-30 m-b-20 animated zoomInUp"><%= link_to 'CHECKOUT PRICE', new_booking_path ,:class => "button-vehicle1 " %></div>
+           </div>
 </div>
+
