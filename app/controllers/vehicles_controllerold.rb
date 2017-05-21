@@ -8,7 +8,6 @@ class VehiclesController < ApplicationController
 		@variant=Variant.new
 		@variants=Variant.all
 		@brandf = Brand.order("created_at desc").limit(1)
-		@vehicle.vehicle_services.build
 		authorize @vehicle
 
 	end
@@ -59,7 +58,7 @@ class VehiclesController < ApplicationController
 	private
 
 	def vehicle_params
-		params.require(:vehicle).permit(:startyear, :brand_id, :model_id, :variant_id , :service_id =>[],vehicle_services_attributes: [:id, :basic_cost,:service_id =>[]])
+		params.require(:vehicle).permit(:startyear, :brand_id, :model_id, :variant_id ,vehicle_services_attributes: [:id, :basic_cost])
 	end
 
 	def service_params

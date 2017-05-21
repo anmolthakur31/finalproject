@@ -1,5 +1,6 @@
 class Uservehicle < ApplicationRecord
   belongs_to :user
+  has_many :bookings
   belongs_to :vehicle
   belongs_to :brand
   validates :reg_no, presence: true,

@@ -59,3 +59,4 @@ gem 'bootstrap-datepicker-rails'
 gem "paranoia"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "nested_form"
