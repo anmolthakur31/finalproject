@@ -1,8 +1,9 @@
 <fieldset>
+                <%= hidden_field_tag "vehicle[service_id][]",nil%>
                 <%Service.all.each do |service|%>
                   <%= check_box_tag "vehicle[service_id][]" ,service.id,  id: dom_id(service) %>
                   <%=label_tag dom_id(service),service.name %><br>
                 <%= f.text_field :basic_cost,:placeholder=>"Cost"%>
                 <%end%>        
                 <%#=builder.label :basic_cost,"Cost"%>
-                </fieldset>
+</fieldset>
