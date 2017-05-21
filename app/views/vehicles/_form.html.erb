@@ -40,19 +40,19 @@
           <div  class="form-group required">
           <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
             <div class="controls col-md-6 "> 
-            <%= hidden_field_tag "vehicle[service_id][]", nil%>
-              <%=f.fields_for :vehicle_services do |builder|%>
+            <%#= hidden_field_tag "vehicle[service_id][]", nil%>
                 <%Service.all.each do |service|%>
+              <%=f.fields_for :vehicle_services do |builder|%>
                   <%= check_box_tag "vehicle[service_id][]" ,service.id, @vehicle.service_ids.include?(service.id), id: dom_id(service) %>
                   <%=label_tag dom_id(service),service.name %><br>
-                <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
 
+                <fieldset>
+                <%#=builder.label :basic_cost,"Cost"%>
+                <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
+                </fieldset>
                 <%end%>        
                 <%end%>        
              </div>
-                <fieldset>
-                <%#=builder.label :basic_cost,"Cost"%>
-                </fieldset>
 
           </div>
 

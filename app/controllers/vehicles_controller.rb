@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
 	def new
 		@vehicle = Vehicle.new
+		@vehicle.vehicle_services.build
 		@brand= Brand.new
 		@brands= Brand.all
 		@model=Model.new
@@ -8,7 +9,6 @@ class VehiclesController < ApplicationController
 		@variant=Variant.new
 		@variants=Variant.all
 		@brandf = Brand.order("created_at desc").limit(1)
-		@vehicle.vehicle_services.build
 		authorize @vehicle
 
 	end
@@ -35,6 +35,7 @@ class VehiclesController < ApplicationController
 		a = VehicleService.new
 		a.vehicle_id = @vehicle.id
 		a.service_id = ab
+		a.basic_cost = ab
 		a.save!
 	end
 		@memeber=current_user
@@ -59,10 +60,12 @@ class VehiclesController < ApplicationController
 	private
 
 	def vehicle_params
-		params.require(:vehicle).permit(:startyear, :brand_id, :model_id, :variant_id , :service_id =>[],vehicle_services_attributes: [:id, :basic_cost,:service_id =>[]])
+		params.require(:vehicle).permit(:startyear, :brand_id, :model_id, :variant_id ,vehicle_services_attributes: [:id,:basic_cost])
 	end
 
 	def service_params
-		params.require(:vehicle).permit(:vehicle_id, :service_id =>[])
+		params.require(:vehicle).permit(:vehicle_id ,:basic_cost,:service_id =>[])
 	end
 end
+
+		
