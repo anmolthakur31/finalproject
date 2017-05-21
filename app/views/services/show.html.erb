@@ -1,13 +1,71 @@
-
-<div class="container">
-       <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+<style type="text/css">
+  .color-black:active{
+    font-weight: 700;
+    color: #f13c20;
+  }
+  a:hover{
+    color: #f13c20;
+  }
+  .box{
+    box-shadow: 1px 1px 17px rgba(0, 0, 0, 0.15);
+    margin-bottom: 26px;
+  }
+  .button-vehicle:hover{
+  background-color: #f13c20;
+   border:2px solid white;
+   color: white;
+}
+.button-vehicle1:hover{
+  background-color: #f13c20;
+   border:2px solid white;
+   color: white;
+}
+</style>
+<div class="clearfix " style="padding: 31px;" >
+       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 " >
+        <div class="available-color"><b><u>AVAILABLE SERVICES</u></b></div>
        	  <%Service.all.each do |service|%>
-       	     <%=service.name%>
+          <span><a href="<%=service_path(service)%>"><%=image_tag service.photo.url(:thumb) , :class =>"b-r-15" %></a></span>
+				 <span><%= link_to service.name , service_path(service) , :class => "f-10 color-black active"%></span>
+       	  <hr>   
        	  <%end%>
        </div>
-       <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 text-center p-20">
-           <%= image_tag @service.photo.url(:small)%>
-           <div class="f-20"><%= @service.name%></div>
-           <div><%= @service.description%></div>
+       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 p-20 border-left text-center ">
+           <div class="f-20 " style="margin-bottom: 20px;"><b><u><%= @service.name%></u></b></div>
+           <div><%= image_tag @service.photo.url(:large) ,:class => "img-responsive box auto"%></div>
+           <div>
+             <span><%= link_to 'CHECKOUT PRICE', new_booking_path ,:class => "button-vehicle padding-less" %></span>
+            <%if user_signed_in?%>
+             <span><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle hidden-xs hidden-sm" %></span>
+             <div><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle1 m-t-16 visible-xs visible-sm" %></div>
+           <%end%>
+           </div>
+           <div class="m-t-20"><b><u>Description:</u></b><p><%= @service.description%></p></div>
+           <div class="m-t-20"><b><u>When it is required?</u></b><p><%= @service.required%></p></div>
+            <div class="m-t-20"><b><u>What all is covered?</u></b><p><%= @service.covered%></p></div>
+            <%= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name) %>
+      <%= grouped_collection_select( :service,:id, Vehicle.order(:id), :services, :vehicle_name, :id, :name) %>
+      <% a = VehicleService.find(params[:id]) %>
+      <p id="cost" style="display: none;"><%=a.basic_cost %></p>
        </div>
+
+       
 </div>
+<script type="text/javascript">
+  jQuery(function() {
+ var models = $('#service_id').html();
+ return $('#vehicle_vehicle_id').change(function() {
+  var brand = $('#vehicle_vehicle_id :selected').text();
+   var options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#service_id').html(options);
+  } else {
+   return $('#service_id').empty();
+ }
+ });
+});
+
+  $( "#service_id" ).change(function() {
+    $( "#cost" ).show();
+});
+</script>
