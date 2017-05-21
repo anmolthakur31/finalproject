@@ -1,3 +1,13 @@
-<div><%= @service.name%></div>
-<div><%= @service.description%></div>
-<%= image_tag @service.photo.url(:small)%>
+
+<div class="container">
+       <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+       	  <%Service.all.each do |service|%>
+       	     <%=service.name%>
+       	  <%end%>
+       </div>
+       <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 text-center p-20">
+           <%= image_tag @service.photo.url(:small)%>
+           <div class="f-20"><%= @service.name%></div>
+           <div><%= @service.description%></div>
+       </div>
+</div>

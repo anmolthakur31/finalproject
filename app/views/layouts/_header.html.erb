@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         </button>
       <%#=link_to 'Serve4Wheels',root_path , :class => 'navbar-brand brandcol'%>
-      <a href=""><img src="/assets/logo.svg" width="140" height="50" style="margin-top: 5px;"></a>
+      <a href="<%=root_path%>"><img src="/assets/firselogo.png" width="170" height="50" style="margin-top: 5px;margin-left: 16px;"></a>
 
       </div>
       
@@ -29,10 +29,12 @@
       
 </ul>  
 <ul class="nav navbar-nav navbar-right links" > 
- 
-<li ><a href="#" class="m-t-7">SERVICES</a></li>
-   <li><a href="<%=contact_us_path%>" class="m-t-7">BOOK NOW</a></li>
+ <%a = Service.first%>
+<li ><a href="<%=service_path(a)%>" class="m-t-7">SERVICES</a></li>
+   <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
+
   <% if user_signed_in? %>
+    <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
     <li class="visible-xs"><%= link_to "PROFILE",member_path(current_user)%></li>    
     <li class="visible-xs"><a href="#">MY VEHICLES</a></li>
     <li class="visible-xs"><a href="#">MY BOOKINGS</a></li>

@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
  
   def show?
-    return true if @user.present?
+    return true if @user.present? && ((@user.id== user.id) || @user.userrole_id==2)
   end
  
   def admin?
