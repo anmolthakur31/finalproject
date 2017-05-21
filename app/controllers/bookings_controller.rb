@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 		@uservehicle = Uservehicle.new
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
+		 @bookingvehicle=Vehicle.order(:id)
 		
 	end
 
@@ -58,6 +59,6 @@ class BookingsController < ApplicationController
 	private
 
 	def booking_params
-		params.require(:booking).permit(:timeslot, :dateslot, :total_cost, :uservehicle_id)
+		params.require(:booking).permit(:timeslot, :dateslot, :total_cost, :uservehicle_id,:service_id,:user_id)
 	end
 end

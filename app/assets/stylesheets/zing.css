@@ -2022,6 +2022,7 @@ text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .border-left{
     border-style: double;
     border-bottom: none;
@@ -2087,3 +2088,11 @@ text-align: center;
     margin-top: 10px;
 }
 }
+
+/*label.error {
+  color: #f13c20;
+  background-color: transparent;
+  border-color: #ebccd1;
+  
+}*/
+
