@@ -36,28 +36,32 @@
         <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
         </div>
       </div>
-      <%#unless @vehicle.new_record?%>
+      <%unless @vehicle.new_record?%>
           <div  class="form-group required">
           <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
             <div class="controls col-md-6 "> 
             <%#= hidden_field_tag "vehicle[service_id][]", nil%>
-                <%Service.all.each do |service|%>
+              <ol id="vehser">
               <%=f.fields_for :vehicle_services do |builder|%>
-                  <%= check_box_tag "vehicle[service_id][]" ,service.id, @vehicle.service_ids.include?(service.id), id: dom_id(service) %>
-                  <%=label_tag dom_id(service),service.name %><br>
-
-                <fieldset>
-                <%#=builder.label :basic_cost,"Cost"%>
+                
+                
+                  <li><%= builder.collection_select :service_id,Service.all,:id,:name%>
                 <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
-                </fieldset>
+                <%= builder.link_to_remove "Remove Service" %>
+                </li>                
+                
                 <%end%>        
-                <%end%>        
+
+                </ol>
+                <p><%= f.link_to_add "Add Service", :vehicle_services, "data-target" => "#vehser" %></p>
+                
              </div>
+                        
 
           </div>
 
           </div>
-          <%#end%>
+          <%end%>
       <!-- <div  class="form-group required">
       <%#= f.label :startyear,class: "control-label col-md-3  requiredField" %>
         <div class="controls col-md-6 "> 
