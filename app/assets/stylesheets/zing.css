@@ -1811,6 +1811,22 @@ margin-left: auto;
   -ms-transform-origin: center;
   transform-origin: center;
 }
+.pumping-heart .fa-wrench{
+    font-size: 47px;
+    animation: beat 1s infinite alternate;
+  transform-origin: center;
+    -webkit-animation: beat 1s infinite alternate;
+  -moz-animation: beat 1s infinite alternate;
+  -ms-animation: beat 1s infinite alternate;
+  -o-animation: beat 1s infinite alternate;
+  animation: beat 1s infinite alternate;
+
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -o-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
 .pumping-heart h4{
 color: #373737;
   font-weight: 700;
@@ -2091,6 +2107,13 @@ text-align: center;
     border-color: #e3e3e3;
     margin-top: 10px;
 }
+}
+.w-100{
+  width: 100%;
+}
+.collection select{
+  width: 100%;
+  border: 1px solid;
 }
 
 /*label.error {
