@@ -442,8 +442,8 @@ padding-top: 10px;
    width: 180px;
    margin: auto;
 }
-.m-t-16{
-  margin-top: 16px;
+.m-t-30{
+  margin-top: 30px;
 }
 
 
@@ -1331,6 +1331,9 @@ a {
 .sample-member1{
   background-image: url('/assets/ceo.jpg');
 }
+.p-10{
+  padding: 10px;
+}
 .p-20{
   padding: 20px;
 }
@@ -1380,6 +1383,9 @@ a {
 }
 .m-b-10{
   margin-bottom: 10px;
+}
+.m-b-20{
+  margin-bottom: 20px;
 }
 
  .js div#preloader { position: fixed; left: 0; top: 0; z-index: 9999999; width: 100%; height: 100%; overflow: visible; background: white url('/assets/loading1.gif') no-repeat center center; }
@@ -2027,7 +2033,6 @@ text-align: center;
     border-style: double;
     border-bottom: none;
     border-top: none;
-    border-right: none;
     border-color: #e3e3e3;
 }
 .m-t-20{
@@ -2081,7 +2086,6 @@ text-align: center;
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 .border-left{
    border-style: double;
-    border-bottom: none;
     border-left: none;
     border-right: none;
     border-color: #e3e3e3;
