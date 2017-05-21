@@ -31,8 +31,6 @@
 <ul class="nav navbar-nav navbar-right links" > 
  <%a = Service.first%>
 <li ><a href="<%=service_path(a)%>" class="m-t-7">SERVICES</a></li>
-   <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
-
   <% if user_signed_in? %>
     <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
     <li class="visible-xs"><%= link_to "PROFILE",member_path(current_user)%></li>    

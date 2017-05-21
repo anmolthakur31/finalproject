@@ -35,7 +35,8 @@ class VehiclesController < ApplicationController
 		a.vehicle_id = @vehicle.id
 		a.service_id = ab
 		a.save!
-	end
+		end
+		
 		@memeber=current_user
 	    redirect_to vehicle_path(@vehicle)
 	    flash.notice = 'Vehicle was successfully created'
