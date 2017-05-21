@@ -186,7 +186,7 @@
                           <i class="fa fa-shopping-cart"></i>
                           <h4>MY BOOKINGS</h4>
                          </div>
-                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'BOOK NOW', new_uservehicle_path ,:class => "button-vehicle" %></div>
+                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle" %></div>
                           <%@user.bookings.all.each do |booking|%>
                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                          <div class="panel">
