@@ -428,7 +428,7 @@ padding-top: 10px;
     background-color: transparent; 
     color: #f13c20; 
     border: 2px solid #f13c20;
-    padding: 8px 50px;
+    padding: 16px 29px;
    font-size: 15px;
    margin: 8px 2px;
 }
@@ -2008,4 +2008,43 @@ text-align: center;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.w-50{
+  width: 50%;
+
+}
+.shift{
+  text-align: center!important;
+  font-family: "OS-regular";
+  font-size: 14px;
+  font-weight: bold;
+}
+.updatebtn{
+    border: 2px solid #f13c20 !important;
+  background-color: #f13c20 !important;
+  border-radius: 0px !important;
+  padding: 11px 12px;
+}
+.userfa{
+  color: #f13c20;
+  font-size: 17px;
+  margin-left: 5px;
+}
+@media only screen and (max-width: 425px){
+  .contact-left{
+    border-style: double;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+  }
+}
+.button-vehicle:hover{
+background-color: #f13c20;
+color: white;
+border: 2px solid #f13c20;
+
+}
+.m-t-b-50{
+  
+  margin-bottom: 50px;
 }
