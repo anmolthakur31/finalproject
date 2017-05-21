@@ -10,4 +10,27 @@
            <div class="f-20"><%= @service.name%></div>
            <div><%= @service.description%></div>
        </div>
+
+       <%= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name) %>
+      <%= grouped_collection_select( :service,:id, Vehicle.order(:id), :services, :vehicle_name, :id, :name) %>
+      <% a = VehicleService.find(params[:id]) %>
+      <p id="cost" style="display: none;"><%=a.basic_cost %></p>
 </div>
+<script type="text/javascript">
+  jQuery(function() {
+ var models = $('#service_id').html();
+ return $('#vehicle_vehicle_id').change(function() {
+  var brand = $('#vehicle_vehicle_id :selected').text();
+   var options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#service_id').html(options);
+  } else {
+   return $('#service_id').empty();
+ }
+ });
+});
+
+  $( "#service_id" ).change(function() {
+    $( "#cost" ).show();
+});
+</script>
