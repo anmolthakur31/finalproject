@@ -28,7 +28,7 @@
 <ul class="nav navbar-nav navbar-right links" > 
  
         <% if user_signed_in? %>
-         <li><a href="#" class="m-t-7">PROFILE</a></li>
+         <li><%=link_to "PROFILE", adminshow_path, class: "m-t-7"%></li>
          <li><%= link_to('SIGNOUT', destroy_user_session_path, :method => :delete , :class => "m-t-7")%> </li>
          <li class="hidden-xs"><span><%= image_tag current_user.image.url(:thumb) , :class => "style_image " ,:style => "height:30px;width:30px;margin-top:15px;"%></span></li>
   

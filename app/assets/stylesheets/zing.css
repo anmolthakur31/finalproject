@@ -1395,7 +1395,7 @@ width: 156px;
 text-align: center;
 margin-right: auto;
 margin-left: auto;
-margin-top: 80px;
+margin-top: 65px;
 }
 
 @media only screen and (max-width: 320px) 
@@ -2142,4 +2142,21 @@ border: 2px solid #f13c20;
     font-size: 20px;
     text-transform: uppercase;
     color: #f13c20;
+}
+.btnwidth, .btnwidth1{
+  width: 47%;
+}
+@media only screen and (max-width: 425px){
+  .btnwidth{
+    width: 60%;
+  }
+  .btnwidth1{
+    width: 57%;
+  }
+}
+.w-90{
+  width: 94%;
+}
+.m-b-30{
+  margin-bottom: 30px;
 }

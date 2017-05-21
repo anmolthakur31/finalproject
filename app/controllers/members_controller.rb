@@ -21,6 +21,8 @@ class MembersController < ApplicationController
 	end
 
 	def adminshow
+ 
+		@user=User.where(userrole_id: 2)
 
 	end
 

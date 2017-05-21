@@ -20,8 +20,8 @@ padding: 8px 12px !important;
         <div class="container-fluid" style="margin-top: 50px;margin-bottom: 50px;">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                    <h2 class="text-center" style="margin-bottom: 50px;">Serve4Wheels</h2>
-
+              <!--       <h2 class="text-center" style="margin-bottom: 50px;">Serve4Wheels</h2> -->
+<h1 class="wwd"><span class="sec2"> SERVE</span><span class="sec21">4</span><span class="sec22">WHEELS</span> </h1>
 
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <ul class="nav nav-tabs">
@@ -54,11 +54,11 @@ padding: 8px 12px !important;
                                                             <th>User Role</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody >
                                                         <% @users.each do |user| %>
-                                                        <tr>
-                                                            <td><%=link_to user.name, adminusershow_path%></td>
-                                                            <td><%=link_to user.email, adminusershow_path%></td>
+                                                        <tr >
+                                                            <td><%=link_to user.name, adminusershow_path, style: "  color: #333!important;"%></td>
+                                                            <td><%=link_to user.email, adminusershow_path,style: "  color: #333!important;"%></td>
                                                             <td><%=user.phone%></td>
                                                             <td><%=user.created_at%></td>
                                                             <td><%=user.deleted_at%></td>
