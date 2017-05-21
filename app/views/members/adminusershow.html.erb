@@ -1,133 +1,57 @@
-<style type="text/css">
-.panel {
-    background-color: #FFFFFF;
-    border: 1px solid white;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-}   
-
-.panel-primary {
-    border-color: white;
-}   
-
-.panel-primary > .panel-heading {
-    background-color: #e3e3e3;
-    border-color: #e3e3e3;
-    color: black;
-}   
-
-.panel-heading {
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    padding: 10px 15px;
-}   
-
-.panel-title {
-    font-size: 16px;
-    margin-bottom: 0;
-    margin-top: 0;
-}   
-
-.panel-body:before, .panel-body:after {
-    content: " ";
-    display: table;
-}   
-
-.panel-body:before, .panel-body:after {
-    content: " ";
-    display: table;
-}   
-
-.panel-body:after {
-    clear: both;
-}   
-
-.panel-body {
-    padding: 15px;
-}   
-
-.panel-footer {
-    background-color: #F5F5F5;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-top: 1px solid #DDDDDD;
-    padding: 10px 15px;
-}
-
-.user-row {
-    margin-bottom: 14px;
-}
-
-.user-row:last-child {
-    margin-bottom: 0;
-}
-
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
-}
-
-.dropdown-user:hover {
-    cursor: pointer;
-}
-
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
-
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
-
-
-.table-user-information > tbody > tr > td {
-    border-top: 0;
-}
-
-</style>
-
         <div class="row-fluid">
             <div class="span10 offset1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center">User information</h3>
+                <div class="main-section main-primary">
+                    <div class="main-heading">
+                        <h3 class="main-title text-center">User information</h3>
                     </div>
-                    <div class="panel-body">
+  <%@uservehicle.each do |users| %>
+                <div class="container">
+                <div class="row">
+                    <div class="main-body col-md-6 col-md-offset-3">
                         <div class="row-fluid">
                             <div class="span3">
-                                <img class="img-circle text-center img-responsive"
-                                     src="/assets/photo.png"
-                                     alt="User Pic">
+                                  <%= image_tag users.user.image.url(:medium),class: "img-circle text-center img-responsive default" %>
+                                   
                             </div>
-                            <div class="span6">
-                                <strong>User Name</strong><br>
+                            <div class="span6 text-center">
+                               
+                                <strong class="text-head"><%= users.user.name%></strong><br>
+
                                 <table class="table table-condensed table-responsive table-user-information">
                                     <tbody>
                                     <tr>
-                                        <td>User Email</td>
-                                        <td>Administrator</td>
+                                        <td class="labels">User Email</td>
+                                        <td class="tabledata"><%=users.user.email%></td>
                                     </tr>
                                     <tr>
-                                        <td>Vehicle Details</td>
-                                        <td>dsgfdrg</td>
+                                        <td class="labels">User Phone</td>
+                                        <td class="tabledata" ><%= users.user.phone%></td>
                                     </tr>
                                     <tr>
-                                        <td>Number of Bookings</td>
-                                        <td>15</td>
+                                        <td class="labels">User Vehicle</td>
+                                        <td class="tabledata"><%=users.reg_no%> 
+                                        <p><%= users.vehicle.brand.name%>
+                                        <%= users.vehicle.model.name%></p>  
+                                        </td>
+                                      
+                                        
                                     </tr>
                                     <tr>
-                                        <td> Current Booking</td>
-                                        <td>dsfd</td>
+                                        <td class="labels"> Number of Bookings</td>
+                                        <td class="tabledata"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labels">Current Booking</td>
+                                        <td class="tabledata"></td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
+                         
                         </div>
                     </div>
-                    <div class="panel-footer">
+                </div>
+                    <div class="main-footer">
                        
                         <span class="pull-right">
                             <button class="btn btn-warning" type="button"
@@ -136,11 +60,10 @@
                             <button class="btn btn-danger" type="button"
                                     data-toggle="tooltip"
                                     data-original-title="Remove this user"><i class="fa fa-trash"></i></button>
-                        </span>
-                    </div>
+                            </span>
+                        </div>
                 </div>
             </div>
-        </div>
-
-
-        
+        </div>     
+    </div>
+<%end%>

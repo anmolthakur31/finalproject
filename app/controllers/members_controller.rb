@@ -17,12 +17,11 @@ class MembersController < ApplicationController
 	end
 
 	def adminusershow
-	@user=User.all
 	@uservehicle=Uservehicle.all
-		@bookings=Booking.all
 	end
+
 	def adminshow
-		
+
 	end
 
 end
