@@ -2099,4 +2099,27 @@ text-align: center;
   border-color: #ebccd1;
   
 }*/
-
+.tablestyling{
+border:1px solid black;
+}
+.textcenter{
+  text-align: center;
+}
+.m-l-20{
+margin-left: 20px;
+}
+.p-5{
+padding: 5px;
+}
+.whitecolor{
+color: white;
+}
+.m-b-50{
+  margin-bottom: 50px;
+}
+.m-t-50{
+  margin-top: 50px;
+}
+.float-r{
+float: right !important;
+}

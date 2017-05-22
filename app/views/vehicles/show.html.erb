@@ -1,8 +1,27 @@
-<div style="text-align: center;"><h1>Vehicle</h1>
-<h3>Brand</h3><%=@vehicle.brand.name%>
-<h3>Model</h3><%=@vehicle.model.name%>
-<h3>Year</h3><%=@vehicle.variant.name%>
-<!-- <h3>Starting Year</h3> --><%#=@vehicle.startyear%>
-<p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. </p>
-<h5><%=link_to "Edit",edit_vehicle_path(@vehicle)%></h5>
-</div>
+<h1 class="textcenter">Vehicle</h1>
+	<div class="m-l-20">
+		<h3>Brand : <%=@vehicle.brand.name%></h3>
+		<h3>Model : <%=@vehicle.model.name%></h3>
+		<h3>Variant: <%=@vehicle.variant.name%></h3>
+		<h3>Services</h3>
+		<%if @vehicle.services.select('services.*, vehicle_services.basic_cost').size == 0%>
+			<p>No services available for this vehicle.</p>
+		<%else%>
+		 	<%i=1%>
+		 	<table class="tablestyling">
+			 	<tr class="tablestyling p-5">
+				 	<td class="tablestyling p-5">S.No</td>
+				 	<td class="tablestyling p-5">Service Name</td>
+				 	<td class="tablestyling p-5">Service Cost</td>
+			 	</tr>
+			 	<% @vehicle.services.select('services.*, vehicle_services.basic_cost').each do |service| %>
+			 	<tr class="tablestyling p-5">
+				 	<td class="tablestyling p-5"><strong><%=i%></strong></td>
+				 	<td class="tablestyling p-5"><%=service.name%></td><%i=i+1%>
+				 	<td class="tablestyling p-5"><%=service.basic_cost%></td></tr>
+		 		<%end%>
+			</table>
+		<%end%>
+		<p>Please Visit Update option for choosing/modifying the vehicle's details, services and the cost of services. </p>
+		<h5><%=link_to "Edit",edit_vehicle_path(@vehicle)%></h5>
+	</div>

@@ -10,13 +10,16 @@
 </style>
       <div class="panel panel-info">
   <div class="panel-body" >
-  <%= form_for @vehicle, html: {class: "form-horizontal"},remote: true do |f| %>
+  <%= nested_form_for @vehicle, html: {class: "form-horizontal"} do |f| %>
     <div id="brandbox" class="form-group required">
     <%= f.label "Brand",class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br> 
       <div class="controls col-md-6 ">
-      <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
+      <%=f.fields_for :brand do |builder|%>
+      <%= builder.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
       </div>
-        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
+      <%end%>
+        <div class="col-md-2 btn btn-default btnposition">
+        <%= f.link_to_add "Add brand", :brand %><%#= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
         </div>
       </div>  
 
@@ -25,51 +28,49 @@
         <div class="controls col-md-6 ">
         <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
         </div>
-          <div id="variantbox" class="form-group required">
-          <%= f.label "Variant",class: "control-label col-md-3  requiredField" %>
-            <div class="controls col-md-6 ">
-            <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
-             </div> 
-              <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
-              </div>
-               
-          </div>
-          <%#unless @vehicle.new_record?%>
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+        </div>
+      </div>
+      <div id="variantbox" class="form-group required">
+      <%= f.label "Variant",class: "control-label col-md-3  requiredField" %>
+        <div class="controls col-md-6 ">
+        <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
+        </div> 
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+        </div>
+      </div>
+      <%unless @vehicle.new_record?%>
           <div  class="form-group required">
           <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
             <div class="controls col-md-6 "> 
             <%#= hidden_field_tag "vehicle[service_id][]", nil%>
-                <%Service.all.each do |service|%>
-                  <%= check_box_tag "vehicle[service_id][]" ,service.id, @vehicle.service_ids.include?(service.id), id: dom_id(service) %>
-                  <%=label_tag dom_id(service),service.name %><br>
-
-                <%end%>        
-             </div>
-
+              <ol id="vehser">
               <%=f.fields_for :vehicle_services do |builder|%>
-                <fieldset>
-                <%#=builder.label :basic_cost,"Cost"%>
-                <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
-                </fieldset>
-                <%end%>        
+                <%= render 'vehicleservices' , f: builder%>  
+              <%end%>        
+
+                </ol>
+                <p><%= f.link_to_add "Add Service", :vehicle_services, "data-target" => "#vehser" %></p>
+                
+             </div>
+                        
+
           </div>
 
           </div>
-          <%#end%>
-          <div  class="form-group required">
-          <%= f.label :startyear,class: "control-label col-md-3  requiredField" %>
-            <div class="controls col-md-6 "> 
-            <%= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control m-b-10"%>    
-             </div>
-          </div>
-          <div class="form-group">
-              <div class="controls col-md-4 col-md-offset-4 text-center">
-              <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
-              </div>
-          </div>    
+          <%end%>
+      <!-- <div  class="form-group required">
+      <%#= f.label :startyear,class: "control-label col-md-3  requiredField" %>
+        <div class="controls col-md-6 "> 
+        <%#= f.text_field :startyear, required: :true,class: "input-md textinput textInput form-control m-b-10"%>    
         </div>
+      </div> -->
+      <div class="form-group">
+        <div class="controls col-md-12 col-md-offset-3 text-center">
+        <%= f.submit 'Submit', class: "btn btn-primary btn btn-info" %>  
+        </div>
+        </div>    
       </div>
-      
       </div>
 
 <% end %>
@@ -144,19 +145,22 @@ $("#new_vehicle").validate({
 rules: {
 "vehicle[brand_id]": {required: true},
 "vehicle[model_id]": {required: true},
-"vehicle[variant_id]": {required: true},
-"vehicle[startyear]": {required: true}
+"vehicle[variant_id]": {required: true}
+// "vehicle[startyear]": {required: true}
 }
 });
-});
-$(function(){
-  $(' input[type=checkbox]').click(function(){
-    $(this).parent('form').submit();
-    alert('sda');
-  });
-
 });
 
 </script>
 
    
+<style type="text/css">
+  label.error{
+   top: 23px;
+    z-index: 9;
+    position: absolute;
+    color: #ce0000;
+    font-size: 11px;
+    right: 15px;} 
+}
+</style>

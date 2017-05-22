@@ -49,7 +49,7 @@ class VehiclesController < ApplicationController
 		@vehicle = Vehicle.find(params[:id])
 		@vehicle.update(vehicle_params)
 		@memeber=current_user
-	    redirect_to admin_path(@member)
+	    redirect_to vehicle_path(@vehicle)
 		flash.notice = 'Vehicle was successfully created'
 	end
 	def destroy
