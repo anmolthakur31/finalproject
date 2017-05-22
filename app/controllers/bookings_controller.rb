@@ -34,10 +34,10 @@ class BookingsController < ApplicationController
 		@member=current_user
 		@booking = Booking.new(booking_params)
 		@booking.user_id=current_user.id
-		a =VehicleService.find(params[:vehicle][:id]).basic_cost
-		b =Uservehicle.find(params[:uservehicle_id]).manf_year
-		c =b-2000
-		@booking.total_cost =a-c*0.02
+		# a =VehicleService.find(params[:vehicle][:id]).basic_cost
+		# b =Uservehicle.find(params[:uservehicle_id]).manf_year
+		# c =b-2000
+		# @booking.total_cost =a-c*0.02
 		@booking.save  
      		redirect_to member_path(@member)
     
@@ -58,6 +58,12 @@ class BookingsController < ApplicationController
 		respond_to do |format|
 			format.html { redirect_to root_url, notice: 'Booking was successfully deleted.' }
 	end
+	end
+	def bookingvehicle
+		@a = Uservehicle.find( params[:uservehicle_id]).vehicle.services
+		respond_to do |format|
+			format.js
+	    end
 	end
 
 	private

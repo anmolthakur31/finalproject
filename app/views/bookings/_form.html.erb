@@ -2,12 +2,12 @@
 
   <div class="field">
       <%= f.label "Select vehicle" %><br>
-      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name %>
+      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name,{:prompt => 'Select Vehicle'},{:id => 'uservehicle_id', :onChange => "aa()" }%>
       <span><%= link_to "Add vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
   <div class="field">
       <%= f.label "Select Service" %><br>
-      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name %>
+      <%= f.collection_select :service_id,Service.all, :id, :name %>
   </div><br>
   
   <div class="field">
@@ -20,14 +20,18 @@
       <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off", dropdown: true %>
   </div><br>
 
-  
-
   <p>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
 
 <script>
+function aa(){
+        $.ajax({type: "GET",url: "/bookingvehicle",data: {
+        uservehicle_id: $("#uservehicle_id option:selected").val()
+           }
+        });  
+}
  
 $(document).ready(function () {
 $("#new_booking").validate({
@@ -59,18 +63,20 @@ rules: {
 
     });
 
-jQuery(function() {
- var models = $('#booking_service_id').html();
- return $('#booking_uservehicle_id').change(function() {
-  var brand = $('#booking_uservehicle_id :selected').text();
-   var options = $(models).filter(`optgroup[label='${brand}']`).html();
-  if (options) {
-   return $('#booking_service_id').html(options);
-  } else {
-   return $('#booking_service_id').empty();
- }
- });
-});
+// jQuery(function() {
+//  var models = $('#booking_service_id').html();
+//  return $('#booking_uservehicle_id').change(function() {
+//   var brand = $('#booking_uservehicle_id :selected').text();
+//    var options = $(models).filter(`optgroup[label='${brand}']`).html();
+//   if (options) {
+//    return $('#booking_service_id').html(options);
+//   } else {
+//    return $('#booking_service_id').empty();
+//  }
+//  });
+// });
+
+
 </script><!-- 
 $('#timepicker').timepicker({
         minuteStep: 1,

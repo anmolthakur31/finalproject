@@ -2206,13 +2206,13 @@ width: 105%;
   }
 }
 
-
 .border-left{
     border-style: double;
     border-bottom: none;
     border-top: none;
     border-color: #e3e3e3;
 }
+
 .m-t-20{
   margin-top:20px;
 }
@@ -2269,6 +2269,9 @@ width: 105%;
     border-color: #e3e3e3;
     margin-top: 10px;
 }
+.border-right{
+    border:none!important;
+}
 }
 .w-100{
   width: 100%;
@@ -2314,4 +2317,12 @@ float: right !important;
     width: 282px;
     height: 39px;
     border-radius: 6px;
+}
+.border-right{
+
+    border-style: double;
+    border-left:none;
+    border-bottom: none;
+    border-top: none;
+    border-color: #e3e3e3;
 }
