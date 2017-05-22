@@ -1,5 +1,7 @@
 <li>
-	<%= f.collection_select :service_id,Service.all,:id,:name%>
-	<%= f.text_field :basic_cost,:placeholder=>"Cost"%>
-	<%= f.link_to_remove "Remove Service" %>
+	<div><%= f.collection_select :service_id,Service.all,:id,:name ,{prompt: 'Select Service'},{class: "input-md emailinput form-control"} %></div>
+	<br>
+	<div><%= f.text_field :basic_cost,:placeholder=>"Cost" ,class: "input-md textinput textInput form-control m-b-10"%></div>
+	<div><%= f.link_to_remove "Remove Service" ,class: "modalinks btn" %></div>
+	<br>
 </li>  

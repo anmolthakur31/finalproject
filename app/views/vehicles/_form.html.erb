@@ -16,7 +16,7 @@
       <div class="controls col-md-6 ">
       <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'},{class: "input-md emailinput form-control"}%>
       </div>
-        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks"%>
+        <div class="col-md-2 "><%= link_to "Add Brand", '#new_brand_modal', 'data-toggle' => 'modal', class: "modalinks btn"%>
         </div>
       </div>  
 
@@ -25,7 +25,7 @@
         <div class="controls col-md-6 ">
         <%= f.grouped_collection_select :model_id, @models, :models, :name, :id, :name, {prompt: 'Select Model'},{class: "input-md  textinput textInput form-control"}%>
         </div>
-        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+        <div class="col-md-2 "><%= link_to "Add Model", '#new_model_modal', 'data-toggle' => 'modal',class: "modalinks btn"%>
         </div>
       </div>
       <div id="variantbox" class="form-group required">
@@ -33,7 +33,7 @@
         <div class="controls col-md-6 ">
         <%= f.collection_select :variant_id, @variants, :id, :name ,{prompt: 'Select Variant'},{class: "input-md emailinput form-control"}%>
         </div> 
-        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks"%>
+        <div class="col-md-2 "><%= link_to "Add Variant", '#new_variant_modal', 'data-toggle' => 'modal',class: "modalinks btn"%>
         </div>
       </div>
       <%unless @vehicle.new_record?%>
@@ -41,13 +41,15 @@
           <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
             <div class="controls col-md-6 "> 
             <%#= hidden_field_tag "vehicle[service_id][]", nil%>
-              <ol id="vehser">
+
+              <div id="vehser">
+
               <%=f.fields_for :vehicle_services do |builder|%>
                 <%= render 'vehicleservices' , f: builder%>  
               <%end%>        
 
-                </ol>
-                <p><%= f.link_to_add "Add Service", :vehicle_services, "data-target" => "#vehser" %></p>
+                </div>
+                <p><%= f.link_to_add "Add Service", :vehicle_services, "data-target" => "#vehser", class: "modalinks btn"%></p>
                 
              </div>
                         
