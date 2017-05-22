@@ -1,37 +1,51 @@
 <% modal ||= false %>
 <% remote = modal ? true : false %>
-<%= form_for(@uservehicle, remote: remote, html: {role: :form, 'data-model' => 'uservehicle'}) do |f| %>
+  <div class="panel panel-info">
+  <div class="panel-body" >
+<%= form_for(@uservehicle, remote: remote, html: {role: :form, 'data-model' => 'uservehicle',class: "form-horizontal"}) do |f| %>
+<div class="form-group required">
 
-	<div class="field">
-	    <%= f.label "Brand:" %><br>
-	    <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'}, {id: 'f1'}%>
-	</div><br>
+	    <%= f.label "Brand" ,class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br>
+          <div class="controls col-md-6 ">
+	    <%= f.collection_select :brand_id, @brands, :id, :name,{prompt: 'Select Brand'}, {class: 'f1 input-md emailinput form-control'}%>
+      </div>
+      </div>
 
-   <div class="field">
-      <%= f.label "Vehicle:" %><br>
-      <%= f.grouped_collection_select :vehicle_id, @vehicles, :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {id: 'f2'} %>
-  </div><br>
+      <div class="form-group required">
+      <%= f.label "Vehicle" , class: "control-label col-md-3 requiredField",:style => "margin-top: 18px;" %><br>
+         <div class="controls col-md-6 ">
+      <%= f.grouped_collection_select :vehicle_id, @vehicles, :vehicles, :name, :id, :vehicle_name, {prompt: 'Select Vehicle'}, {class: 'f2 input-md  textinput textInput form-control'} %>
+  </div>
+  </div>
+ <div  class="form-group required">
 
-  <div class="field">
-    <%= f.label "Manufacture Year:" %><br>
-    <%= f.select :manf_year,(2000)..(Date.today.year) %>
-  </div><br>
+    <%= f.label "Manufacture Year", class: "control-label col-md-3  requiredField",:style => "margin-top: 18px;" %><br>
+            <div class="controls col-md-6 "> 
+    <%= f.select :manf_year,(2000)..(Date.today.year), {prompt: 'Select year'},{class: 'input-md emailinput form-control'} %>
+  </div>
+</div>
+     <div  class="form-group required">
 
-  <div class="field">
-    <%= f.label "Registration Number:" %><br>
-    <%= f.text_field :reg_no%>
-  </div><br>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+    <%= f.label "Registration Number" ,class: "control-label col-md-3  requiredField",:style => "margin-top: 18px;"%><br>
+            <div class="controls col-md-6 "> 
+    <%= f.text_field :reg_no,class: "input-md textinput textInput form-control m-b-10"%>
+  </div>
+  </div>
+     <div class="form-group">
+        <div class="controls col-md-12 col-md-offset-3 text-center">
+    <%= f.submit 'Submit', class: "btn btn-primary btn btn-info"  %>
+</div>
+</div>
+</div>
+</div>
 <% end %>
 
 <script type="text/javascript">
   jQuery(function() {
- let models = $('#f2').html();
- return $('#f1').change(function() {
-  let brand = $('#f1 :selected').text();
-  let options = $(models).filter(`optgroup[label='${brand}']`).html();
+ var models = $('#f2').html();
+ return $('.f1').change(function() {
+  var brand = $('.f1 :selected').text();
+  var options = $(models).filter(`optgroup[label='${brand}']`).html();
   if (options) {
    return $('#f2').html(options);
   } else {
@@ -39,11 +53,11 @@
  }
  });
 });
-  $("#f1").change(function () {
-   if ($("#f1").val() == 0) {
-     $('#f2').attr('disabled', 'disabled');
+  $(".f1").change(function () {
+   if ($(".f1").val() == 0) {
+     $('.f2').attr('disabled', 'disabled');
      } else {
-       $('#f2').removeAttr('disabled');
+       $('.f2').removeAttr('disabled');
      }
 }).trigger("change");
 
