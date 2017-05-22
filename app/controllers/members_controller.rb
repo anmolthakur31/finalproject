@@ -16,4 +16,14 @@ class MembersController < ApplicationController
 		
 	end
 
+	def adminusershow
+	@uservehicle=Uservehicle.all
+	end
+
+	def adminshow
+ 
+		@user=User.where(userrole_id: 2)
+
+	end
+
 end

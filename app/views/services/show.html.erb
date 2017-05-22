@@ -20,13 +20,21 @@
    border:2px solid white;
    color: white;
 }
+.card .card-body {
+    position: relative;
+    padding: 20px 15px;
+    text-align: left;
+}
 </style>
 <div class="clearfix "  >
-       <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 " style="padding-top: 30px;" >
+        <!-- <div class="text-center pumping-heart color-orange m-t-30">
+            <i class="fa fa-wrench"></i>
+            <h4>SERVICES</h4>
+        </div> -->
+       <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 m-t-30">
         <div class="available-color"><b><u>AVAILABLE SERVICES</u></b></div>
        	  <%Service.all.each do |service|%>
-          <span><a href="<%=service_path(service)%>"><%=image_tag service.photo.url(:thumb) , :class =>"b-r-15" %></a></span>
-				 <span><%= link_to service.name , service_path(service) , :class => "f-10 color-black active"%></span>
+				 <span class="animated zoomInUp"><%= link_to service.name , service_path(service) , :class => "f-10 color-black active"%></span>
        	  <hr>   
        	  <%end%>
        </div>
@@ -41,11 +49,27 @@
       <% a = VehicleService.find(params[:id]) %>
       <p id="cost" style="display: none;"><%=a.basic_cost %></p>
        </div>
-       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 m-t-30 text-center">
+       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3  text-center" style="margin-top: 50px;">
            <%if user_signed_in?%>
              <div class="animated zoomInUp"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle1  " %></div>
            <%end%>
-             <div class="m-t-30 m-b-20 animated zoomInUp"><%= link_to 'CHECKOUT PRICE', new_booking_path ,:class => "button-vehicle1 " %></div>
+             <!-- <div class="m-t-30 m-b-20 animated zoomInUp"><%#= link_to 'CHECKOUT PRICE', new_booking_path ,:class => "button-vehicle1 " %></div>
+             <div> -->
+               <div class="card card-shadow m-t-30" style="background-color: #e3e3e3;">
+          <div class="card-heading">
+            <h3 class="card-title " style="color: #f13c20">CHECKOUT PRICE</h3>
+          </div><!--.card-heading-->
+          <div class="card-body ">
+              <div class="collection"><%= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name , { :style => 'width: 100%;border: 1px solid;' }) %></div>
+              <br>
+              <div class="collection"><%= grouped_collection_select( :service,:id, Vehicle.order(:id), :services, :vehicle_name, :id, :name )  %></div>
+              <br>
+              <% a = VehicleService.find(params[:id]) %>
+              <br>
+              <p id="cost" style="display: none; font-size:15px;"><b class="color-orange">SERVICE COST: Rs.</b><%=a.basic_cost %></p>
+          </div><!--.card-body-->
+        </div><!--.card-->
+             </div>
            </div>
 </div>
 

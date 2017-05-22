@@ -3,11 +3,12 @@
 		position: relative;
 	}
 	label.error{
-   top: 24px;
+   top: 8px;
     z-index: 9;
-    position: absolute;
+    position: relative;
     color: #ce0000;
     font-size: 11px;
+
     } 
     hr{
     	margin-top: 0px;
@@ -57,9 +58,9 @@
                      </div>
 
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword"}) do |f| %>
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group "}) do |f| %>
                                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center">
-                                          <div class="field relative">
+                                          <div class="field ">
                                              <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @user.image.exists?%>
@@ -84,24 +85,56 @@
                                             
                                           </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                 <div class="field relative">
-                                                    <%= f.label :email %><br />
-                                                     <%= f.email_field :email, :class => "form-control"%>
-                                                  </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-horizontal">
+                                                    
+                     <div class="form-group">
+  <label class="col-md-3 control-label shift" >Name  <span  class="userfa"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+</label>  
+  <div class="col-md-6">
+                <div class="input-group w-100">
+                 
+                      <%= f.text_field :name, class: "form-control"%>
+</div>
+</div>
+                
+               
+              </div>
+            
+  <br>
+            <div class="form-group">
+  <label class="col-md-3 control-label shift" >Email     <span  class="userfa"><i class="fa fa-envelope fa" aria-hidden="true"></i></span></label>
 
-                                                  <div class="field relative">
-                                                    <%= f.label :name %><br />
-                                                     <%= f.text_field :name,  :class => "form-control"%>
-                                                  </div>
+  <div class="col-md-6">
 
-                                                  <div class="field relative">
-                                                    <%= f.label :phone_number %><br />
-                                                     <%= f.text_field :phone, :class => "form-control" %>
-                                                  </div>
-                                                 <div class="actions">
-                                                     <%= f.submit "Update" %>
-                                                 </div>
+             
+                <div class="input-group w-100">
+                
+
+                   <%= f.email_field :email,class: "form-control"  %>
+</div>
+</div>
+                
+              </div>
+            
+<br>
+          
+        <div class="form-group">
+  <label class="col-md-3 control-label shift" for="Phone number ">Phone number            <span class="userfa"><i class="fa fa-phone fa" aria-hidden="true"></i></span></label>  
+  <div class="col-md-6">
+             
+                <div class="input-group w-100">
+        
+
+                     <%= f.text_field :phone,class: "form-control"    %>
+
+               </div>
+               </div>   
+                
+              </div>
+        
+              <div class="cols-sm-10 col-sm-offset-2" style="width: 23%;">
+   <%= f.submit "Update", class: "btn btn-primary btn-lg btn-block login-button updatebtn actions",style: "box-shadow: rgba(237, 227, 227, 0)"  %>
+  </div>
                                                  </div>
                                             <% end %>
 										</div>
@@ -113,38 +146,44 @@
                           <h4>PASSWORD</h4>
                          </div>
                        </div>
-												<p>
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center"}) do |f| %>
-
-
-                                                 <div class="field relative">
-                                                     <%= f.label :password %> <br />
-                                                     <%= f.password_field :password, autocomplete: "off" %>
-                                                  </div>
-
-                                                 <div class="field relative">
-                                                    <%= f.label :password_confirmation %><br />
-                                                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-                                                 </div>
-
-                                                 <div class="field relative">
-                                                    <%= f.label :current_password %> <br />
-                                                    <%= f.password_field :current_password, autocomplete: "off" %>
-                                                 </div>
-                                                 <br>
-
-                                                 <div class="actions">
-                                                     <%= f.submit "Update" %>
-                                                 </div>
-                                            <% end %>
-										</p>
-									</div><!-- tabpane -->
+										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center form-group w-50"}) do |f| %>
+   <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class= "fa fa-unlock-alt" aria-hidden="true"></i></span>
+                    
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your new Password" %>
+                  
+                </div>
+              </div>
+              <br>
+  <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Confirm your new Password" %>
+              
+                </div>
+              </div>
+<br>
+  <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+                     <%= f.password_field :current_password, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Your current Password" %>
+              
+                </div>
+              </div>
+              <br>
+<div class="cols-sm-10 text-center" style="width: 36%;">
+    <%= f.submit "Change my password", id: "button", class: "btn btn-primary btn-lg btn-block login-button actions" %>
+  </div>
+  </div>
+<% end %>
+							
 									<div class="tab-pane" id="tab9_3">
                         <div class="text-center pumping-heart color-orange">
                           <i class="fa fa-car"></i>
                           <h4>MY VEHICLES</h4>
                          </div>
-                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'Add vehicle', new_uservehicle_path ,:class => "button-vehicle" %></div>
+                         <div style="text-align: center;margin-bottom: 30px;"><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></div>
                          <%@user.uservehicles.all.each do |uservehicle|%>
                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                          <div class="panel">
@@ -236,6 +275,7 @@
 				</div><!--.panel-->
 </div>
 </div>
+
 <script type="text/javascript">
 
 	$(document).ready(function () {
@@ -276,3 +316,12 @@
 });
 
 </script>
+
+
+
+
+
+
+
+
+
