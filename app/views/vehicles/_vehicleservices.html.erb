@@ -1,0 +1,5 @@
+<li>
+	<%= f.collection_select :service_id,Service.all,:id,:name%>
+	<%= f.text_field :basic_cost,:placeholder=>"Cost"%>
+	<%= f.link_to_remove "Remove Service" %>
+</li>  
