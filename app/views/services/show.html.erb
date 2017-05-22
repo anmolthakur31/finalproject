@@ -46,8 +46,8 @@
             <div class="m-t-20"><b><u>What all is covered?</u></b><p><%= @service.covered%></p></div>
             <%#= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name,{prompt: 'Select Vehicle'}) %>
       <%#= grouped_collection_select( :service,:id, Vehicle.order(:id), :services, :vehicle_name, :id, :name) %>
-      <%# a = VehicleService.find(params[:id]) %>
-      <!-- <p id="cost" style="display: none;"><%#=a.basic_cost %></p> -->
+      <!-- <%# a = VehicleService.find(params[:id]) %> -->
+      <!-- <p id="cost" style="display: none;"><%#=@b.basic_cost %></p> -->
        </div>
        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3  text-center" style="margin-top: 50px;">
            <%if user_signed_in?%>
@@ -98,18 +98,7 @@
        $('#service_id').removeAttr('disabled');
      }
 }).trigger("change");
-  jQuery(function() {
- var model = $('#vehicleservice_id').html();
- return $('#service_id').change(function() {
-  var brands = $('#service_id :selected').text();
-   var options = $(model).filter(`optgroup[label='${brands}']`).html();
-  if (options) {
-   return $('#vehicleservice_id').html(options);
-  } else {
-   return $('#vehicleservice_id').empty();
- }
- });
- });
   
+ 
 </script>
 

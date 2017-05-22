@@ -1,49 +1,86 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="clearfix login-formbg" style="height: 600px;">
+<div class="row" style="margin: 0px;">
+ <div class="col-md-12 bg-signup">
+ <div class="main-login main-center" >
+        <h5 class="text-login" >RESET YOUR PASSWORD </h5>
 
-<%= image_tag @user.image.url(:small) %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,class: "form-group" , :id => "passwordonly"}) do |f| %>
+  <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+    
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
   </div>
+</div>
+<br>
+ <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
   </div>
+</div>
+<br>
+ <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+    
+    <%= f.text_field :phone, autofocus: true, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+</div>
+<br>
+  
+  <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock " aria-hidden="true"></i></span>
+  <%= f.password_field :password, autocomplete: "off" , autofocus: true, class: "form-control" ,:placeholder => "New Password" %>
   </div>
-
-  <div class="field">
-    <%= f.label "Add image" %><br />
-    <%= f.file_field :image %>
-  </div><br>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+</div>
+<br>
+    <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock " aria-hidden="true"></i></span>
+  <%= f.password_field :password_confirmation, autocomplete: "off"  , autofocus: true, class: "form-control" ,:placeholder => "Confirm Password" %>
   </div>
+</div>
+<br>
+    <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-key " aria-hidden="true"></i></span>
+  <%=  f.password_field :current_password, autocomplete: "off"  , autofocus: true, class: "form-control" ,:placeholder => "Current Password" %>
+  </div>
+</div>
+<br>
+  
+<div>
+  <%= f.submit "Reset password" , class: "btn btn-primary btn-lg btn-block login-button actions passwordbtn" ,:style => "margin-bottom:50px;" %>
+
+</div>
 <% end %>
 
-<h3>Cancel my account</h3>
+</div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function () {
+    $("#passwordonly").validate({
+      rules: {
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    "user[name]": {required: true},
+    "user[phone]": {required: true,minlength: 10,maxlength: 10,digits: true},
+    "user[email]": {required: true, email: true}, 
+    "user[password]": {required: true, minlength: 6},
+     "user[password_confirmation]": {required: true, equalTo: "#password"}
+    "user[current_password]": {required: true}
+}
+});
+});
 
-<%= link_to "Back", :back %>
+</script>
