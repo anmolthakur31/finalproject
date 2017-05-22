@@ -2341,3 +2341,6 @@ float: right !important;
     background: #f13c20;
     
 }
+.tborder{
+  border:1px solid black;
+}
