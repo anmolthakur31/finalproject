@@ -4,34 +4,34 @@
                     <div class="main-heading">
                         <h3 class="main-title text-center">User information</h3>
                     </div>
-  <%@uservehicle.each do |users| %>
+  <%#@user..each do |users| %>
                 <div class="container">
                 <div class="row">
                     <div class="main-body col-md-6 col-md-offset-3">
                         <div class="row-fluid">
                             <div class="span3">
-                                  <%= image_tag users.user.image.url(:medium),class: "img-circle text-center img-responsive default" %>
+                                  <%= image_tag @user.image.url(:medium),class: "img-circle text-center img-responsive default" %>
                                    
                             </div>
                             <div class="span6 text-center">
                                
-                                <strong class="text-head"><%= users.user.name%></strong><br>
+                                <strong class="text-head"><%= @user.name%></strong><br>
 
                                 <table class="table table-condensed table-responsive table-user-information">
                                     <tbody>
                                     <tr>
                                         <td class="labels">User Email</td>
-                                        <td class="tabledata"><%=users.user.email%></td>
+                                        <td class="tabledata"><%=@user.email%></td>
                                     </tr>
                                     <tr>
                                         <td class="labels">User Phone</td>
-                                        <td class="tabledata" ><%= users.user.phone%></td>
+                                        <td class="tabledata" ><%= @user.phone%></td>
                                     </tr>
                                     <tr>
                                         <td class="labels">User Vehicle</td>
-                                        <td class="tabledata"><%=users.reg_no%> 
-                                        <p><%= users.vehicle.brand.name%>
-                                        <%= users.vehicle.model.name%></p>  
+                                        <td class="tabledata"><%=@user.reg_no%> 
+                                        <p><%= @user.vehicle.brand.name%>
+                                        <%= @user.vehicle.model.name%></p>  
                                         </td>
                                       
                                         
@@ -65,4 +65,4 @@
             </div>
         </div>     
     </div>
-<%end%>
+<%#end%>
