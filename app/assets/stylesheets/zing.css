@@ -2160,3 +2160,11 @@ border: 2px solid #f13c20;
 .m-b-30{
   margin-bottom: 30px;
 }
+.passwordbtn{
+width: 105%;
+}
+@media only screen and (max-width: 320px){
+.passwordbtn{
+  width:170%!important;
+  }
+}

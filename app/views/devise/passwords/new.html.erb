@@ -1,14 +1,14 @@
- <div class="login-container lightmode">
-        
-            <div class="login-box"> 
-                <div class="login-body">
+<div class="container-fluid login-formbg">
+<div class="row" style="margin-top: 102px;">
+ <div class="col-md-12 bg-signup">
+ <div class="main-login main-center">
+        <h5 class="text-login" >FORGOT YOUR PASSWORD </h5>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <div class="login-title"><strong style="color: #f13c20;"></strong>Forgot Your Password</div>
-    <br>
-              <div class="cols-sm-10">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,class: "form-group", id: "new_user" }) do |f| %>
+   <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+
                       <%= f.text_field :email, autofocus: true, class: "form-control",id: "email",placeholder: "Enter your email", required: true %>
                 
                 </div>
@@ -17,17 +17,17 @@
   <br>
   
                        
-    <%= f.submit "Send me reset password instructions" ,id: "button", class: "btn btn-primary btn-lg btn-block login-button actions" %>
+    <%= f.submit "Reset password instructions" ,id: "button", class: "btn btn-primary btn-lg btn-block login-button actions passwordbtn" %>
                           
 <br>
-
+ 
 <% end %>
 </div>
 </div>
 </div>
+</div>
 
 
-<%= render "devise/shared/links" %>
 <script>
    $(document).ready(function () {
 $("#new_user").validate({
