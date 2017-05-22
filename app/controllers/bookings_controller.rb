@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 		@uservehicle = Uservehicle.new
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
-		 @bookingvehicle=Vehicle.order(:id)
+		@bookingvehicle=Vehicle.order(:id)
 		
 	end
 
@@ -35,10 +35,16 @@ class BookingsController < ApplicationController
 		@booking = Booking.new(booking_params)
 		@booking.save  
 		@booking.user_id=current_user.id
+
 		a =VehicleService.find(params[:id]).basic_cost
 		b =Uservehicle.find(params[:uservehicle_id]).manf_year
 		c =b-2000
 		@booking.total_cost =a-c*0.02
+
+		# a =VehicleService.find(params[:vehicle][:id]).basic_cost
+		# b =Uservehicle.find(params[:uservehicle_id]).manf_year
+		# c =b-2000
+		# @booking.total_cost =a-c*0.02
 		@booking.save  
      		redirect_to member_path(@member)
     

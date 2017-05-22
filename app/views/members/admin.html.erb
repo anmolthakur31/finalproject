@@ -234,19 +234,20 @@ padding: 8px 12px !important;
                         <!-- <table class="display datatables-basic"> gives tables view without alphabet search -->                         
                                                         <thead>
                                                             <tr>
+                                                                <th>User Name</th>
                                                                 <th>Dateslot</th>
                                                                 <th>Timeslot</th>
                                                                 <th>User Vehicle</th>
                                                                 <th>Vehicle Registration</th>
                                                                 <th>Total Cost</th>
-                                                                <th>Edit</th>
-                                                                <th>Delete</th>
+                                                                
                                                             </tr>
                                                         </thead>
 
                                                         <tbody>
                                                             <% @bookings.each do |booking| %>
                                                             <tr>
+                                                                <td><%=booking.user.name%></td>
                                                                 <td><%=booking.dateslot%></td>
                                                                 <td><%=booking.timeslot%></td>
                                                                 <td>
@@ -256,19 +257,7 @@ padding: 8px 12px !important;
                                                                 </td>
                                                                 <td><%=booking.uservehicle.reg_no%></td>
                                                                 <td><%=booking.total_cost%></td>
-                                                                <td>
-                                                                    <button class="btn btn-primary btn-xs dt-edit">
-                                                                        <a href="<%=edit_booking_path(booking)%>">
-                                                                        <span class="glyphicon glyphicon-pencil whitecolor"></span>
-                                                                        </a>
-                                                                    </button>
-                                                                </td>
-                                                                <td>
-                                                                    <button class="btn btn-danger btn-xs dt-delete">
-                                                                        <span class="glyphicon glyphicon-trash"></span>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
+                                                                </tr>
                                                             <%end%>
                                                         </tbody>
                                                     </table>

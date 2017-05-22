@@ -64,7 +64,7 @@
 
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-t-50  ">
 										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group "}) do |f| %>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center">
+                                        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 text-center border-right">
                                           <div class="field ">
                                              <div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
@@ -92,6 +92,7 @@
                                             
                                           </div>
                                         </div>
+                                        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1"></div>
                                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-horizontal">
                                                     
                      <div class="form-group">
@@ -174,7 +175,7 @@
   <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
-                     <%= f.password_field :current_password, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Your current Password" %>
+                     <%= f.password_field :current_password, autocomplete: "off",class: "form-control", id: "current" , placeholder: "Your current Password" %>
               
                 </div>
               </div>
@@ -284,7 +285,7 @@
     $("#passwordonly").validate({
       rules: {
     "user[password]": {required: true},
-    "user[password_confirmation]": {required: true},
+    "user[password_confirmation]": {required: true, equalTo: "#password"},
     "user[current_password]": {required: true}
 }
 });
@@ -298,13 +299,6 @@
 }
 });
 
-    $("#passwordonly").validate({
-      rules: {
-    "user[password]": {required: true},
-    "user[password_confirmation]": {required: true},
-    "user[current_password]": {required: true}
-}
-});
      $("#image").validate({
       rules: {
     "user[image]": {required: true}

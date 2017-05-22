@@ -41,13 +41,8 @@
           <%= f.label :Services ,class: "control-label col-md-3  requiredField" %>
             <div class="controls col-md-6 "> 
             <%#= hidden_field_tag "vehicle[service_id][]", nil%>
-<<<<<<< HEAD
-              <ol id="vehser">
-=======
 
               <div id="vehser">
-
->>>>>>> 3a478dbd4ee5ff962c1aa3c170d855eb9f77167f
               <%=f.fields_for :vehicle_services do |builder|%>
                 <%= render 'vehicleservices' , f: builder%>  
               <%end%>        
