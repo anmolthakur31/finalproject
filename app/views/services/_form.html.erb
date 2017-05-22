@@ -3,17 +3,20 @@
   border: 1px solid black !important;
   border-radius: 6px !important;
     height: auto!important;
-padding: 8px 12px !important;
+   padding: 8px 12px !important;
 }
 .input-group {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
     -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
 }
+.btn{
+      box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
+    }
 
 </style>
 <div class="panel-body" >
-<%= form_for @service , :html => { :multipart => true, class: "form-horizontal" } do |f| %>
+<%= form_for @service , :html => { :multipart => true, class: "form-horizontal" ,:id => "new_service"} do |f| %>
  <div class="form-group required">
   
    <%= f.label "Name of Service", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
@@ -28,15 +31,28 @@ padding: 8px 12px !important;
            <%= f.text_area :description, required: :true,class: "input-md textinput textInput form-control m-b-10"%>   
                        </div> 
   </div>
+  <div class="form-group required">
   
-<div class="form-group required">
+   <%= f.label "When is it required?", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+      <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
+           <%= f.text_area :required, required: :true, class: "input-md textinput textInput form-control m-b-10"%>   
+                       </div> 
+  </div>
+  <div class="form-group required">
   
-   <%= f.label "Image", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
-
-  <div class="fileinput fileinput-new col-md-3 col-xs-12 col-sm-5 text-center " data-provides="fileinput">
+   <%= f.label "What all is covered?", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center requiredField"%>
+      <div class="controls col-md-3 col-xs-12 col-sm-5 "> 
+           <%= f.text_area :covered, required: :true, class: "input-md textinput textInput form-control m-b-10"%>   
+                       </div> 
+  </div>
+  
+<div class="form-group ">
+  
+   <%= f.label "Image", class: "control-label col-md-5 col-xs-12 col-sm-5 text-center "%>
+<div class="fileinput fileinput-new" data-provides="fileinput">
                                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 250px; height: 200px; border: 1px solid #e3e3e3;">
                                                    <%if @service.photo.exists?%>
-                                                  <%= image_tag @service.photo.url , :size =>'220x200' %>
+                                                  <%= image_tag @service.photo.url(:large) %>
                                                    <%end%>
                                                </div>
                  
@@ -57,6 +73,10 @@ padding: 8px 12px !important;
 </div>
 
   </div>
+
+                                             </div>
+                                            
+
    <div class="form-group">
                           <div class="controls col-md-12 col-md-offset-3 text-center">
                              <%= f.submit 'Submit', class: "btn btn-primary btn btn-info m-b-40" %>  
@@ -74,7 +94,8 @@ $("#new_service").validate({
 rules: {
 "service[name]": {required: true},
 "service[description]": {required: true},
-"service[photo]": {required: true}
+"service[required]": {required: true},
+"service[covered]": {required: true}
 }
 });
 });

@@ -7,7 +7,7 @@
   </div><br>
   <div class="field">
       <%= f.label "Select Service" %><br>
-      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name %>
+      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name %>
   </div><br>
   
   <div class="field">
@@ -58,11 +58,19 @@ rules: {
         $(".bootstrap-timepicker-widget").toggle();
 
     });
-    $("#time").click(function(){
-        $(".bootstrap-timepicker-widget").toggle();
 
-    });
-
+jQuery(function() {
+ var models = $('#booking_service_id').html();
+ return $('#booking_uservehicle_id').change(function() {
+  var brand = $('#booking_uservehicle_id :selected').text();
+   var options = $(models).filter(`optgroup[label='${brand}']`).html();
+  if (options) {
+   return $('#booking_service_id').html(options);
+  } else {
+   return $('#booking_service_id').empty();
+ }
+ });
+});
 </script><!-- 
 $('#timepicker').timepicker({
         minuteStep: 1,

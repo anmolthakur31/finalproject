@@ -19,7 +19,8 @@
         <span class="icon-bar"></span>
         </button>
       <%#=link_to 'Serve4Wheels',root_path , :class => 'navbar-brand brandcol'%>
-      <a href=""><img src="/assets/fourlogo.png" width="140" height="50" style="margin-top: 5px;"></a>
+      <a href="<%=root_path%>"><img src="/assets/final1.png" width="170" height="50" style="margin-top: 3px;margin-left: 16px;"></a>
+
 
       </div>
       
@@ -29,9 +30,13 @@
       
 </ul>  
 <ul class="nav navbar-nav navbar-right links" > 
- 
-<li ><a href="#" class="m-t-7">SERVICES</a></li>
-   <li><a href="<%=contact_us_path%>" class="m-t-7">BOOK NOW</a></li>
+ <%a = Service.first%>
+    <li ><a href="<%=service_path(a)%>" class="m-t-7">SERVICES</a></li>
+   <%if user_signed_in?%>
+   <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
+   <%else%>
+   <li><a href="/#section-link" class="m-t-7">BOOK NOW</a></li>
+   <%end%>
   <% if user_signed_in? %>
     <li class="visible-xs"><%= link_to "PROFILE",member_path(current_user)%></li>    
     <li class="visible-xs"><a href="#">MY VEHICLES</a></li>
@@ -44,9 +49,9 @@
                     <ul class="dropdown-menu editdropdown sub" style="margin-top: 1px; ">
                   <li><%= link_to "Profile",member_path(current_user)%></li>
                  <li class="divider login-session-bg"></li>     
-                 <li><a href="/members/3#tab_tab9_3">My Vehicles</a></li>
+                 <li><a href="#">My Vehicles</a></li>
                  <li class="divider login-session-bg"></li>
-                 <li><a href="/members/3#tab_tab9_4">My Bookings</a></li>
+                 <li><a href="#">My Bookings</a></li>
                  <li class="divider login-session-bg"></li>
             <li><%= link_to('Signout', destroy_user_session_path, :method => :delete) %> </li>
                     </ul>

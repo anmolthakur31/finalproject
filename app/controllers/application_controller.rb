@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     
     def after_sign_in_path_for(resource)
       if (current_user.userrole_id==1 || current_user.userrole_id==2)
-     admin_path(resource) 
+     admin_path
       else     
      member_path(resource)
       end
