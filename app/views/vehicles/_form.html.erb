@@ -50,14 +50,8 @@
              </div>
               <ol id="vehser">
               <%=f.fields_for :vehicle_services do |builder|%>
-                
-                
-                  <li><%= builder.collection_select :service_id,Service.all,:id,:name%>
-                <%= builder.text_field :basic_cost,:placeholder=>"Cost"%>
-                <%= builder.link_to_remove "Remove Service" %>
-                </li>                
-                
-                <%end%>        
+                <%= render 'vehicleservices' , f: builder%>  
+              <%end%>        
 
                 </ol>
                 <p><%= f.link_to_add "Add Service", :vehicle_services, "data-target" => "#vehser" %></p>
