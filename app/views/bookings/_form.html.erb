@@ -2,12 +2,12 @@
 
   <div class="field">
       <%= f.label "Select vehicle" %><br>
-      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name %>
+      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name ,{prompt: 'Select Vehicle'}%>
       <span><%= link_to "Add vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal'%></span>
   </div><br>
   <div class="field">
       <%= f.label "Select Service" %><br>
-      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name %>
+      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name ,{prompt: 'Select Service'}%>
   </div><br>
   
   <div class="field">
@@ -57,7 +57,7 @@ rules: {
     $("#time").click(function(){
         $(".bootstrap-timepicker-widget").toggle();
 
-    });
+    }).trigger("click");
 
 jQuery(function() {
  var models = $('#booking_service_id').html();
@@ -71,6 +71,13 @@ jQuery(function() {
  }
  });
 });
+$("#booking_uservehicle_id").change(function () {
+   if ($("#booking_uservehicle_id").val() == 0) {
+     $('#booking_service_id').attr('disabled', 'disabled');
+     } else {
+       $('#booking_service_id').removeAttr('disabled');
+     }
+}).trigger("change");
 </script><!-- 
 $('#timepicker').timepicker({
         minuteStep: 1,
