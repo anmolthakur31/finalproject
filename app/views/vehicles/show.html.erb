@@ -31,37 +31,36 @@
                                         <td class="tabledata"><%=@vehicle.variant.name%>
                                       
                                         </td>
-                                      
-                                        
                                     </tr>
-                                    <% @vehicle.services.select('services.*, vehicle_services.basic_cost').each do |service| %>
-                                    <tr>
-                                        <td class="labels">Services</td>
-                                        <td class="tabledata"><%=service.name%></td>
-         
-                                    <tr>
-                                        <td class="labels">Service Cost</td>
-                                        <td class="tabledata"><%=service.basic_cost%></td>
-                                    </tr>
-                                          <%end%>
                                     </tbody>
                                 </table>
+                            <%i=1%>
+                                <table class="table table-condensed table-responsive table-user-information tborder">
+                                    <tbody>
+                                 <tr>
+                                        <td class="labels tablestyling">S.No</td>
+                                        <td class="labels tablestyling">Service Name</td>
+                                        <td class="labels tablestyling">Service Cost</td>
+                                    </tr>
+                                        <% @vehicle.services.select('services.*, vehicle_services.basic_cost').each do |service| %>
+                                    <tr>
+                                        <td class="tabledata tablestyling"><strong><%=i%></strong></td>
+                                        <td class="tabledata tablestyling"><%=service.name%></td><%i=i+1%>
+                                        <td class="tabledata tablestyling"><%=service.basic_cost%></td>
+                                    </tr>
+                                        <%end%>
+                                           </tbody>
+                                </table>
                             </div>
-                         
                         </div>
                     </div>
                 </div>
                     <div class="main-footer text-center">
-                       <p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. 
-                        <%=link_to "Edit",edit_vehicle_path(@vehicle), class: "btn btn-warning"%>
-                          <!--   <button class="btn btn-danger" type="button"
-                                    ><i class="fa fa-trash "></i></button> -->
-                           <!--  <button class="btn btn-danger" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"><i class="fa fa-trash"></i></button> -->
-                           </p>
+                        <p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. 
+                            <%=link_to "Edit",edit_vehicle_path(@vehicle), class: "btn btn-warning"%>
+                        </p>
        
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>     

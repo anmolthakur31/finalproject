@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 		@uservehicle = Uservehicle.new
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
-		 @bookingvehicle=Vehicle.order(:id)
+		@bookingvehicle=Vehicle.order(:id)
 		
 	end
 

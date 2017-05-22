@@ -2351,3 +2351,7 @@ float: right !important;
   border-top: none;
   border-color: #e3e3e3;
 }
+
+.tborder{
+  border:1px solid black;
+}

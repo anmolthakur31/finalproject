@@ -9,6 +9,7 @@
       <%= f.label "Select vehicle" ,class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br>
         <div class="controls col-md-6 ">
       <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name,{prompt: 'Select vehicle'}, {class: ' input-md emailinput form-control'}%>
+
        </div>
         <div class="col-md-2"><%= link_to "Add Vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal', class: "modalinks btn"%>
         </div>
@@ -19,7 +20,7 @@
       <%= f.label "Select Service" , class: "control-label col-md-3 requiredField",:style => "margin-top: 18px;" %><br>
          <div class="controls col-md-6 ">
 
-      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name,{prompt: 'Select Service'}, {class: ' input-md  textinput textInput form-control'} %>
+      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name,{prompt: 'Select Service'}, {class: 'input-md  textinput textInput form-control'} %>
   </div>
   </div>
    <div  class="form-group required">
