@@ -1,32 +1,50 @@
-<%= form_for @booking, remote: true do |f| %>
+  <div class="panel panel-info">
+  <div class="panel-body" >
 
-  <div class="field">
-      <%= f.label "Select vehicle" %><br>
-      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name %>
-      <span><%= link_to "Add vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal'%></span>
-  </div><br>
-  <div class="field">
-      <%= f.label "Select Service" %><br>
-      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name %>
-  </div><br>
-  
-  <div class="field">
-   <%= f.label "Select Dateslot" %><br>
-   <%= f.text_field :dateslot, "data-provide" => 'datepicker', :id=>"date" ,autocomplete: "off"%>
-  </div><br>
+<%= form_for @booking, remote: true,html: {class: "form-horizontal"} do |f| %>
+    
+ 
+  <div class="form-group required">
+      <%= f.label "Select vehicle" ,class: "control-label col-md-3 requiredField" ,:style => "margin-top: 18px;"%><br>
+        <div class="controls col-md-6 ">
+      <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name,{prompt: 'Select vehicle'}, {class: 'f1 input-md emailinput form-control'}%>
+       </div>
+        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal', class: "modalinks"%>
+        </div>
 
-  <div class="field">
-      <%= f.label "Select Timeslot" %><br>
-      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off", dropdown: true %>
-  </div><br>
+    </div>
+ 
+  <div class="form-group required">
+      <%= f.label "Select Service" , class: "control-label col-md-3 requiredField",:style => "margin-top: 18px;" %><br>
+         <div class="controls col-md-6 ">
 
-  
+      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name,{prompt: 'Select Service'}, {class: ' input-md  textinput textInput form-control'} %>
+  </div>
+  </div>
+   <div  class="form-group required">
 
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
+    <%= f.label "Dateslot", class: "control-label col-md-3  requiredField",:style => "margin-top: 18px;" %><br>
+            <div class="controls col-md-6 "> 
+
+   <%= f.text_field :dateslot, "data-provide" => 'datepicker', :id=>"date" ,autocomplete: "off" ,class: "input-md textinput textInput form-control m-b-10"%>
+  </div>
+  </div>
+<div  class="form-group required">
+      <%= f.label "Select Timeslot",class: "control-label col-md-3  requiredField" ,:style => "margin-top: 18px;" %><br>
+          <div class="controls col-md-6 "> 
+      <%= f.text_field :timeslot, "data-provide" => 'timepicker', :id => "time",autocomplete: "off", dropdown: true,class: "input-md textinput textInput form-control m-b-10" %>
+  </div>
+  </div>
+
+  <br>
+  <div class="form-group">
+        <div class="controls col-md-12 text-center">
+    <%= f.submit 'Submit', class: "btn btn-primary btn-info btnbook"  %>
+</div>
+</div>
 <% end %>
-
+</div>
+      </div>
 <script>
  
 $(document).ready(function () {

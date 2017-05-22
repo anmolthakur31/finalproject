@@ -2307,3 +2307,15 @@ color: white;
 .float-r{
 float: right !important;
 }
+.bookunder{
+  border-bottom: 2px solid #f13c20;
+  width: 217px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.btnbook{
+  width: 45%;
+  border-radius: 0px;
+  padding: 12px 30px;
+}

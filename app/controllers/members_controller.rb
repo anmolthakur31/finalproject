@@ -16,10 +16,7 @@ class MembersController < ApplicationController
 		
 	end
 
-	def adminusershow
-		@user = User.find(params[:id])
-	@uservehicle=Uservehicle.all
-	end
+
 
 	def adminshow
  
