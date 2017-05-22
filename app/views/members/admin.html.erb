@@ -66,8 +66,8 @@ padding: 8px 12px !important;
                                                     <tbody >
                                                         <% @users.each do |user| %>
                                                         <tr >
-                                                            <td><%=link_to user.name, adminusershow_path, style: "  color: #333!important;"%></td>
-                                                            <td><%=link_to user.email, adminusershow_path,style: "  color: #333!important;"%></td>
+                                                            <td><%=user.name%></td>
+                                                            <td><%=user.email%></td>
                                                             <td><%=user.phone%></td>
                                                             <td><%=user.created_at%></td>
                                                             <td><%=user.uservehicles.size%></td>

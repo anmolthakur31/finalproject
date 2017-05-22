@@ -47,12 +47,17 @@ rules: {
     });
     
     $('#time').timepicker({
-                'minTime': '9:00am',
-    'maxTime': '4:00pm',
-    'scrollDefault': '9:00am',
-    'step': 60
+                minuteStep: 60,
+                showInputs: true,
+                disableFocus: true,
+                defaultTime: '09:00',
+                disabledHours: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24]
 
             })
+    $("#time").click(function(){
+        $(".bootstrap-timepicker-widget").toggle();
+
+    }).trigger("click");
 
 jQuery(function() {
  var models = $('#booking_service_id').html();
