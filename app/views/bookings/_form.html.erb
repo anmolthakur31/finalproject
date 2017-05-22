@@ -9,7 +9,7 @@
         <div class="controls col-md-6 ">
       <%= f.collection_select :uservehicle_id, @user, :id, :uservehicle_name,{prompt: 'Select vehicle'}, {class: 'f1 input-md emailinput form-control'}%>
        </div>
-        <div class="col-md-2 btn btn-default btnposition"><%= link_to "Add Vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal', class: "modalinks"%>
+        <div class="col-md-2"><%= link_to "Add Vehicle", '#new_uservehicle_modal', 'data-toggle' => 'modal', class: "modalinks btn"%>
         </div>
 
     </div>

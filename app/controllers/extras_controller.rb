@@ -12,6 +12,7 @@ class ExtrasController < ApplicationController
 	def our_team
 	end
 	def home
+
 	end
     def contact_us
     	@message=Message.new

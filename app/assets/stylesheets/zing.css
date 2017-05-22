@@ -2329,3 +2329,15 @@ float: right !important;
     border-radius: 6px;
 
 }
+#button1 {
+    border: 2px solid #f13c20;
+
+    padding: 13px 12px;
+    color: white;
+
+    cursor: pointer;
+ 
+  border-radius: 0px;
+    background: #f13c20;
+    
+}
