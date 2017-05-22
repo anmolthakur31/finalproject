@@ -1,38 +1,9 @@
 
-<h1 class="textcenter">Vehicle</h1>
-	<div class="m-l-20">
-		<h3>Brand : <%=@vehicle.brand.name%></h3>
-		<h3>Model : <%=@vehicle.model.name%></h3>
-		<h3>Variant: <%=@vehicle.variant.name%></h3>
-		<h3>Services</h3>
-		<%if @vehicle.services.select('services.*, vehicle_services.basic_cost').size == 0%>
-			<p>No services available for this vehicle.</p>
-		<%else%>
-		 	<%i=1%>
-		 	<table class="tablestyling">
-			 	<tr class="tablestyling p-5">
-				 	<td class="tablestyling p-5">S.No</td>
-				 	<td class="tablestyling p-5">Service Name</td>
-				 	<td class="tablestyling p-5">Service Cost</td>
-			 	</tr>
-			 	<% @vehicle.services.select('services.*, vehicle_services.basic_cost').each do |service| %>
-			 	<tr class="tablestyling p-5">
-				 	<td class="tablestyling p-5"><strong><%=i%></strong></td>
-				 	<td class="tablestyling p-5"><%=service.name%></td><%i=i+1%>
-				 	<td class="tablestyling p-5"><%=service.basic_cost%></td></tr>
-		 		<%end%>
-			</table>
-		<%end%>
-		<p>Please Visit Update option for choosing/modifying the vehicle's details, services and the cost of services. </p>
-		<h5><%=link_to "Edit",edit_vehicle_path(@vehicle)%></h5>
-	</div>
-
-
      <div class="row-fluid">
             <div class="span10 offset1">
                 <div class="main-section main-primary">
                     <div class="main-heading">
-                        <h1 class="main-title text-center">VEHICLE</h1>
+                        <h1 class="text-center text-head">  <strong >VEHICLE </strong></h1>
                     </div>
 
 
@@ -43,7 +14,7 @@
                          
                             <div class="span6 text-center">
                                
-                                <strong class="text-head"> VEHICLE ADDED</strong><br>
+                                <strong class="text-head"></strong><br>
 
                                 <table class="table table-condensed table-responsive table-user-information">
                                     <tbody>
@@ -60,32 +31,36 @@
                                         <td class="tabledata"><%=@vehicle.variant.name%>
                                       
                                         </td>
-                                      
-                                        
                                     </tr>
-                                    <tr>
-                                        <td class="labels"> Starting year</td>
-                                        <td class="tabledata"><%=@vehicle.startyear%></td>
-                                    </tr>
-                                   
                                     </tbody>
                                 </table>
+                            <%i=1%>
+                                <table class="table table-condensed table-responsive table-user-information tborder">
+                                    <tbody>
+                                 <tr>
+                                        <td class="labels tablestyling">S.No</td>
+                                        <td class="labels tablestyling">Service Name</td>
+                                        <td class="labels tablestyling">Service Cost</td>
+                                    </tr>
+                                        <% @vehicle.services.select('services.*, vehicle_services.basic_cost').each do |service| %>
+                                    <tr>
+                                        <td class="tabledata tablestyling"><strong><%=i%></strong></td>
+                                        <td class="tabledata tablestyling"><%=service.name%></td><%i=i+1%>
+                                        <td class="tabledata tablestyling"><%=service.basic_cost%></td>
+                                    </tr>
+                                        <%end%>
+                                           </tbody>
+                                </table>
                             </div>
-                         
                         </div>
                     </div>
                 </div>
                     <div class="main-footer text-center">
-                       <p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. 
-                        <%=link_to "Edit",edit_vehicle_path(@vehicle), class: "btn btn-warning"%>
-                          <!--   <button class="btn btn-danger" type="button"
-                                    ><i class="fa fa-trash "></i></button> -->
-                           <!--  <button class="btn btn-danger" type="button"
-                                    data-toggle="tooltip"
-                                    data-original-title="Remove this user"><i class="fa fa-trash"></i></button> -->
-                           </p>
+                        <p>Please Visit Update option for choosing/modifying the vehicle's services and the cost of service. 
+                            <%=link_to "Edit",edit_vehicle_path(@vehicle), class: "btn btn-warning"%>
+                        </p>
        
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>     

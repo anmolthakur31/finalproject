@@ -7,7 +7,7 @@
   </div><br>
   <div class="field">
       <%= f.label "Select Service" %><br>
-      <%= f.collection_select :service_id,Service.all, :id, :name %>
+      <%= f.grouped_collection_select :service_id, @bookingvehicle, :services, :vehicle_name, :id, :name %>
   </div><br>
   
   <div class="field">

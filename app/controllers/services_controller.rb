@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
 	end
 	def show
 		@service = Service.find(params[:id])
+		@b=VehicleService.where(service_id: @service.id)
 		authorize @service
 	end
 	def edit

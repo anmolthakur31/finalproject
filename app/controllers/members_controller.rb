@@ -16,9 +16,7 @@ class MembersController < ApplicationController
 		
 	end
 
-	def adminusershow
-	@uservehicle=Uservehicle.all
-	end
+
 
 	def adminshow
  

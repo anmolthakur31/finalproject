@@ -35,8 +35,7 @@ class VehiclesController < ApplicationController
 		# params[:vehicle][:service_id].each do |ab|
 		# a = VehicleService.new
 		# a.vehicle_id = @vehicle.id
-		# a.service_id = ab.service_id
-		# a.basic_cost = ab.basic_cost
+		# a.service_id = ab
 		# a.save!
 		# end
 		

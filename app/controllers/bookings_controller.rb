@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 		@uservehicle = Uservehicle.new
 		authorize @booking
 		@user=Uservehicle.where(user_id: current_user.id)
-		 @bookingvehicle=Vehicle.order(:id)
+		@bookingvehicle=Vehicle.order(:id)
 		
 	end
 
@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
 	def create
 		@member=current_user
 		@booking = Booking.new(booking_params)
+		@booking.save  
 		@booking.user_id=current_user.id
 		# a =VehicleService.find(params[:vehicle][:id]).basic_cost
 		# b =Uservehicle.find(params[:uservehicle_id]).manf_year
