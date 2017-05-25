@@ -28,6 +28,7 @@
 </style>
 
 
+
 <div class="clearfix">
 
        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-50 ">
@@ -49,6 +50,7 @@
                  <span ><a href="/#section-link" class = "button-vehicle2 media-p1 p-dif ">Book Now</a></span>
               <%end%>
               <button type="button" class="button-vehicle2 media-p " data-toggle="modal" data-target="#myModal">Check out price</button>
+
            </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"><%= image_tag @service.photo.url(:large) ,:class => "img-responsive box border"%></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -61,6 +63,7 @@
 
 
 <script type="text/javascript">
+
 var service = "<%=@service.id%>";
 function f5(){
         $.ajax({type: "GET",url: "/servicecost",data: {

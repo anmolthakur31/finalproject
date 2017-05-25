@@ -74,6 +74,13 @@ class BookingsController < ApplicationController
 	    end
 	end
 
+	def bookingvehicle
+		@a = Uservehicle.find( params[:uservehicle_id]).vehicle.services
+		respond_to do |format|
+			format.js
+	    end
+	end
+
 	private
 
 	def booking_params

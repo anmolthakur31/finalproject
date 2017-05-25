@@ -21,7 +21,9 @@ match "/500", :to => "errors#internal_server_error", :via => :all
   get 'privacy_policy' => 'extras#privacy_policy'
   get 'admin' => 'members#admin'
 get '/bookingvehicle' => 'bookings#bookingvehicle'
+
 get '/servicecost' => 'services#servicecost'
+
   get 'adminshow' => 'members#adminshow'
   resources :messages
   resources :prelandings
