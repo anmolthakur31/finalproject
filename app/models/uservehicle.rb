@@ -4,8 +4,7 @@ class Uservehicle < ApplicationRecord
   has_many :bookings
   belongs_to :vehicle
   belongs_to :brand
-  validates :reg_no, presence: true,
-					uniqueness: true
+  validates :reg_no, presence: true, uniqueness: true
   validates :manf_year, presence: true
   
 
