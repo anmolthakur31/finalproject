@@ -16,7 +16,7 @@
 
     }
     .nav > li > a {
-    	padding: 14px 15px;
+    	padding: 16px 15px;
     }
     .btn{
       box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
@@ -34,9 +34,35 @@
 }
 
 </style>
-<img src="/assets/userdash.jpg" class="img-responsive" width="100%" height="400">       
+  <div class="row-fluid">
+                    <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12"  style="padding-right: 0px; padding-left: 0px;">
+                  
+                                    
+                                        <%if user_signed_in? %>
+                    <div class="main-body col-md-4">
+                        <div class="row-fluid">
+                           
+                                  <%= image_tag @user.image.url(:medium),class: "text-center img-responsive default" ,style: "margin-top:20px;" %>
+                     
+                                     </div>
+                                     
+
+                                </div>
+                                <div class="col-md-8" style="text-align: center;padding: 23px;">
+                                <h3 class="text-side">Hello, welcome <span class="text-head"><%= @user.name%>!</span></h3>
+                                <p class="text-below">Thank you for showing your trust in our company.we are glad you said yes to our services.We assure you made a great choice.
+                            we provide you a convinent yet simple platform to stay updates with your bookings and other necessary information.</p>
+                              <p class="text-below">Connecting more people with us and serving the best is our moto.Any inconvinence or query you can feel free to connect us.</p> 
+                                     </div>
+                       
+                        </div>
+                    <%end%>
+          
+</div>
+
+
  <div class="clearfix">
-                     <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
+                      <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
 											<li class="active"><a href="#tab9_1" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
 											<li><a href="#tab9_2" data-toggle="tab" class="f-20 mf-10">Password</a></li>
 											<li><a href="#tab9_3" data-toggle="tab" class="f-20 mf-10">Vehicles</a></li>
@@ -252,7 +278,7 @@
                               </div>
                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>SERVICE BOOKED</b></div>
-                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"> <%=booking.uservehicle.reg_no%></div>
+                                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-center"> <%=booking.service.name%></div>
                               </div>
                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 color-orange text-center"><b>DATESLOT</b></div>

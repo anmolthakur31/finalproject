@@ -61,12 +61,9 @@
           </div><!--.card-heading-->
           <div class="card-body ">
           <%# a = VehicleService.find(params[:id]) %>
-              <div class="collection"><%= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name , { :style => 'width: 100%;border: 1px solid;' ,prompt: 'Select Vehicle'}) %></div>
+              <div class="collection"><%= collection_select(:vehicle, :vehicle_id, Vehicle.all, :id, :vehicle_name , { :style => 'width: 100%;border: 1px solid;' ,prompt: 'Select Vehicle',:onChange => "f5()"}) %>
+              </div>
               <br>
-              <div class="collection"><%= grouped_collection_select( :service,:id, Vehicle.order(:id), :services, :vehicle_name, :id, :name, { :style => 'width: 100%;border: 1px solid;' ,prompt: 'Select Service'}) %></div>
-              <br>
-          <%#= c = VehicleService.find(params[:id]).services%>    
-             <div class="collection"><%= grouped_collection_select(:vehicleservice,:id, Service.order(:id), :vehicle_services, :id, :id, :basic_cost)  %></div> 
               <br>
           </div><!--.card-body-->
         </div><!--.card-->
@@ -78,26 +75,13 @@
        
 </div>
 <script type="text/javascript">
-  jQuery(function() {
- var models = $('#service_id').html();
- return $('#vehicle_vehicle_id').change(function() {
-  var brand = $('#vehicle_vehicle_id :selected').text();
-   var options = $(models).filter(`optgroup[label='${brand}']`).html();
-  if (options) {
-   return $('#service_id').html(options);
-  } else {
-   return $('#service_id').empty();
- }
- });
-});
+function f5(){
+        $.ajax({type: "GET",url: "/servicecost",data: {
+        vehicle_id: $("#vehicle_vehicle_id option:selected").val()
+           }
+        });  
+}
 
- $("#vehicle_vehicle_id").change(function () {
-   if ($("#vehicle_vehicle_id").val() == 0) {
-     $('#service_id').attr('disabled', 'disabled');
-     } else {
-       $('#service_id').removeAttr('disabled');
-     }
-}).trigger("change");
   
  
 </script>

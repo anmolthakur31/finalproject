@@ -1248,7 +1248,7 @@ a {
   color: #f13c20;
 }
 .f-20{
-  font-size: 20px;
+  font-size:18px;
 }
 .m-l-6{
   margin-left: 10px;
@@ -2354,4 +2354,12 @@ float: right !important;
 
 .tborder{
   border:1px solid black;
+}
+.text-side{
+  font-family: "JS-regular";
+text-align: center;
+}
+.text-below{
+text-align: center;
+letter-spacing: 1px;
 }
