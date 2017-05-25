@@ -2443,3 +2443,14 @@ letter-spacing: 1px;
    width: 180px;
    margin: auto;
 }
+.userbg{
+  width: 100%;
+  height: 100%;
+}
+.page-header.full-content {
+   padding-top: 0px !important; 
+   padding-bottom: 0px !important; 
+ }
+ .f-30{
+  font-size: 30px;
+ }

@@ -7475,7 +7475,7 @@ select[data-style="btn-blue-grey"] + .bootstrap-select li.selected a {
 .nav-tabs.vertical > li.active > a:hover,
 .nav-tabs.vertical > li.active > a:focus {
   color: #fff;
-  background: #337ab7;
+  background: #f13c20;
   border-color: transparent;
 }
 .nav-tabs.tabs-active-text-white > li.active a,

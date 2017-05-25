@@ -13,85 +13,56 @@
     hr{
     	margin-top: 0px;
     	margin-bottom: 0px;
-
+}
+    .page-header{
+      margin: 0px 0px 20px 0px;
+      padding: 0px;
     }
-    .nav > li > a {
-    	padding: 16px 15px;
+    .content{
+      padding: 0px;
     }
-    .btn{
-      box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.26);
-    }
-    .fileinput{
-      margin-bottom: 40px;
-    }
-    a:hover{
-      color: #f13c20;
-    }
-    .pumping-heart{
-    height: 134px;
-    margin-bottom: 10px;
-
 }
 
 </style>
-  <div class="row-fluid">
-                    <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12"  style="padding-right: 0px; padding-left: 0px;">
-                  
-                                    
-                                        <%if user_signed_in? %>
-                    <div class="main-body col-md-4">
-                        <div class="row-fluid">
-                           
-                                  <%= image_tag @user.image.url(:medium),class: "text-center img-responsive default" ,style: "margin-top:20px;" %>
-                     
-                                     </div>
-                                     
+  <div class="content">
 
-                                </div>
-                                <div class="col-md-8" style="text-align: center;padding: 23px;">
-                                <h3 class="text-side">Hello, welcome <span class="text-head"><%= @user.name%>!</span></h3>
-                                <p class="text-below">Thank you for showing your trust in our company.we are glad you said yes to our services.We assure you made a great choice.
-                            we provide you a convinent yet simple platform to stay updates with your bookings and other necessary information.</p>
-                              <p class="text-below">Connecting more people with us and serving the best is our moto.Any inconvinence or query you can feel free to connect us.</p> 
-                                     </div>
-                       
-                        </div>
-                    <%end%>
-          
+    <div class="page-header full-content parallax" style="overflow: hidden">
+      <div >
+      <img src="/assets/userdash.jpg" class="img-responsive userbg">
+      </div>
+
+
+
+
+      
+    </div><!--.page-header-->
+
+    <div class="row user-profile" style="margin:20px 20px 20px 20px;">
+      <div class="col-md-12">
+        <div class="tab-content without-border">
+
+
+          <div>
+            <div class="row">
+              <div class="col-md-3">
+                <ul class="nav nav-tabs borderless vertical">
+                  <li class="active"><a href="#about_overview" data-toggle="tab">Profile</a></li>
+                  <li><a href="#about_timeline" data-toggle="tab">Password</a></li>
+                  <li><a href="#about_vehicle" data-toggle="tab">My Vehicles</a></li>
+                  <li><a href="#about_booking" data-toggle="tab"> My Bookings</a></li>
+                </ul>
+              </div><!--.col-md-3-->
+              <div class="col-md-9">
+                <div class="tab-content">
+
+                  <div class="tab-pane active color-orange" id="about_overview">
+
+
+<div class="col-md-12 col-xs-12 col-lg-12 col-md-12">
+<h3 style="text-align:center; margin-top: 0px; margin-bottom: 0px;"> PROFILE</h3>
 </div>
-
-
- <div class="clearfix">
-
-                     <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
-											<li class="active"><a href="#profile" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
-											<li><a href="#password" data-toggle="tab" class="f-20 mf-10">Password</a></li>
-											<li><a href="#myvehicles" data-toggle="tab" class="f-20 mf-10">Vehicles</a></li>
-                      <li><a href="#mybookings" data-toggle="tab" class="f-20 mf-10">Bookings</a></li>
-
-										</ul>
-				<div class="panel">
-					<div class="panel-body p-60">
-
-						<div class="row no-gutters">
-
-							<div class="styled-tabs tab-primary">
-								<div class="col-md-12">
-								
-									
-										<div class="tab-content">
-											<div class="tab-pane active" id="profile">
-											<div class="row">
-                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange ">
-                          <i class="fa fa-user">
-                          </i>
-                         <h4>PROFILE</h4>
-                        </div>
-                     </div>
-
-
-										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-t-50  ">
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group "}) do |f| %>
+           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-t-50  ">
+                        <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group "}) do |f| %>
                                         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 text-center border-right">
                                           <div class="field ">
                                              <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -155,7 +126,7 @@
 <br>
           
         <div class="form-group">
-  <label class="col-md-3 control-label shift" for="Phone number ">Phone number            <span class="userfa"><i class="fa fa-phone fa" aria-hidden="true"></i></span></label>  
+  <label class="col-md-3 control-label shift" for="Phone number ">Phone<span class="userfa"><i class="fa fa-phone fa" aria-hidden="true"></i></span></label>  
   <div class="col-md-6">
              
                 <div class="input-group w-100">
@@ -173,17 +144,16 @@
   </div>
                                                  </div>
                                             <% end %>
-										</div>
-									</div><!-- tabpane -->
-											<div class="tab-pane" id="password">
-												<div class="row">
-                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
-                          <i class="fa fa-lock"></i>
-                          <h4>PASSWORD</h4>
-                         </div>
-                       </div>
-										    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center form-group w-50"}) do |f| %>
-   <div class="cols-sm-10">
+                    </div>
+                
+                  </div><!--#about_overview.tab-pane-->
+
+                  <div class="tab-pane" id="about_timeline">
+                  <div class="col-md-12 col-xs-12 col-lg-12 col-md-12">
+<h3 style="text-align:center; margin-top: 0px; margin-bottom: 30px; color: #f13c20;">CHANGE YOUR PASSWORD</h3>
+</div>
+                    <%= form_for(@user, url: registration_path(@user), html: { method: :put  ,:id => "passwordonly" ,:class => "text-center form-group"}) do |f| %>
+   <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                 <div class="input-group">
                   <span class="input-group-addon"><i class= "fa fa-unlock-alt" aria-hidden="true"></i></span>
                     
@@ -192,7 +162,7 @@
                 </div>
               </div>
               <br>
-  <div class="cols-sm-10">
+  <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                     <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", placeholder: "Confirm your new Password" %>
@@ -200,18 +170,20 @@
                 </div>
               </div>
               <br>
-<div class="cols-sm-10 text-center" style="width: 36%;">
+    
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 " style="margin-top: 15px;">
     <%= f.submit "Change my password", id: "button1", class: "btn btn-primary btn-lg btn-block login-button actions" %>
   </div>
   </div>
 <% end %>
-							
-									<div class="tab-pane" id="myvehicles">
-                        <div class="text-center pumping-heart color-orange">
-                          <i class="fa fa-car"></i>
-                          <h4>MY VEHICLES</h4>
-                         </div>
-                         <div style="text-align: center;margin-bottom: 50px;"><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></div>
+                
+ <div class="tab-pane " id="about_vehicle">
+                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                        <span class="f-30 col-xs-12 col-md-6 col-sm-6 col-lg-6 m-b-20">MY VEHICLES</span>
+
+                        <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 hidden-xs" style="text-align: right;"><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></span>
+                        <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 visible-xs" ><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></span>
+                        </div>
                          <%@user.uservehicles.all.each do |uservehicle|%>
                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                          <div class="panel">
@@ -247,13 +219,15 @@
                          </div>
 
                          <%end%>
-									</div><!-- tabpane -->
-                  <div class="tab-pane" id="mybookings">
-                        <div class="text-center pumping-heart color-orange">
-                          <i class="fa fa-shopping-cart"></i>
-                          <h4>MY BOOKINGS</h4>
-                         </div>
-                         <div style="text-align: center;margin-bottom: 50px;"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle" %></div>
+                  </div><!--#about_overview.tab-pane-->
+                   <div class="tab-pane " id="about_booking">
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <span class="f-30 col-xs-12 col-md-6 col-sm-6 col-lg-6 m-b-20">MY BOOKINGS</span>
+
+        <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 hidden-xs" style="text-align: right;"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle" %></span>
+         <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 visible-xs m-b-20" ><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle" %></span>
+        </div>
                           <%@user.bookings.all.each do |booking|%>
                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                          <div class="panel">
@@ -287,17 +261,25 @@
                          </div><!--.panel-->
                          </div>
                          <%end%>
-                  </div><!-- tabpane -->
-									</div>
+                </div><!--.tab-content-->
+
+              </div><!--.col-md-9-->
+            </div><!--.row-->
+          </div><!--#about.tab-pane-->
+
+          
+          
+  </div><!--.content-->
+
+	</div>
+  </div>
+  </div>
+  </div>
+  
+										   
+							
 								
-							</div><!--.styled-tabs-->
-
-						</div><!--.row-->
-
-					</div><!--.panel-body-->
-				</div><!--.panel-->
-</div>
-</div>
+             
 
 <script type="text/javascript">
 
@@ -322,9 +304,9 @@
 }
 });
 
-    Pleasure.init();
+     Pleasure.init();
     Layout.init();
-
+    UserPages.profile();
 
 });
 
