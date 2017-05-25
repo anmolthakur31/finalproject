@@ -11,6 +11,7 @@ match "/500", :to => "errors#internal_server_error", :via => :all
   end 
   root "extras#home"  
   resources :services
+  get '/bookingvehicle' => 'bookings#bookingvehicle'
   get 'home' => 'extras#home'
   get 'faq' => 'extras#faq'
   get 'our_team' => 'extras#our_team'

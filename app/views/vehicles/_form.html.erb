@@ -41,7 +41,6 @@
             <div class="controls col-md-6 "> 
             <%#= hidden_field_tag "vehicle[service_id][]", nil%>
 
-
               <div id="vehser">
               <%=f.fields_for :vehicle_services do |builder|%>
                 <%= render 'vehicleservices' , f: builder%>  

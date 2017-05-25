@@ -1,7 +1,4 @@
 
-  <div class="panel panel-info">
-  <div class="panel-body" >
-
 <%= form_for @booking,html: {class: "form-horizontal"} do |f| %>
     
  
@@ -45,10 +42,9 @@
 </div>
 </div>
 <% end %>
-</div>
-      </div>
+
 <script>
- function aa(){
+function aa(){
         $.ajax({type: "GET",url: "/bookingvehicle",data: {
         uservehicle_id: $("#uservehicle_id option:selected").val()
            }
@@ -81,7 +77,6 @@ rules: {
     'step': 60
 
             })
-
 $("#uservehicle_id").change(function () {
    if ($("#uservehicle_id").val() == 0) {
      $('#booking_service_id').attr('disabled', 'disabled');
