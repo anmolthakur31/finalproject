@@ -28,7 +28,7 @@
 
     <div class="page-header full-content parallax" style="overflow: hidden">
       <div >
-      <img src="/assets/userdash.jpg" class="img-responsive userbg">
+      <img src="/assets/userdash1.jpg" class="img-responsive userbg">
       </div>
 
 
@@ -43,7 +43,7 @@
 
 
           <div>
-            <div class="row">
+            <div class="row m-t-23">
               <div class="col-md-3">
                 <ul class="nav nav-tabs borderless vertical">
                   <li class="active"><a href="#about_overview" data-toggle="tab">Profile</a></li>
@@ -178,11 +178,12 @@
 <% end %>
                 
  <div class="tab-pane " id="about_vehicle">
-                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " style="padding: 0px;">
                         <span class="f-30 col-xs-12 col-md-6 col-sm-6 col-lg-6 m-b-20">MY VEHICLES</span>
 
                         <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 hidden-xs" style="text-align: right;"><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></span>
-                        <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 visible-xs" ><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></span>
+                        <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 visible-xs m-b-20"
+                        ><%= link_to 'ADD VEHICLE', new_uservehicle_path ,:class => "button-vehicle" %></span>
                         </div>
                          <%@user.uservehicles.all.each do |uservehicle|%>
                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -222,7 +223,7 @@
                   </div><!--#about_overview.tab-pane-->
                    <div class="tab-pane " id="about_booking">
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px;">
                         <span class="f-30 col-xs-12 col-md-6 col-sm-6 col-lg-6 m-b-20">MY BOOKINGS</span>
 
         <span class="col-xs-12 col-md-6 col-lg-6 col-sm-6 hidden-xs" style="text-align: right;"><%= link_to 'BOOK NOW', new_booking_path ,:class => "button-vehicle" %></span>

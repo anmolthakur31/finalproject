@@ -435,7 +435,7 @@ padding-top: 10px;
     background-color: transparent; 
     color: #f13c20; 
     border: 2px solid #f13c20;
-    padding: 16px 29px;
+    padding: 9px 29px;
    font-size: 15px;
    margin: 8px 2px;
 }
@@ -2453,4 +2453,7 @@ letter-spacing: 1px;
  }
  .f-30{
   font-size: 30px;
+ }
+ .m-t-23{
+  margin-top: 23px;
  }
