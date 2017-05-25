@@ -1,5 +1,9 @@
 class ServicesController < ApplicationController
 
+	def index
+		@services= Service.all
+	end
+
 	def new
 		@service = Service.new
 		authorize @service
@@ -26,6 +30,13 @@ class ServicesController < ApplicationController
 		@service.update(service_params)
 		redirect_to service_path(@service)
 		flash.notice = 'Service was successfully created'
+	end
+
+	def servicecost
+		@ab = VehicleService.where(:service_id=>params[:service_id],:vehicle_id=>params[:vehicle_id]).first.basic_cost
+		respond_to do |format|
+			format.js
+	    end
 	end
 
 	private

@@ -1,0 +1,4 @@
+$("#booking_service_id").empty()
+<%@a.each do |a|%>
+$("#booking_service_id").append("<option value='<%= a.id %>'><%= a.name%></option>")
+<%end%>

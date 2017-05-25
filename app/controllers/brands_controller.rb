@@ -37,7 +37,7 @@ class BrandsController < ApplicationController
 	def update
 		@brand = Brand.find(params[:id])
 		@brand.update(brand_params)
-		redirect_to services_path
+		redirect_to root_url
 		flash.notice = 'Brand was successfully created'
 	end
 

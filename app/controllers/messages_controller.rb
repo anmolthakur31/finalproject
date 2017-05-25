@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 	def create
 		@message = Message.new(message_params)
 		@message.save
-	    redirect_to services_path
+	    redirect_to root_url
 	    flash.notice = 'Message was successfully submitted.'
 
 	end
