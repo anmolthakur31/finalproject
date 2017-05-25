@@ -62,11 +62,12 @@
 
 
  <div class="clearfix">
-                      <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
-											<li class="active"><a href="#tab9_1" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
-											<li><a href="#tab9_2" data-toggle="tab" class="f-20 mf-10">Password</a></li>
-											<li><a href="#tab9_3" data-toggle="tab" class="f-20 mf-10">Vehicles</a></li>
-                      <li><a href="#tab9_4" data-toggle="tab" class="f-20 mf-10">Bookings</a></li>
+
+                     <ul class="nav nav-tabs tabs-left text-center back-color-tab height-60 mh-45" >
+											<li class="active"><a href="#profile" data-toggle="tab" class="f-20 mf-10" >Profile</a></li>
+											<li><a href="#password" data-toggle="tab" class="f-20 mf-10">Password</a></li>
+											<li><a href="#myvehicles" data-toggle="tab" class="f-20 mf-10">Vehicles</a></li>
+                      <li><a href="#mybookings" data-toggle="tab" class="f-20 mf-10">Bookings</a></li>
 
 										</ul>
 				<div class="panel">
@@ -79,7 +80,7 @@
 								
 									
 										<div class="tab-content">
-											<div class="tab-pane active" id="tab9_1">
+											<div class="tab-pane active" id="profile">
 											<div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange ">
                           <i class="fa fa-user">
@@ -87,6 +88,7 @@
                          <h4>PROFILE</h4>
                         </div>
                      </div>
+
 
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-t-50  ">
 										    <%= form_for(@user, url: registration_path(@user), html: { method: :put ,:id => "nopassword", class: "form-group "}) do |f| %>
@@ -173,7 +175,7 @@
                                             <% end %>
 										</div>
 									</div><!-- tabpane -->
-											<div class="tab-pane" id="tab9_2">
+											<div class="tab-pane" id="password">
 												<div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center pumping-heart color-orange">
                           <i class="fa fa-lock"></i>
@@ -185,7 +187,7 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class= "fa fa-unlock-alt" aria-hidden="true"></i></span>
                     
-    <%= f.password_field :password, autocomplete: "off",class: "form-control", id: "password" , placeholder: "Enter your new Password" %>
+    <%= f.password_field :password, autocomplete: "off",class: "form-control", placeholder: "Enter your new Password" %>
                   
                 </div>
               </div>
@@ -193,15 +195,7 @@
   <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", id: "confirm" , placeholder: "Confirm your new Password" %>
-              
-                </div>
-              </div>
-<br>
-  <div class="cols-sm-10">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
-                     <%= f.password_field :current_password, autocomplete: "off",class: "form-control", id: "current" , placeholder: "Your current Password" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control", placeholder: "Confirm your new Password" %>
               
                 </div>
               </div>
@@ -212,7 +206,7 @@
   </div>
 <% end %>
 							
-									<div class="tab-pane" id="tab9_3">
+									<div class="tab-pane" id="myvehicles">
                         <div class="text-center pumping-heart color-orange">
                           <i class="fa fa-car"></i>
                           <h4>MY VEHICLES</h4>
@@ -254,7 +248,7 @@
 
                          <%end%>
 									</div><!-- tabpane -->
-                  <div class="tab-pane" id="tab9_4">
+                  <div class="tab-pane" id="mybookings">
                         <div class="text-center pumping-heart color-orange">
                           <i class="fa fa-shopping-cart"></i>
                           <h4>MY BOOKINGS</h4>
@@ -310,13 +304,10 @@
 	$(document).ready(function () {
     $("#passwordonly").validate({
       rules: {
-    "user[password]": {required: true},
-    "user[password_confirmation]": {required: true, equalTo: "#password"},
-    "user[current_password]": {required: true}
+    "user[password]": {required: true,minlength: 6},
+    "user[password_confirmation]": {required: true, equalTo: '#user_password'}
 }
 });
-});
-  $(document).ready(function () {
     $("#nopassword").validate({
       rules: {
     "user[email]": {required: true},

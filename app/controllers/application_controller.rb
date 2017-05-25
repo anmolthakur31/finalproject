@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
       if (current_user.userrole_id==1 || current_user.userrole_id==2)
      admin_path
       else     
-     member_path(resource)
+     services_path
       end
     end
 
     def after_sign_up_path_for(resource)    
-     member_path(resource)
+     services_path
     end
 
     private

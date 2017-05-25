@@ -25,13 +25,13 @@
       </div>
       
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse pull-right navposition zeropadding" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse pull-right navposition zeropadding p-l-30" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav ">
       
 </ul>  
 <ul class="nav navbar-nav navbar-right links" > 
  <%a = Service.first%>
-    <li ><a href="<%=service_path(a)%>" class="m-t-7">SERVICES</a></li>
+    <li ><a href="<%=services_path%>" class="m-t-7">SERVICES</a></li>
    <%if user_signed_in?%>
    <li><a href="<%=new_booking_path%>" class="m-t-7">BOOK NOW</a></li>
    <%else%>
@@ -39,8 +39,8 @@
    <%end%>
   <% if user_signed_in? %>
     <li class="visible-xs"><%= link_to "PROFILE",member_path(current_user)%></li>    
-    <li class="visible-xs"><a href="/#tab9_3">MY VEHICLES</a></li>
-    <li class="visible-xs"><a href="/#tab9_4">MY BOOKINGS</a></li>
+    <li class="visible-xs"><a href="/#myvehicles">MY VEHICLES</a></li>
+    <li class="visible-xs"><a href="/#mybookings">MY BOOKINGS</a></li>
     <li class="visible-xs"><%= link_to('SIGNOUT', destroy_user_session_path, :method => :delete) %> </li>   
    <li class="dropdown hidden-xs">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: #f13c20;border-color: white;">
@@ -49,9 +49,9 @@
                     <ul class="dropdown-menu editdropdown sub" style="margin-top: 1px; ">
                   <li><%= link_to "Profile",member_path(current_user)%></li>
                  <li class="divider login-session-bg"></li>     
-                 <li><a href="/#tab9_3">My Vehicles</a></li>
+                 <li><a href="/#myvehicles">My Vehicles</a></li>
                  <li class="divider login-session-bg"></li>
-                 <li><a href="/#tab9_4">My Bookings</a></li>
+                 <li><a href="/#mybookings">My Bookings</a></li>
                  <li class="divider login-session-bg"></li>
             <li><%= link_to('Signout', destroy_user_session_path, :method => :delete) %> </li>
                     </ul>

@@ -9,7 +9,6 @@ class VehiclesController < ApplicationController
 		@models=Brand.order(:id)
 		@variant=Variant.new
 		@variants=Variant.all
-		@brandf = Brand.order("created_at desc").limit(1)
 		authorize @vehicle
 
 	end
@@ -30,18 +29,8 @@ class VehiclesController < ApplicationController
 	def create
 		@vehicle = Vehicle.new(vehicle_params)
 		@vehicle.save
-		
-		# params[:vehicle][:vehicle_id]  = @vehicle.id
-		# params[:vehicle][:service_id].each do |ab|
-		# a = VehicleService.new
-		# a.vehicle_id = @vehicle.id
-		# a.service_id = ab.service_id
-		# a.basic_cost = ab.basic_cost
-		# a.save!
-		# end
-		
 		@memeber=current_user
-	    redirect_to edit_vehicle_path(@vehicle)
+	    redirect_to vehicle_path(@vehicle)
 	    flash.notice = 'Vehicle was successfully created'
 	end
 
@@ -65,9 +54,6 @@ class VehiclesController < ApplicationController
 		params.require(:vehicle).permit(:startyear, :brand_id, :model_id, :variant_id ,:vehicle_services_attributes => [:id,:service_id,:vehicle_id,:basic_cost,:_destroy])
 	end
 
-	# def service_params
-	# 	params.require(:vehicle).permit(:vehicle_id,:basic_cost ,:service_id =>[])
-	# end
 end
 
 		
